@@ -50,7 +50,7 @@ $IPTABLES -A OUTPUT -p tcp --dport 43 --syn -m state --state NEW -j ACCEPT
 $IPTABLES -A OUTPUT -p tcp --dport 80 --syn -m state --state NEW -j ACCEPT
 $IPTABLES -A OUTPUT -p tcp --dport 443 --syn -m state --state NEW -j ACCEPT
 $IPTABLES -A OUTPUT -p tcp --dport 4321 --syn -m state --state NEW -j ACCEPT
-$IPTABLES -A OUTPUT -p udp --dport 53 --syn -m state --state NEW -j ACCEPT
+$IPTABLES -A OUTPUT -p udp --dport 53 -m state --state NEW -j ACCEPT
 $IPTABLES -A OUTPUT -p icmp --icmp-type "echo-request" -j ACCEPT
 ### default OUTPUT LOG rule
 $IPTABLES -A OUTPUT -o !lo -j LOG --log-prefix "DROP" --log-ip-options --log-tcp-options
