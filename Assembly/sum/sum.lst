@@ -1,0 +1,32 @@
+     1                                  section .bss
+     2 00000000 <res 00000004>          	number1: resd 1
+     3 00000004 <res 00000004>          	number2: resd 1
+     4 00000008 <res 00000005>          	result:  resb 5
+     5                                  section .text
+     6                                  	global main
+     7                                  main:
+     8 00000000 B803000000              	mov eax,3
+     9 00000005 BB00000000              	mov ebx,0
+    10 0000000A B9[00000000]            	mov ecx,number1
+    11 0000000F BA04000000              	mov edx,4
+    12 00000014 CD80                    	int 0x80
+    13                                  
+    14 00000016 B803000000              	mov eax,3
+    15 0000001B BB00000000              	mov ebx,0
+    16 00000020 B9[04000000]            	mov ecx,number2
+    17 00000025 BA04000000              	mov edx,4
+    18 0000002A CD80                    	int 0x80
+    19                                  
+    20 0000002C B804000000              	mov eax,4
+    21 00000031 BB01000000              	mov ebx,1
+    22 00000036 8B0C25[00000000]        	mov ecx,[number1]
+    23 0000003D 030C25[04000000]        	add ecx,[number2]
+    24 00000044 890C25[08000000]        	mov [result],dword ecx
+    25 0000004B C60425[0C000000]0A      	mov [result+4],byte 10
+    26 00000053 B9[08000000]            	mov ecx,result
+    27 00000058 BA05000000              	mov edx,5
+    28 0000005D CD80                    	int 0x80
+    29                                  
+    30 0000005F B801000000              	mov eax,1
+    31 00000064 BB00000000              	mov ebx,0
+    32 00000069 CD80                    	int 0x80
