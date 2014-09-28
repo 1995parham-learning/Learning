@@ -1,0 +1,15 @@
+     1                                  section .bss
+     2 00000000 <res 0000000A>          	array: resb 10
+     3 0000000A <res 00001000>          stack	resb 4096
+     4                                  section .text
+     5                                  	global main
+     6                                  main:
+     7 00000000 B803000000              	mov eax, 3
+     8 00000005 BB00000000              	mov ebx, 0
+     9 0000000A B9[00000000]            	mov ecx, array
+    10 0000000F BA0A000000              	mov edx, 10
+    11 00000014 CD80                    	int 0x80
+    12 00000016 58                      	pop rax
+    13 00000017 B801000000              	mov eax, 1
+    14 0000001C BB00000000              	mov ebx, 0
+    15 00000021 CD80                    	int 0x80
