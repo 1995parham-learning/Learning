@@ -1,5 +1,0 @@
-n = 10, m = 10, counter = 320
-n = 10, m = 10, counter = 320
-n = 10, m = 10, counter = 320
-n = 100, m = 100, counter = 30200
-n = 100, m = 100, counter = 30200
