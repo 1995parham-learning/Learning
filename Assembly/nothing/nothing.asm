@@ -15,4 +15,5 @@ hello_writer:
 	mov rcx, rdi
 	mov rdx, rsi
 	int 0x80
+	mov eax, -1
 	ret
