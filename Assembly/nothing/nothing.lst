@@ -1,0 +1,5 @@
+     1                                  section .data
+     2 00000000 01                      	number: db 01H
+     3                                  section .text
+     4 00000000 B801000000              	mov eax, 00000001H
+     5                                  
