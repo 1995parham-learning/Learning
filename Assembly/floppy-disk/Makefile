@@ -1,8 +1,6 @@
-NASM = nasm -f elf64 -g
-GCC = gcc -gstabs+
+NASM = nasm -f bin
 current_dir = $(notdir $(shell pwd))
 
 all:
-	${NASM} -o ${current_dir}.o ${current_dir}.asm
-	${GCC} -o ${current_dir} ${current_dir}.o
+	${NASM} -o ${current_dir}.img ${current_dir}.asm
 
