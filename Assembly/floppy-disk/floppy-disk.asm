@@ -33,9 +33,11 @@ Char:	mov ah, 2
 
 Skip:	cmp si, EndMsg
 	jne Char
+	jmp Get
+Get:	mov ah, 0
+	int 16H
 	jmp Print
 
 times 0200H - 2 - ($ - $$) db 0
 
 	dw 0AA55H
-times 1474560 - ($ - $$) db 0
