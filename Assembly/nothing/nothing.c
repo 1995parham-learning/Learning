@@ -1,7 +1,9 @@
 #include <string.h>
 #include <stdio.h>
 
-int hello_writer(const char*, int);
+#define _GNU_SOURCE
+
+int hello_writer(const char*, int) __attribute__((stdcall));
 
 int main(int argc, char* argv[]){
 	char* TEST = "This is a test\nBut i love it !!!\nWTF ?? it's assembly ?!?!\n";
