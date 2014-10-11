@@ -1,7 +1,7 @@
+#define _GNU_SOURCE
+
 #include <string.h>
 #include <stdio.h>
-
-#define _GNU_SOURCE
 
 int hello_writer(const char*, int) __attribute__((stdcall));
 

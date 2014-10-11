@@ -1,7 +1,7 @@
 section .text
 	global main
 main:
-	mov eax, 100h
+	mov eax, cs
 	; mov ds, eax
 	; sysenter
 	; in ax, 64h
