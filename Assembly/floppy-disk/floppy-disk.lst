@@ -1,0 +1,44 @@
+     1                                  section .text
+     2                                  	org 7C00H
+     3                                  
+     4 00000000 EB0E                    	jmp short Start
+     5                                  
+     6 00000002 48656C6C6F20776F72-     Msg:	db "Hello world !!"
+     7 0000000B 6C64202121         
+     8                                  EndMsg:
+     9                                  
+    10 00000010 BB0F00                  Start:	mov bx, 000FH
+    11 00000013 B90100                  	mov cx, 1
+    12 00000016 31D2                    	xor dx, dx
+    13 00000018 8EDA                    	mov ds, dx
+    14 0000001A FC                      	cld
+    15                                  
+    16 0000001B BE[0200]                Print:	mov si, Msg
+    17                                  
+    18 0000001E B402                    Char:	mov ah, 2
+    19 00000020 CD10                    	int 10H
+    20 00000022 AC                      	lodsb
+    21 00000023 B409                    	mov ah, 9
+    22 00000025 CD10                    	int 10H
+    23                                  
+    24 00000027 FEC2                    	inc dl
+    25                                  
+    26 00000029 80FA50                  	cmp dl, 80
+    27 0000002C 750B                    	jne Skip
+    28 0000002E 30D2                    	xor dl, dl
+    29 00000030 FEC6                    	inc dh
+    30                                  
+    31 00000032 80FE19                  	cmp dh, 25
+    32 00000035 7502                    	jne Skip
+    33 00000037 30F6                    	xor dh, dh
+    34                                  
+    35 00000039 81FE[1000]              Skip:	cmp si, EndMsg
+    36 0000003D 75DF                    	jne Char
+    37 0000003F EB00                    	jmp Get
+    38 00000041 B400                    Get:	mov ah, 0
+    39 00000043 CD16                    	int 16H
+    40 00000045 EBD4                    	jmp Print
+    41                                  
+    42 00000047 00<rept>                times 0200H - 2 - ($ - $$) db 0
+    43                                  
+    44 000001FE 55AA                    	dw 0AA55H
