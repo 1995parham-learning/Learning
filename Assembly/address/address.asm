@@ -13,9 +13,10 @@ main:
 	mov rax, 1
 	mov rbx, [A + rax]
 	mov rbx, [A + 2]
+	lea rbx, [A + rax * 4 + 10]
 
-	mov rax, [0x000000000000]
+	lea rax, [0x000000000000]
 
-	mov rax, 1
-	mov rbx, 0
+	mov eax, 1
+	mov ebx, 0
 	int 80H
