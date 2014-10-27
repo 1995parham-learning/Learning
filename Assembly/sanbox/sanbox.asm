@@ -1,8 +1,14 @@
+section .data
+	n1: dq 100
+	n2: db 100
+	n3: db 100
 section .text
-	global main
-main:
-	mov eax, 1
-	neg eax
+	global _start
+_start:
+	mov eax, n1
+	neg rax
+
+	mov rax, _start
 
 	mov bl, 2
 	mov al, 2
