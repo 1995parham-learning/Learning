@@ -1,0 +1,16 @@
+     1                                  section .data
+     2 00000000 FF                      	eight_bit_max_number: db 0xFF
+     3 00000001 00                      	eight_bit_min_number: db 0x00
+     4                                  section .text
+     5                                  	global main
+     6                                  main:
+     7 00000000 8A2425[00000000]        	mov ah,[eight_bit_max_number]
+     8 00000007 668B0425[01000000]      	mov ax,[eight_bit_min_number]
+     9                                  
+    10 0000000F 8A3C25[00000000]        	mov bh,[eight_bit_max_number]
+    11 00000016 660FB61C25-             	movzx bx,[eight_bit_min_number]
+    12 0000001B [01000000]         
+    13                                  
+    14 0000001F B801000000              	mov eax,1
+    15 00000024 BB00000000              	mov ebx,0
+    16 00000029 CD80                    	int 0x80
