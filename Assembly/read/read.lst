@@ -1,0 +1,37 @@
+     1                                  section .bss
+     2 00000000 <res 00000002>          	number: resb 2
+     3 00000002 <res 00000002>          	index: resb 2
+     4                                  section .text
+     5                                  	global main
+     6                                  main:
+     7 00000000 B803000000              	mov eax,3	;READ SYSCALL
+     8 00000005 BB00000000              	mov ebx,0
+     9 0000000A B9[00000000]            	mov ecx,number
+    10 0000000F BA01000000              	mov edx,1
+    11 00000014 CD80                    	int 0x80
+    12                                  	
+    13 00000016 B804000000              	mov eax,4	;WRITE SYSCALL
+    14 0000001B BB01000000              	mov ebx,1
+    15 00000020 C60425[01000000]0A      	mov [number+1],byte 0xA
+    16 00000028 B9[00000000]            	mov ecx,number
+    17 0000002D BA02000000              	mov edx,2
+    18 00000032 CD80                    	int 0x80
+    19                                  
+    20 00000034 BE00000000              	mov esi,0
+    21                                  for:
+    22 00000039 B804000000              	mov eax,4
+    23 0000003E BB01000000              	mov ebx,1
+    24 00000043 89F1                    	mov ecx,esi
+    25 00000045 83C130                  	add ecx,48
+    26 00000048 890C25[02000000]        	mov [index],byte ecx
+    27 0000004F C60425[03000000]0A      	mov [index+1],byte 10
+    28 00000057 B9[02000000]            	mov ecx,index
+    29 0000005C BA02000000              	mov edx,2
+    30 00000061 CD80                    	int 0x80
+    31 00000063 FFC6                    	inc esi
+    32 00000065 83FE0A                  	cmp esi,10
+    33 00000068 75CF                    	jne for
+    34                                  	
+    35 0000006A B801000000              	mov eax,1	;EXIT SYSCALL
+    36 0000006F BB00000000              	mov ebx,0
+    37 00000074 CD80                    	int 0x80

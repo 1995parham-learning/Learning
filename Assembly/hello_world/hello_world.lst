@@ -1,0 +1,30 @@
+     1                                  section .data
+     2 00000000 48656C6C6F20776F72-     	hello:	db "Hello world!!",10,0		; 'Hello world!' plus a linefeed character
+     3 00000009 6C6421210A00       
+     4                                  	helloLen:	equ $-hello	; Length of the 'Hello world!' string
+     5                                  					; (I'll explain soon)
+     6 0000000F 00<rept>                	array: times 64 db 0
+     7                                  
+     8                                  section .text
+     9                                  	global main
+    10                                  main:
+    11 00000000 B8[00000000]            	mov eax,$		; Current line address move to eax
+    12                                  	
+    13 00000005 B8[0F000000]            	mov eax,array		; Move array address to eax
+    14                                  
+    15                                  	;mov array,10
+    16                                  	;mov array+1,20
+    17                                  
+    18 0000000A 8A0425[0F000000]        	mov al,[array]
+    19 00000011 8A2425[10000000]        	mov ah,[array+1]
+    20                                  
+    21 00000018 B804000000              	mov eax,4		; The system call for write (sys_write)
+    22 0000001D BB01000000              	mov ebx,1		; File descriptor 1 - standard output
+    23 00000022 B9[00000000]            	mov ecx,hello		; Put the offset of hello in ecx
+    24 00000027 BA0F000000              	mov edx,helloLen	; helloLen is a constant, so we don't need to say
+    25                                  			     	; mov edx,[helloLen] to get it's actual value
+    26 0000002C CD80                    	int 80h              	; Call the kernel
+    27 0000002E B801000000              	mov eax,1            	; The system call for exit (sys_exit)
+    28 00000033 BB00000000              	mov ebx,0            	; Exit with return code of 0 (no error)
+    29 00000038 CD80                    	int 80h
+    30 0000003A C3                      	ret
