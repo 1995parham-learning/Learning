@@ -1,44 +1,44 @@
      1                                  section .text
      2                                  	org 7C00H
      3                                  
-     4 00000000 EB0E                    	jmp short Start
+     4 00000000 EB0D                    	jmp short Start
      5                                  
-     6 00000002 48656C6C6F20776F72-     Msg:	db "Hello world !!"
-     7 0000000B 6C64202121         
+     6 00000002 50617268616D20416C-     Msg:	db "Parham Alvani"
+     7 0000000B 76616E69           
      8                                  EndMsg:
      9                                  
-    10 00000010 BB0F00                  Start:	mov bx, 000FH
-    11 00000013 B90100                  	mov cx, 1
-    12 00000016 31D2                    	xor dx, dx
-    13 00000018 8EDA                    	mov ds, dx
-    14 0000001A FC                      	cld
+    10 0000000F BB8E00                  Start:	mov bx, 008EH
+    11 00000012 B90100                  	mov cx, 1
+    12 00000015 31D2                    	xor dx, dx
+    13 00000017 8EDA                    	mov ds, dx
+    14 00000019 FC                      	cld
     15                                  
-    16 0000001B BE[0200]                Print:	mov si, Msg
+    16 0000001A BE[0200]                Print:	mov si, Msg
     17                                  
-    18 0000001E B402                    Char:	mov ah, 2
-    19 00000020 CD10                    	int 10H
-    20 00000022 AC                      	lodsb
-    21 00000023 B409                    	mov ah, 9
-    22 00000025 CD10                    	int 10H
+    18 0000001D B402                    Char:	mov ah, 2
+    19 0000001F CD10                    	int 10H
+    20 00000021 AC                      	lodsb
+    21 00000022 B409                    	mov ah, 9
+    22 00000024 CD10                    	int 10H
     23                                  
-    24 00000027 FEC2                    	inc dl
+    24 00000026 FEC2                    	inc dl
     25                                  
-    26 00000029 80FA50                  	cmp dl, 80
-    27 0000002C 750B                    	jne Skip
-    28 0000002E 30D2                    	xor dl, dl
-    29 00000030 FEC6                    	inc dh
+    26 00000028 80FA50                  	cmp dl, 80
+    27 0000002B 750B                    	jne Skip
+    28 0000002D 30D2                    	xor dl, dl
+    29 0000002F FEC6                    	inc dh
     30                                  
-    31 00000032 80FE19                  	cmp dh, 25
-    32 00000035 7502                    	jne Skip
-    33 00000037 30F6                    	xor dh, dh
+    31 00000031 80FE19                  	cmp dh, 25
+    32 00000034 7502                    	jne Skip
+    33 00000036 30F6                    	xor dh, dh
     34                                  
-    35 00000039 81FE[1000]              Skip:	cmp si, EndMsg
-    36 0000003D 75DF                    	jne Char
-    37 0000003F EB00                    	jmp Get
-    38 00000041 B400                    Get:	mov ah, 0
-    39 00000043 CD16                    	int 16H
-    40 00000045 EBD4                    	jmp Print
+    35 00000038 81FE[0F00]              Skip:	cmp si, EndMsg
+    36 0000003C 75DF                    	jne Char
+    37 0000003E EB00                    	jmp Get
+    38 00000040 B400                    Get:	mov ah, 0
+    39 00000042 CD16                    	int 16H
+    40 00000044 EBD4                    	jmp Print
     41                                  
-    42 00000047 00<rept>                times 0200H - 2 - ($ - $$) db 0
+    42 00000046 00<rept>                times 0200H - 2 - ($ - $$) db 0
     43                                  
     44 000001FE 55AA                    	dw 0AA55H
