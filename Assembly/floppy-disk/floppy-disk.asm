@@ -3,10 +3,10 @@ section .text
 
 	jmp short Start
 
-Msg:	db "Hello world !!"
+Msg:	db "Parham Alvani"
 EndMsg:
 
-Start:	mov bx, 000FH
+Start:	mov bx, 008EH
 	mov cx, 1
 	xor dx, dx
 	mov ds, dx
