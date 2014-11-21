@@ -1,5 +1,7 @@
 section .data
 	A: db 1
+section .bss
+	W: resb 2
 section .text
 	global _start
 _start:
@@ -12,11 +14,19 @@ main:
 	
 	; mov ds, eax
 	; sysenter
-	; in ax, 64h
+	mov dx, 0x50
+	in ax, dx
+	mov [W], ax
 	
-	mov r8, 1
-	mov r9, 10
-	mov r10, 11
+	mov eax, 4
+	mov ebx, 1
+	mov ecx, W
+	mov edx, 2
+	int 80H
+
+	; mov r8, 1
+	; mov r9, 10
+	; mov r10, 11
 	
 	mov eax, 1
 	mov ebx, 0
