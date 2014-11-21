@@ -6,13 +6,27 @@ section .text
 Msg:	db "Parham Alvani"
 EndMsg:
 
-Start:	mov bx, 008EH
-	mov cx, 1
-	xor dx, dx
+Start:	xor dx, dx
 	mov ds, dx
 	cld
 
-Print:	mov si, Msg
+Print:	mov es, dx
+
+	mov ah, 06H	; cls
+	mov ch, 0	; start point row
+	mov cl, 0	; start point column
+	mov dh, 25	; end point row
+	mov dl, 80	; end point column
+	mov al, 25	; number line of scroll
+	mov bh, 0	; color of new screen
+	int 10H
+	
+	mov dx, es
+
+	mov si, Msg
+	
+	mov bx, 000EH
+	mov cx, 1
 
 Char:	mov ah, 2
 	int 10H
@@ -33,9 +47,13 @@ Char:	mov ah, 2
 
 Skip:	cmp si, EndMsg
 	jne Char
-	jmp Get
-Get:	mov ah, 0
-	int 16H
+	xor cx, cx
+	mov cx, 0FFFH
+	jmp Sleep
+
+Sleep:
+	times 64 nop
+	loop Sleep
 	jmp Print
 
 times 0200H - 2 - ($ - $$) db 0
