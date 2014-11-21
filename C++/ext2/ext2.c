@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
 	lseek(fd, 1024, SEEK_SET);
 	read(fd, buff, 1024);
 	
-	printf("Ext2 signature : %1x %1x\n", buff[56], buff[57]);
+	printf("Ext2 signature : %x %x\n", buff[56], buff[57]);
 
 	printf("File system state : %1x %1x\n", buff[58], buff[59]);
 
