@@ -6,3 +6,6 @@ firstOfEmpty lst = if not (null lst) then head lst else "empty"
 lst1 +++ lst2 = if null lst1
 		then lst2
 		else (head lst1) : (tail lst1 +++ lst2)
+reverse lst = if null (tail lst)
+              then lst
+	      else (Test.A.reverse (tail lst)) ++ ((head lst) : [])
