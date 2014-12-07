@@ -4,14 +4,14 @@
 // 
 // * Creation Date : 08-12-2014
 //
-// * Last Modified : Mon 08 Dec 2014 02:22:58 AM IRST
+// * Last Modified : Mon 08 Dec 2014 02:31:39 AM IRST
 //
 // * Created By : Parham Alvani (parham.alvani@gmail.com)
 // =======================================
 #include "FAT.h"
 
 fat_addr_t root_dir_sectors(const fat_BS_t* fat_boot){ 
-	return ((fat_boot->root_entry_count * 32) + (fat_boot->bytes_per_sector - 1)) / fat_boot->bytes_per_sector;
+	return ((fat_boot->root_entry_count * 16) + (fat_boot->bytes_per_sector - 1)) / fat_boot->bytes_per_sector;
 }
 fat_addr_t first_fat_sector(const fat_BS_t* fat_boot){
 	return  fat_boot->reserved_sector_count;
