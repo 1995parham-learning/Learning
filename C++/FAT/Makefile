@@ -1,0 +1,4 @@
+OBJ=
+CFLAGS=-gstabs+ -Wall
+
+
