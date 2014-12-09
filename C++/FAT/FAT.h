@@ -4,7 +4,7 @@
 // 
 // * Creation Date : 08-12-2014
 //
-// * Last Modified : Mon 08 Dec 2014 02:28:27 AM IRST
+// * Last Modified : Tue 09 Dec 2014 09:01:17 PM IRST
 //
 // * Created By : Parham Alvani (parham.alvani@gmail.com)
 // =======================================
@@ -12,6 +12,17 @@
 #define FAT_H
 
 #include <stdint.h>
+
+typedef struct{
+	uint8_t 	bios_drive_num;
+	uint8_t 	reserved1;
+	uint8_t 	boot_signature;
+	uint32_t	volume_id;
+	uint8_t		volume_label[11];
+	uint8_t		fat_type_label[8];
+	uint8_t		boot_code[448];
+	uint16_t	bootable_partition;
+}__attribute__((packed)) fat_extBS_16_t;
 
 typedef struct{
 	uint8_t 	bootjmp[3];
@@ -26,8 +37,9 @@ typedef struct{
 	uint16_t	table_size_16;
 	uint16_t	sectors_per_track;
 	uint16_t	head_side_count;
-															 
-	uint8_t		boot_routine[481];
+	uint32_t	hidden_sector_count;
+	uint32_t	total_sectors_32;
+	fat_extBS_16_t	extBS;															 
 }__attribute__((packed)) fat_BS_t;
 
 typedef uint16_t fat_addr_t;
