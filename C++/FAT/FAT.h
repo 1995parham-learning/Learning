@@ -4,7 +4,7 @@
 // 
 // * Creation Date : 08-12-2014
 //
-// * Last Modified : Tue 09 Dec 2014 09:01:17 PM IRST
+// * Last Modified : Wed 10 Dec 2014 12:51:42 AM IRST
 //
 // * Created By : Parham Alvani (parham.alvani@gmail.com)
 // =======================================
@@ -43,6 +43,22 @@ typedef struct{
 }__attribute__((packed)) fat_BS_t;
 
 typedef uint16_t fat_addr_t;
+
+typedef struct{
+	uint8_t		name[8];
+	uint8_t		extention[3];
+	uint8_t		attr;
+	uint8_t		reserved;
+	uint8_t		create_second;
+	uint16_t	create_time;
+	uint16_t	create_date;
+	uint16_t	access_date;
+	uint16_t	zero;		// Why ???
+	uint16_t	modification_time;
+	uint16_t	modification_date;
+	uint16_t	first_cluster;
+	uint32_t	file_size;
+}__attribute__((packed)) fat_dir_layout_t;
 
 // The first in the File Allocation Table
 fat_addr_t first_fat_sector(const fat_BS_t* fat_boot);
