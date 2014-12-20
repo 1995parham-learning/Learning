@@ -1,3 +1,15 @@
+/* 
+ * In The Name Of God
+ * ========================================
+ * [] File Name : nothing.c
+ *
+ * [] Creation Date : 21-12-2014
+ *
+ * [] Last Modified : Sun 21 Dec 2014 01:59:44 AM IRST
+ *
+ * [] Created By : Parham Alvani (parham.alvani@gmail.com)
+ * =======================================
+*/
 #define _GNU_SOURCE
 
 #include <string.h>

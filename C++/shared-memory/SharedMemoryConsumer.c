@@ -1,3 +1,15 @@
+/* 
+ * In The Name Of God
+ * ========================================
+ * [] File Name : SharedMemoryConsumer.c
+ *
+ * [] Creation Date : 21-12-2014
+ *
+ * [] Last Modified : Sun 21 Dec 2014 12:45:39 AM IRST
+ *
+ * [] Created By : Parham Alvani (parham.alvani@gmail.com)
+ * =======================================
+*/
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <fcntl.h>

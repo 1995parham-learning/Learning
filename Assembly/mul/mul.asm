@@ -1,3 +1,13 @@
+; In The Name Of God
+; ========================================
+; [] File Name : mul.asm
+; 
+; [] Creation Date : 21-12-2014
+;
+; [] Last Modified : Sun 21 Dec 2014 01:57:58 AM IRST
+;
+; [] Created By : Parham Alvani (parham.alvani@gmail.com)
+; =======================================
 section .data
 	format: db "multiplication asnwer is : %d", 10, 0
 section .text

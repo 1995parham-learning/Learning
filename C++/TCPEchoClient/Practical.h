@@ -1,13 +1,15 @@
-// In The Name Of God
-// ========================================
-// * File Name : Practical.h
-// 
-// * Creation Date : 14-12-2014
-//
-// * Last Modified : Sun 14 Dec 2014 03:06:48 AM IRST
-//
-// * Created By : Parham Alvani (parham.alvani@gmail.com)
-// =======================================
+/* 
+ * In The Name Of God
+ * ========================================
+ * [] File Name : Practical.h
+ *
+ * [] Creation Date : 21-12-2014
+ *
+ * [] Last Modified : Sun 21 Dec 2014 12:53:57 AM IRST
+ *
+ * [] Created By : Parham Alvani (parham.alvani@gmail.com)
+ * =======================================
+*/
 #ifndef PRACTICAL_H
 #define PRACTICAL_H
 
