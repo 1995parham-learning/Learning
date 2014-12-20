@@ -1,5 +1,5 @@
 #!/bin/bash
 
 mkdir $1
-touch $1/$1.asm
+vim $1/$1.asm -c "wq"
 cp Makefile $1

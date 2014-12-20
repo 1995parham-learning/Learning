@@ -1,3 +1,13 @@
+; In The Name Of God
+; ========================================
+; [] File Name : args.asm
+; 
+; [] Creation Date : 21-12-2014
+;
+; [] Last Modified : Sun 21 Dec 2014 02:02:24 AM IRST
+;
+; [] Created By : Parham Alvani (parham.alvani@gmail.com)
+; =======================================
 section .text
 	global _start
 _start:

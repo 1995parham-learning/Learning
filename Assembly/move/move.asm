@@ -1,3 +1,13 @@
+; In The Name Of God
+; ========================================
+; [] File Name : move.asm
+; 
+; [] Creation Date : 21-12-2014
+;
+; [] Last Modified : Sun 21 Dec 2014 01:57:39 AM IRST
+;
+; [] Created By : Parham Alvani (parham.alvani@gmail.com)
+; =======================================
 section .data
 	eight_bit_max_number: db 0xFF
 	eight_bit_min_number: db 0x00

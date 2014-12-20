@@ -1,3 +1,13 @@
+; In The Name Of God
+; ========================================
+; [] File Name : lib.asm
+; 
+; [] Creation Date : 21-12-2014
+;
+; [] Last Modified : Sun 21 Dec 2014 01:57:08 AM IRST
+;
+; [] Created By : Parham Alvani (parham.alvani@gmail.com)
+; =======================================
 %macro .string 2+
 	%1: db %2
 	%1_len equ $-%1
