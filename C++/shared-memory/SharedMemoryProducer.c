@@ -1,3 +1,15 @@
+/* 
+ * In The Name Of God
+ * ========================================
+ * [] File Name : SharedMemoryProducer.c
+ *
+ * [] Creation Date : 21-12-2014
+ *
+ * [] Last Modified : Sun 21 Dec 2014 12:51:08 AM IRST
+ *
+ * [] Created By : Parham Alvani (parham.alvani@gmail.com)
+ * =======================================
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>

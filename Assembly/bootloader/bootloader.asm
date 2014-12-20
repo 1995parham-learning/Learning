@@ -1,3 +1,13 @@
+; In The Name Of God
+; ========================================
+; [] File Name : bootloader.asm
+; 
+; [] Creation Date : 21-12-2014
+;
+; [] Last Modified : Sun 21 Dec 2014 01:51:25 AM IRST
+;
+; [] Created By : Parham Alvani (parham.alvani@gmail.com)
+; =======================================
 section .text
 	org 7C00H
 

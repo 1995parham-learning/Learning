@@ -1,3 +1,13 @@
+; In The Name Of God
+; ========================================
+; [] File Name : read.asm
+; 
+; [] Creation Date : 21-12-2014
+;
+; [] Last Modified : Sun 21 Dec 2014 02:01:00 AM IRST
+;
+; [] Created By : Parham Alvani (parham.alvani@gmail.com)
+; =======================================
 section .bss
 	number: resb 2
 	index: resb 2
