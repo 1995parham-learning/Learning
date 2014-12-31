@@ -4,12 +4,12 @@
 ; 
 ; [] Creation Date : 21-12-2014
 ;
-; [] Last Modified : Sun 21 Dec 2014 01:51:25 AM IRST
+; [] Last Modified : Wed 31 Dec 2014 06:23:22 PM IRST
 ;
 ; [] Created By : Parham Alvani (parham.alvani@gmail.com)
 ; =======================================
 section .text
-	org 7C00H
+	org 07C00H
 
 	jmp short Start
 

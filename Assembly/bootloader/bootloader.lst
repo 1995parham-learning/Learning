@@ -1,62 +1,72 @@
-     1                                  section .text
-     2                                  	org 7C00H
-     3                                  
-     4 00000000 EB0D                    	jmp short Start
-     5                                  
-     6 00000002 50617268616D20416C-     Msg:	db "Parham Alvani"
-     7 0000000B 76616E69           
-     8                                  EndMsg:
-     9                                  
-    10 0000000F 31D2                    Start:	xor dx, dx
-    11 00000011 8EDA                    	mov ds, dx
-    12 00000013 FC                      	cld
+     1                                  ; In The Name Of God
+     2                                  ; ========================================
+     3                                  ; [] File Name : bootloader.asm
+     4                                  ; 
+     5                                  ; [] Creation Date : 21-12-2014
+     6                                  ;
+     7                                  ; [] Last Modified : Wed 31 Dec 2014 06:23:22 PM IRST
+     8                                  ;
+     9                                  ; [] Created By : Parham Alvani (parham.alvani@gmail.com)
+    10                                  ; =======================================
+    11                                  section .text
+    12                                  	org 07C00H
     13                                  
-    14 00000014 8EC2                    Print:	mov es, dx
+    14 00000000 EB0D                    	jmp short Start
     15                                  
-    16 00000016 B406                    	mov ah, 06H	; cls
-    17 00000018 B500                    	mov ch, 0	; start point row
-    18 0000001A B100                    	mov cl, 0	; start point column
-    19 0000001C B619                    	mov dh, 25	; end point row
-    20 0000001E B250                    	mov dl, 80	; end point column
-    21 00000020 B019                    	mov al, 25	; number line of scroll
-    22 00000022 B700                    	mov bh, 0	; color of new screen
-    23 00000024 CD10                    	int 10H
-    24                                  	
-    25 00000026 8CC2                    	mov dx, es
-    26                                  
-    27 00000028 BE[0200]                	mov si, Msg
-    28                                  	
-    29 0000002B BB0E00                  	mov bx, 000EH
-    30 0000002E B90100                  	mov cx, 1
-    31                                  
-    32 00000031 B402                    Char:	mov ah, 2
-    33 00000033 CD10                    	int 10H
-    34 00000035 AC                      	lodsb
-    35 00000036 B409                    	mov ah, 9
-    36 00000038 CD10                    	int 10H
-    37                                  
-    38 0000003A FEC2                    	inc dl
-    39                                  
-    40 0000003C 80FA50                  	cmp dl, 80
-    41 0000003F 750B                    	jne Skip
-    42 00000041 30D2                    	xor dl, dl
-    43 00000043 FEC6                    	inc dh
-    44                                  
-    45 00000045 80FE19                  	cmp dh, 25
-    46 00000048 7502                    	jne Skip
-    47 0000004A 30F6                    	xor dh, dh
-    48                                  
-    49 0000004C 81FE[0F00]              Skip:	cmp si, EndMsg
-    50 00000050 75DF                    	jne Char
-    51 00000052 31C9                    	xor cx, cx
-    52 00000054 B9FF0F                  	mov cx, 0FFFH
-    53 00000057 EB00                    	jmp Sleep
+    16 00000002 50617268616D20416C-     Msg:	db "Parham Alvani"
+    17 0000000B 76616E69           
+    18                                  EndMsg:
+    19                                  
+    20 0000000F 31D2                    Start:	xor dx, dx
+    21 00000011 8EDA                    	mov ds, dx
+    22 00000013 FC                      	cld
+    23                                  
+    24 00000014 8EC2                    Print:	mov es, dx
+    25                                  
+    26 00000016 B406                    	mov ah, 06H	; cls
+    27 00000018 B500                    	mov ch, 0	; start point row
+    28 0000001A B100                    	mov cl, 0	; start point column
+    29 0000001C B619                    	mov dh, 25	; end point row
+    30 0000001E B250                    	mov dl, 80	; end point column
+    31 00000020 B019                    	mov al, 25	; number line of scroll
+    32 00000022 B700                    	mov bh, 0	; color of new screen
+    33 00000024 CD10                    	int 10H
+    34                                  	
+    35 00000026 8CC2                    	mov dx, es
+    36                                  
+    37 00000028 BE[0200]                	mov si, Msg
+    38                                  	
+    39 0000002B BB0E00                  	mov bx, 000EH
+    40 0000002E B90100                  	mov cx, 1
+    41                                  
+    42 00000031 B402                    Char:	mov ah, 2
+    43 00000033 CD10                    	int 10H
+    44 00000035 AC                      	lodsb
+    45 00000036 B409                    	mov ah, 9
+    46 00000038 CD10                    	int 10H
+    47                                  
+    48 0000003A FEC2                    	inc dl
+    49                                  
+    50 0000003C 80FA50                  	cmp dl, 80
+    51 0000003F 750B                    	jne Skip
+    52 00000041 30D2                    	xor dl, dl
+    53 00000043 FEC6                    	inc dh
     54                                  
-    55                                  Sleep:
-    56 00000059 90<rept>                	times 64 nop
-    57 00000099 E2BE                    	loop Sleep
-    58 0000009B E976FF                  	jmp Print
-    59                                  
-    60 0000009E 00<rept>                times 0200H - 2 - ($ - $$) db 0
-    61                                  
-    62 000001FE 55AA                    	dw 0AA55H
+    55 00000045 80FE19                  	cmp dh, 25
+    56 00000048 7502                    	jne Skip
+    57 0000004A 30F6                    	xor dh, dh
+    58                                  
+    59 0000004C 81FE[0F00]              Skip:	cmp si, EndMsg
+    60 00000050 75DF                    	jne Char
+    61 00000052 31C9                    	xor cx, cx
+    62 00000054 B9FF0F                  	mov cx, 0FFFH
+    63 00000057 EB00                    	jmp Sleep
+    64                                  
+    65                                  Sleep:
+    66 00000059 90<rept>                	times 64 nop
+    67 00000099 E2BE                    	loop Sleep
+    68 0000009B E976FF                  	jmp Print
+    69                                  
+    70 0000009E 00<rept>                times 0200H - 2 - ($ - $$) db 0
+    71                                  
+    72 000001FE 55AA                    	dw 0AA55H
