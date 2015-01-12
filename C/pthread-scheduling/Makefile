@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=pthread-scheduling.out
+P=pthread-scheduling
 OBJ=pthread-scheduling.o
 LIB=
 MLIB=-lpthread

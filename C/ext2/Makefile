@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=ext2.out
+P=ext2
 OBJ=ext2.o
 LIB=
 

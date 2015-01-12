@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=div-zero.out
+P=div-zero
 OBJ=div-zero.o
 LIB=
 
