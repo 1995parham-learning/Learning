@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=Glist
+P=Glist.out
 OBJ=Glist.o
 LIB=glib-2.0
 

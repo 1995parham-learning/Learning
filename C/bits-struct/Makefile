@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=bits-struct
+P=bits-struct.out
 OBJ=bits-struct.o
 LIB=
 

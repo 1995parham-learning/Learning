@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=pointer-nature
+P=pointer-nature.out
 OBJ=pointer-nature.o
 LIB=
 

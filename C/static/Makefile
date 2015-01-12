@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=static
+P=static.out
 OBJ=static.o
 LIB=
 
