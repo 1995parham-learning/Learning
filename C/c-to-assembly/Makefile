@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=c-to-assembly
+P=c-to-assembly.out
 OBJ=c-to-assembly.o
 LIB=
 

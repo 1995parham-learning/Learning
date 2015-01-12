@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=fib
+P=fib.out
 OBJ=fib.o
 LIB=
 

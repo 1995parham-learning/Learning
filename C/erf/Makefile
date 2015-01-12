@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=erf
+P=erf.out
 OBJ=erf.o
 LIB=
 
