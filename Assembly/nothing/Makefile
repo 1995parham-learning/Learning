@@ -1,9 +1,30 @@
-NASM = nasm -f elf64 -g
-GCC = gcc -gstabs+
-current_dir = $(notdir $(shell pwd))
+# In The Name Of God
+# ========================================
+# [] File Name : Makefile
+#
+# [] Creation Date : 12-01-2015
+#
+# [] Created By : Parham Alvani (parham.alvani@gmail.com)
+# =======================================
 
-all:
-	${NASM} -o ${current_dir}.asm.o ${current_dir}.asm
-	${GCC} -c -o ${current_dir}.c.o ${current_dir}.c
-	${GCC} -o ${current_dir} ${current_dir}.c.o ${current_dir}.asm.o
+P=nothing
+OBJ=nothing-c.o nothing-asm.o
+LIB=
+MLIB=
 
+ifdef LIB
+CFLAGS=-Wall -O0 -g -std=gnu11 \
+       $(shell pkg-config --cflags $(LIB))
+LDLIBS=$(shell pkg-config --libs $(LIB)) $(MLIB)
+else
+CFLAGS=-Wall -O0 -g -std=gnu11
+LDLIBS=$(MLIB)
+endif
+ASFLAGS=-Wall -O0 -g
+
+$(P): $(OBJ)
+	$(CC) $(CFLAGS) -o $(P) $(OBJ)
+
+.PHONY: clean
+clean:
+	rm $(OBJ) $(P)
