@@ -8,7 +8,7 @@
 # =======================================
 
 P=cmovtest
-OBJ=
+OBJ=cmovtest.o
 LIB=
 
 ifdef LIB

@@ -1,3 +1,15 @@
+/*
+ * In The Name Of God
+ * ========================================
+ * [] File Name : string-operations.S
+ *
+ * [] Creation Date : 12-01-2015
+ *
+ * [] Last Modified : Mon 12 Jan 2015 09:50:14 PM IRST
+ *
+ * [] Created By : Parham Alvani (parham.alvani@gmail.com)
+ * =======================================
+*/
 .section .data
 	s1: .asciz "Hello world of assmebly\n"
 	.equ s1_len, . - s1
