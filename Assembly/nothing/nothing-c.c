@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 21-12-2014
  *
- * [] Last Modified : Mon 12 Jan 2015 09:45:34 PM IRST
+ * [] Last Modified : Mon 12 Jan 2015 10:04:05 PM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -17,8 +17,9 @@ int hello_writer(const char *, int);
 
 int main(int argc, char *argv[])
 {
-	char *TEST = "This is a test\nBut i love it !!!\nWTF ?? it's assembly ?!?!\n";
-	int ret;
-	ret = hello_writer(TEST, strlen(TEST));
-	printf("Return: %d\n", ret);
+	int retval;
+	char *str = "This is a test\nBut i love it !!!\nWhat ?? it's assembly ?!?!\n";
+	
+	retval = hello_writer(str, strlen(str));
+	printf("Return: %d\n", retval);
 }
