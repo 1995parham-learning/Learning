@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=TCPEchoClient.out
+P=TCPEchoClient
 OBJ=Practical.o main.o
 LIB=
 
