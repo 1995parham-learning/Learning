@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=non-blocking
+P=non-blocking.out
 OBJ=non-blocking.o
 LIB=
 

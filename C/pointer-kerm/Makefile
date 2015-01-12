@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=pointer-kerm
+P=pointer-kerm.out
 OBJ=pointer-kerm.o
 LIB=
 
