@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=malloc.out
+P=malloc
 OBJ=malloc.o
 LIB=
 

@@ -7,9 +7,9 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P1=SharedMemoryConsumer.out
+P1=SharedMemoryConsumer
 OBJ1=SharedMemoryConsumer.o
-P2=SharedMemoryProducer.out
+P2=SharedMemoryProducer
 OBJ2=SharedMemoryProducer.o
 LIB=
 MLIB=-lrt

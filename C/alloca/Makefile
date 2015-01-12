@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=alloca.out
+P=alloca
 OBJ=alloca.o
 LIB=
 ifdef LIB
