@@ -1,4 +1,15 @@
 #!/bin/bash
+#
+# In The Name Of God
+# ========================================
+# [] File Name : Renamer.bash
+#
+# [] Creation Date : 15-01-2015
+#
+# [] Last Modified : Thu 15 Jan 2015 10:39:05 AM IRST
+#
+# [] Created By : Parham Alvani (parham.alvani@gmail.com)
+# =======================================
 shopt -s nullglob
 a=1
 for i in *.jpg; do
