@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 16-01-2015
  *
- * [] Last Modified : Fri 16 Jan 2015 06:29:03 PM IRST
+ * [] Last Modified : Fri Jan 16 19:00:37 2015
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
 {
 	/*
 	 * change it to char *c and test .... HAVE FUN ;-)))
+	 * when change to char *c it's size in unspecified then
+	 * every things goes wrong.
 	*/
 	char c[10];
 
