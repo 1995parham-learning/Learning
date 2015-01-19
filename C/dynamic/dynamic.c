@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 18-01-2015
  *
- * [] Last Modified : Mon Jan 19 08:23:01 2015
+ * [] Last Modified : Mon Jan 19 08:29:22 2015
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -34,7 +34,7 @@ void get_a_function(void)
 
 void compile_and_run(void)
 {
-	if (system("c99 -fPIC -shared fn.c -o fn.so -lm") != 0) {
+	if (system("gcc -fPIC -shared fn.c -o fn.so -lm") != 0) {
 		printf("Compilation error.\n");
 		return;
 	}
