@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 12-01-2015
  *
- * [] Last Modified : Mon 12 Jan 2015 03:30:18 PM IRST
+ * [] Last Modified : Mon 19 Jan 2015 11:44:30 PM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -21,6 +21,8 @@ int f(int a, int b, int c);
 
 int A = 10;
 
+static int S = 15;
+
 int main(long argc)
 {
 	struct test_struct s;
@@ -30,6 +32,7 @@ int main(long argc)
 	A += 20;
 
 	printf("%p\n", &A);
+	printf("%p\n", &S);
 
 	int i = 0;
 	for(i = 0; i < 10; i++)

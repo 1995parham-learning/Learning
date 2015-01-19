@@ -6,6 +6,11 @@
 	.size	A, 4
 A:
 	.long	10
+	.align 4
+	.type	S, @object
+	.size	S, 4
+S:
+	.long	15
 	.section	.rodata
 .LC0:
 	.string	"%p\n"
@@ -28,6 +33,10 @@ main:
 	addl	$20, %eax
 	movl	%eax, A(%rip)
 	movl	$A, %esi
+	movl	$.LC0, %edi
+	movl	$0, %eax
+	call	printf
+	movl	$S, %esi
 	movl	$.LC0, %edi
 	movl	$0, %eax
 	call	printf

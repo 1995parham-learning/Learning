@@ -25,7 +25,7 @@ $(P): $(OBJ)
 
 c-to-assembly.o: c-to-assembly.c
 	$(CC) -S c-to-assembly.c
-	$(CC) $(CFLAGS) -c c-to-assembly.c
+	$(CC) $(CFLAGS) -c c-to-assembly.c $(LDLIBS)
 
 .PHONY: clean
 clean:
