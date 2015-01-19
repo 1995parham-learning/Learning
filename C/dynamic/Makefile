@@ -8,7 +8,7 @@
 # =======================================
 
 P=dynamic
-OBJ=dynamic.c
+OBJ=dynamic.o
 LIB=
 MLIB=-lm -lreadline -ldl
 

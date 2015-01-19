@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 18-01-2015
  *
- * [] Last Modified : Sun 18 Jan 2015 11:41:06 PM IRST
+ * [] Last Modified : Mon Jan 19 08:20:13 2015
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -13,6 +13,7 @@
 #include <dlfcn.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <readline/readline.h>
 
 void get_a_function(void)
