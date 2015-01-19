@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 15-01-2015
  *
- * [] Last Modified : Mon Jan 19 09:22:27 2015
+ * [] Last Modified : Mon Jan 19 09:23:29 2015
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -23,9 +23,9 @@
 */
 
 .text
+	.global _main
 	str: .asciz "Hello world of Mac binary\n"
 	.equ strlen, . - str
-	.global _main
 _main:
 	movq	$0x2000004, %rax
 	movq	$1, %rdi
