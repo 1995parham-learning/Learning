@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 15-01-2015
  *
- * [] Last Modified : Thu Jan 15 19:42:09 2015
+ * [] Last Modified : Mon Jan 19 09:22:27 2015
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -22,10 +22,9 @@
 * I HATE OSX ......
 */
 
-.data
+.text
 	str: .asciz "Hello world of Mac binary\n"
 	.equ strlen, . - str
-.text
 	.global _main
 _main:
 	movq	$0x2000004, %rax
