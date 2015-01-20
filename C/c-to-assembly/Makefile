@@ -7,8 +7,8 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=c-to-assembly
-OBJ=c-to-assembly.o
+P=
+OBJ=
 LIB=
 
 ifdef LIB
@@ -21,13 +21,20 @@ LDLIBS=
 endif
 ASFLAGS=-Wall -O0 -g
 
-$(P): $(OBJ)
+.PHONY: all
+all: c-to-assembly ifthen
 
-c-to-assembly.o: c-to-assembly.c
+c-to-assembly: c-to-assembly.o
+c-to-assembly.o:
 	$(CC) -S c-to-assembly.c
 	$(CC) $(CFLAGS) -c c-to-assembly.c $(LDLIBS)
 
+ifthen: ifthen.o
+ifthen.o:
+	$(CC) -S ifthen.c
+	$(CC) $(CFLAGS) -c ifthen.c $(LDLIBS)
+
 .PHONY: clean
 clean:
-	rm $(OBJ) $(P)
-	rm c-to-assembly.s
+	rm c-to-assembly.o c-to-assembly c-to-assembly.s
+	rm ifthen.o ifthen ifthen.s
