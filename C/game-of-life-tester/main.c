@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 20-01-2015
  *
- * [] Last Modified : Tue Jan 20 21:40:31 2015
+ * [] Last Modified : Tue 20 Jan 2015 10:17:29 PM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -16,8 +16,9 @@
 int main(int argc, char *args[])
 {
 	if (argc < 4) {
-		fprintf(stderr, "usage: %s schematic file"
-				"0-base output file 1-base output file", args[0]);
+		fprintf(stderr, "usage: %s", args[0]);
+		fprintf(stderr, "schematic file");
+		fprintf(stderr, "0-base output file 1-base output file\n");
 		return -1;
 	}
 	FILE *scheme_file = fopen(args[1], "r");
@@ -27,15 +28,18 @@ int main(int argc, char *args[])
 	int cell_nr = 0;
 	char line[1024];
 	char *cell;
-	while (fgets(line, 1024, scheme_file)) {	
+
+	while (fgets(line, 1024, scheme_file)) {
 		cell_nr = 0;
 		printf("%s\n", line);
 		cell = strtok(line, " ");
 		while (cell) {
 			printf("%s\n", cell);
 			if (!strcmp(cell, "*")) {
-				fprintf(base_0_file, "%d %d\n", cell_nr, line_nr);
-				fprintf(base_1_file, "%d %d\n", cell_nr + 1, line_nr + 1);
+				fprintf(base_0_file, "%d %d\n",
+						cell_nr, line_nr);
+				fprintf(base_1_file, "%d %d\n",
+						cell_nr + 1, line_nr + 1);
 			}
 			cell_nr++;
 			cell = strtok(NULL, " ");
@@ -46,7 +50,7 @@ int main(int argc, char *args[])
 	fprintf(base_0_file, "%d %d\n", line_nr, cell_nr);
 	fprintf(base_1_file, "====\n");
 	fprintf(base_1_file, "%d %d\n", line_nr, cell_nr);
-	
+
 	fclose(base_0_file);
 	fclose(base_1_file);
 }
