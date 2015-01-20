@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 21-01-2015
  *
- * [] Last Modified : Wed 21 Jan 2015 12:33:58 AM IRST
+ * [] Last Modified : Wed 21 Jan 2015 01:04:12 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -22,3 +22,15 @@ int main(int argc, char *argv[])
 	}
 	return 0;
 }
+
+/*
+ * for:
+ *	<condition to evaluate for loop counter value>
+ *	jxx forcode
+ *	jmp end
+ * forcode:
+ *	<for loop code to execute>
+ *	<increment for loop counter>
+ *	jmp for
+ * end:
+*/
