@@ -1,5 +1,0 @@
-     1                                  section .text
-     2                                  	global _start
-     3                                  _start:
-     4                                  	mov rax, ah
-     5          ******************       error: invalid combination of opcode and operands
