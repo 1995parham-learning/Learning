@@ -1,3 +1,15 @@
+#!/usr/bin/python
+#
+# In The Name Of God
+# ========================================
+# [] File Name : count-lines.py
+#
+# [] Creation Date : 21-01-2015
+#
+# [] Last Modified : Wed 21 Jan 2015 09:20:42 PM IRST
+#
+# [] Created By : Parham Alvani (parham.alvani@gmail.com)
+# =======================================
 import logging
 import sys
 
