@@ -5,14 +5,17 @@
 #include <unistd.h>
 #include <time.h>
 
-uint32_t make_bytes_int(uint8_t* buff, int start){
+uint32_t make_bytes_int(uint8_t* buff, int start)
+{
 	return buff[start] + (buff[start + 1] << 8) + (buff[start + 2] << 16) + (buff[start + 3] << 24);
 }
 
-int main(int argc, char* argv[]){
-	int fd = open("/dev/sdb1", O_RDONLY);	// open device file
+int main(int argc, char *argv[])
+{
+	/* Open device file */
+	int fd = open("/dev/sdb1", O_RDONLY);
 
-	uint8_t buff[1024];			
+	uint8_t buff[1024];	
 	lseek(fd, 1024, SEEK_SET);
 	read(fd, buff, 1024);
 	
@@ -29,7 +32,6 @@ int main(int argc, char* argv[]){
 	printf("Last written time : %s\n", timestr);
 	
 	time_t last_mount_time = make_bytes_int(buff, 44);
-	timestr[100];
 	strftime (timestr, 100, "%Y-%m-%d %H:%M:%S.000", localtime(&last_written_time));
 	printf("Last mount time : %s\n", timestr);
 }
