@@ -2,3 +2,7 @@ c-to-assembly
 c-to-assembly.s
 ifthen
 ifthen.s
+for
+for.s
+inline
+inline.s
