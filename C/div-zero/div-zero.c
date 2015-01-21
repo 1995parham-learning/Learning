@@ -5,12 +5,13 @@
  *
  * [] Creation Date : 12-01-2015
  *
- * [] Last Modified : Mon 12 Jan 2015 03:29:49 PM IRST
+ * [] Last Modified : Wed Jan 21 12:39:04 2015
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
 */
-int main(int argc, char* argv[])
+
+int main(int argc, char *argv[])
 {
 	int a = 0;
 	int b = 10;
