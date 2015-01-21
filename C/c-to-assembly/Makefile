@@ -22,7 +22,7 @@ endif
 ASFLAGS=-Wall -O0 -g
 
 .PHONY: all
-all: c-to-assembly ifthen for
+all: c-to-assembly ifthen for inline
 
 c-to-assembly: c-to-assembly.o
 c-to-assembly.o:
@@ -38,6 +38,11 @@ for: for.o
 for.o:
 	$(CC) -S for.c
 	$(CC) $(CFLAGS) -c for.c
+
+inline: inline.o
+inline.o:
+	$(CC) -S inline.c
+	$(CC) $(CFLAGS) -c inline.c
 
 .PHONY: clean
 clean:
