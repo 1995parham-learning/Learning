@@ -1,4 +1,5 @@
 import logging
+import sys
 
 def count_lines(filename):
     """
@@ -19,7 +20,14 @@ def count_lines(filename):
         logging.error(e)
         return 0
     else:
+        print(lines)
         return len(lines)
     finally:
         if file:
             file.close()
+
+i = 1
+while i < len(sys.argv):
+    print sys.argv[i]
+    count_lines(sys.argv[i])
+    i = i + 1
