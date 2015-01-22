@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 21-01-2015
  *
- * [] Last Modified : Wed 21 Jan 2015 09:53:53 PM IRST
+ * [] Last Modified : Thu 22 Jan 2015 07:50:38 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -18,8 +18,8 @@ values2:
 .section .text
 .global main
 main:
-	movq	values1, %xmm0
-	movq	values2, %xmm1
+	movq	values1, %mm0
+	movq	values2, %mm1
 	movq	$60, %rax
 	movq	$0, %rdi
 	syscall
