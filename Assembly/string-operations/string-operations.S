@@ -5,18 +5,19 @@
  *
  * [] Creation Date : 12-01-2015
  *
- * [] Last Modified : Mon 12 Jan 2015 09:50:14 PM IRST
+ * [] Last Modified : Fri 23 Jan 2015 03:13:33 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
 */
 .section .data
-	s1: .asciz "Hello world of assmebly\n"
-	.equ s1_len, . - s1
+s1:
+	.asciz "Hello world of assmebly\n"
+.equ s1_len, . - s1
 .section .bss
-	.lcomm s2, 100
+.lcomm s2, 100
 .section .text
-	.global main
+.global main
 main:
 	movq	$s1_len, %rcx
 	movq	$s1, %rsi
