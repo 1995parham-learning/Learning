@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 22-01-2015
  *
- * [] Last Modified : Thu Jan 22 10:29:22 2015
+ * [] Last Modified : Thu 22 Jan 2015 07:24:02 PM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -24,8 +24,12 @@ main:
 	*/
 	/* %eax = *A */
 	movl	A, %eax
-	/* %ebx = *(A + 1 * 4) */
-	movl	A(, 1, 4), %ebx
+	/*
+	 * base_address and index must be register
+	 * %ebx = *(A + 1 * 4)
+	*/
+	movq	$1, %rsi
+	movl	A(, %rsi, 4), %ebx
 	/* %rcx = A */
 	movq	$A, %rcx
 	/* %rdx = A */
