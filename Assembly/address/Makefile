@@ -20,10 +20,14 @@ else
 CFLAGS=-Wall -O0 -g -std=gnu11
 LDLIBS=$(MLIB)
 endif
-ASFLAGS=-Wall -O0 -g
+ASFLAGS=-Wall -g
 
 $(P): $(OBJ)
+address.o:
+	$(CPP) $(CPPFLAGS) -o address.s address.S
+	$(AS) $(ASFLAGS) -o address.o -a=address.lst address.s
 
 .PHONY: clean
 clean:
 	rm $(OBJ) $(P)
+	rm address.lst address.s
