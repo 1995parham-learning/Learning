@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 12-01-2015
  *
- * [] Last Modified : Fri 23 Jan 2015 03:13:33 AM IRST
+ * [] Last Modified : Fri 23 Jan 2015 03:15:05 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -13,9 +13,9 @@
 .section .data
 s1:
 	.asciz "Hello world of assmebly\n"
-.equ s1_len, . - s1
+	.equ s1_len, . - s1
 .section .bss
-.lcomm s2, 100
+	.lcomm s2, 100
 .section .text
 .global main
 main:
