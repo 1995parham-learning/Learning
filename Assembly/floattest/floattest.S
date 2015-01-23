@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 23-01-2015
  *
- * [] Last Modified : Fri 23 Jan 2015 03:20:40 AM IRST
+ * [] Last Modified : Fri 23 Jan 2015 03:26:15 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -22,6 +22,7 @@ value2:
 main:
 	flds	value1
 	fldl	value2
+	fstl	data
 
 	movq	$60, %rax
 	movq	$0, %rdi
