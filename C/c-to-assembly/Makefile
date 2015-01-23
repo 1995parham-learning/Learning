@@ -22,7 +22,7 @@ endif
 ASFLAGS=-Wall -O0 -g
 
 .PHONY: all
-all: function-call ifthen for inline args
+all: function-call ifthen for inline args flonum
 
 function-call: function-call.o
 function-call.o:
@@ -49,6 +49,11 @@ args.o:
 	$(CC) -S args.c
 	$(CC) $(CFLAGS) -c args.c
 
+flonum: flonum.o
+flonum.o:
+	$(CC) -S flonum.c
+	$(CC) $(CFLAGS) -c flonum.c
+
 .PHONY: clean
 clean:
 	rm function-call.o function-call function-call.s
@@ -56,3 +61,4 @@ clean:
 	rm for.o for for.s
 	rm inline.o inline inline.s
 	rm args.o args args.s
+	rm flonum.o flonum flonum.s
