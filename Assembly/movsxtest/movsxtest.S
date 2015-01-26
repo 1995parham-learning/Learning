@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 21-01-2015
  *
- * [] Last Modified : Wed 21 Jan 2015 09:34:04 PM IRST
+ * [] Last Modified : Mon 26 Jan 2015 11:19:16 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -16,7 +16,7 @@ main:
 	movw	$-79, %cx
 	movl	$0, %ebx
 	movw	%cx, %bx
-	movsx	%cx, %eax
+	movswl	%cx, %eax
 	movq	$60, %rax
 	movq	$0, %rdi
 	syscall
