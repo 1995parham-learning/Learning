@@ -10,3 +10,5 @@ args
 args.s
 move
 move.s
+flonum
+flonum.s
