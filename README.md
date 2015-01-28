@@ -1,4 +1,5 @@
 Learning Codes
 ================
-
-Learning codes add here
+#Introduction
+My personal learning code from c, assembly, python, ... collected
+here.
