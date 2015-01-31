@@ -23,6 +23,9 @@ endif
 ASFLAGS=-Wall -O0 -g
 
 $(P): $(OBJ)
+preproc.o:
+	$(CC) -E preproc.c > preproc-E.c
+	$(CC) $(CFLAGS) -c preproc.c
 
 .PHONY: clean
 clean:
