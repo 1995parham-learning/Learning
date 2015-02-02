@@ -5,12 +5,17 @@
  *
  * [] Creation Date : 03-02-2015
  *
- * [] Last Modified : Tue 03 Feb 2015 02:28:48 AM IRST
+ * [] Last Modified : Tue 03 Feb 2015 02:31:23 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
 */
 #include <gtk/gtk.h>
+
+/*
+ * https://developer.gnome.org/gtk3/stable/gtk-getting-started.html
+ * Basics: example-1
+*/
 
 /*
  * This is a callback function. The data arguments are ignored
