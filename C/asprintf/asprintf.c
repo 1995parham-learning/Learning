@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 01-02-2015
  *
- * [] Last Modified : Sun 01 Feb 2015 07:59:50 PM IRST
+ * [] Last Modified : Mon 02 Feb 2015 11:01:52 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -16,6 +16,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+
+/*
+ * __printf(string-index, first-to-check)
+ * is preferred over
+ * __attribute__((format(printf, string-index, first-to-check)))
+*/
 
 int asprintf(char **str, const char *fmt, ...)
 	__attribute__((format(printf, 2, 3)));
@@ -59,6 +65,7 @@ int asprintf(char **str, const char *fmt, ...)
 int main(int argc, char *argv[])
 {
 	char *s;
+
 	asprintf(&s, "Hello, %s.", "-Reader-");
 	printf("%s\n", s);
 
@@ -70,9 +77,10 @@ int main(int argc, char *argv[])
 	free(s);
 
 	int i = 0;
+
 	asprintf(&s, "%i", i++);
 	printf("Zero: %s\n", s);
-	
+
 	free(s);
 }
 
