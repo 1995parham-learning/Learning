@@ -1,0 +1,67 @@
+$date
+	Wed Feb  4 18:29:01 2015
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module Testbench $end
+$var wire 1 ! q $end
+$var reg 1 " clk $end
+$var reg 1 # d $end
+$var reg 1 $ reset $end
+$scope module dff $end
+$var wire 1 % clk $end
+$var wire 1 & din $end
+$var wire 1 ' reset $end
+$var reg 1 ( qout $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x(
+0'
+0&
+0%
+0$
+0#
+0"
+x!
+$end
+#100
+1#
+1&
+#265
+1"
+1%
+#300
+0#
+0&
+#345
+1(
+1!
+#530
+0"
+0%
+#600
+1#
+1&
+#795
+1"
+1%
+#1000
+1$
+1'
+#1060
+0"
+0%
+#1325
+1"
+1%
+#1405
+0(
+0!
+#1500
