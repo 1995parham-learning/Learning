@@ -5,8 +5,8 @@ module Counter (clk, reset, count);
 
 	always @(posedge clk) begin
 		if (reset)
-			count = 0;
+			count <= 0;
 		else
-			count = count + 1;
+			count <= count + 1;
 	end
 endmodule
