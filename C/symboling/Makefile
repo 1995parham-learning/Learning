@@ -25,10 +25,12 @@ ASFLAGS=-Wall -O0 -g
 all: symboling-static symboling-dynamic
 
 symboling-dynamic: $(OBJ)
-	$(CC) -o symboling-dynamic $(OBJ) $(LDLIBS)
+	$(CC) -o symboling-dynamic $(OBJ) $(LDLIBS) \
+		-Wl,-R symboltable.ld
 
 symboling-static: $(OBJ)
-	$(CC) -static -o symboling-static $(OBJ) $(LDLIBS)
+	$(CC) -static -o symboling-static $(OBJ) $(LDLIBS) \
+		-Wl,-R symboltable.ld
 
 symboling.o:
 
