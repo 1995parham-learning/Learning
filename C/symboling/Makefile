@@ -26,14 +26,15 @@ all: symboling-static symboling-dynamic
 
 symboling-dynamic: $(OBJ)
 	$(CC) -o symboling-dynamic $(OBJ) $(LDLIBS) \
-		-Wl,-R symboltable.ld
+		-Wl,-R symboltable.ld -Wl,-Map=symboling-dynamic.map
 
 symboling-static: $(OBJ)
 	$(CC) -static -o symboling-static $(OBJ) $(LDLIBS) \
-		-Wl,-R symboltable.ld
+		-Wl,-R symboltable.ld -Wl,-Map=symboling-static.map
 
 symboling.o:
 
 .PHONY: clean
 clean:
-	rm $(OBJ) symboling-static symboling-dynamic
+	rm $(OBJ) symboling-static symboling-dynamic \
+		symboling-static.map symboling-dynamic.map
