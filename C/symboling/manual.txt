@@ -1,0 +1,13 @@
+In The Name Of God
+
+symboling project manual
+
+Parham Alvani(parham.alvani@gmail.com)
+############################
+
+[] -Wl,option:
+Pass option as an option to the linker. If option contains commas, it is split into multiple options at the commas. You can use this syntax to pass an argument
+to the option. For example, -Wl,-Map,output.map passes -Map output.map to the linker. When using the GNU linker, you can also get the same effect with -Wl,-Map=output.map.
+
+[] -static:
+On systems that support dynamic linking, this prevents linking with the shared libraries. On other systems, this option has no effect.
