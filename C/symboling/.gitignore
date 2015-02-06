@@ -1,2 +1,4 @@
 symboling-static
 symboling-dynamic
+symboling-static.map
+symboling-dynamic.map
