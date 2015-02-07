@@ -1,0 +1,2 @@
+cmp-without-if
+=====
