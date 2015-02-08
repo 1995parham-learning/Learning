@@ -7,8 +7,6 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=
-OBJ=
 LIB=
 
 ifdef LIB
@@ -22,7 +20,8 @@ endif
 ASFLAGS=-Wall -O0 -g
 
 .PHONY: all
-all: function-call ifthen for inline args flonum move
+all: function-call ifthen for inline args flonum move \
+	attributes
 
 function-call: function-call.o
 function-call.o:
@@ -59,12 +58,18 @@ move.o:
 	$(CC) -S move.c
 	$(CC) $(CFLAGS) -c move.c
 
+attributes: attributes.o
+attributes.o:
+	$(CC) -S attributes.c
+	$(CC) $(CFLAGS) -c attributes.c
+
 .PHONY: clean
 clean:
-	rm function-call.o function-call function-call.s
-	rm ifthen.o ifthen ifthen.s
-	rm for.o for for.s
-	rm inline.o inline inline.s
-	rm args.o args args.s
-	rm flonum.o flonum flonum.s
-	rm move.o move move.s
+	rm -f function-call.o function-call function-call.s
+	rm -f ifthen.o ifthen ifthen.s
+	rm -f for.o for for.s
+	rm -f inline.o inline inline.s
+	rm -f args.o args args.s
+	rm -f flonum.o flonum flonum.s
+	rm -f move.o move move.s
+	rm -f attributes.o attributes attributes.s
