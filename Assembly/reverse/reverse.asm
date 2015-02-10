@@ -4,7 +4,7 @@
 ; 
 ; [] Creation Date : 10-02-2015
 ;
-; [] Last Modified : Tue 10 Feb 2015 11:24:47 AM IRST
+; [] Last Modified : Wed 11 Feb 2015 12:15:53 AM IRST
 ;
 ; [] Created By : Parham Alvani (parham.alvani@gmail.com)
 ; =======================================
@@ -13,13 +13,17 @@ section .data
 	arrayLen: dd 3
 
 section .text
-global main
+global _start
 
-main:
+_start:
 	push dword array
 	push dword [arrayLen]
 	call reverse
 	add esp, 8
+
+	mov eax, 1
+	mov ebx, 0
+	int 80H
 
 
 reverse:
