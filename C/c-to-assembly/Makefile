@@ -25,42 +25,42 @@ all: function-call ifthen for inline args flonum move \
 
 function-call: function-call.o
 function-call.o:
-	$(CC) -S function-call.c
+	$(CC) -fverbose-asm -S function-call.c
 	$(CC) $(CFLAGS) -c function-call.c
 
 ifthen: ifthen.o
 ifthen.o:
-	$(CC) -S ifthen.c
+	$(CC) -fverbose-asm -S ifthen.c
 	$(CC) $(CFLAGS) -c ifthen.c
 
 for: for.o
 for.o:
-	$(CC) -S for.c
+	$(CC) -fverbose-asm -S for.c
 	$(CC) $(CFLAGS) -c for.c
 
 inline: inline.o
 inline.o:
-	$(CC) -S inline.c
+	$(CC) -fverbose-asm -S inline.c
 	$(CC) $(CFLAGS) -c inline.c
 
 args: args.o
 args.o:
-	$(CC) -S args.c
+	$(CC) -fverbose-asm -S args.c
 	$(CC) $(CFLAGS) -c args.c
 
 flonum: flonum.o
 flonum.o:
-	$(CC) -S flonum.c
+	$(CC) -fverbose-asm -S flonum.c
 	$(CC) $(CFLAGS) -c flonum.c
 
 move: move.o
 move.o:
-	$(CC) -S move.c
+	$(CC) -fverbose-asm -S move.c
 	$(CC) $(CFLAGS) -c move.c
 
 attributes: attributes.o
 attributes.o:
-	$(CC) -S attributes.c
+	$(CC) -fverbose-asm -S attributes.c
 	$(CC) $(CFLAGS) -c attributes.c
 
 .PHONY: clean
