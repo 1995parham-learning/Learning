@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 23-01-2015
  *
- * [] Last Modified : Fri 23 Jan 2015 03:26:15 AM IRST
+ * [] Last Modified : Sun 15 Feb 2015 10:48:46 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -14,7 +14,7 @@
 value1:
 	.float 12.34
 value2:
-	.double 2353.631
+	.double -0.75
 .section .bss
 	.lcomm data, 8
 .section .text
@@ -23,6 +23,7 @@ main:
 	flds	value1
 	fldl	value2
 	fstl	data
+	movq	data, %rax
 
 	movq	$60, %rax
 	movq	$0, %rdi
