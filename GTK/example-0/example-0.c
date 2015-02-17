@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 03-02-2015
  *
- * [] Last Modified : Tue 03 Feb 2015 02:31:25 AM IRST
+ * [] Last Modified : Tue 17 Feb 2015 04:46:01 PM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -40,6 +40,9 @@ int main(int argc, char *argv[])
 	 * explicitly calling gtk_widget_destroy() or when the widget is unparented.
 	 * Top-level GtkWindows are also destroyed when the Close window control
 	 * button is clicked.
+	 *
+	 * If you comment following line then there is no way of exiting the application
+	 * except to kill in the terminal where it was lunched.
 	*/
 	g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
