@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 03-02-2015
  *
- * [] Last Modified : Tue 17 Feb 2015 04:46:01 PM IRST
+ * [] Last Modified : Tue 17 Feb 2015 07:46:23 PM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -19,6 +19,7 @@
 
 int main(int argc, char *argv[])
 {
+	GtkWidget *label;
 	GtkWidget *window;
 
 	gtk_init(&argc, &argv);
@@ -30,7 +31,9 @@ int main(int argc, char *argv[])
 	 * depending on the platform.
 	*/
 	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_title(GTK_WINDOW(window), "Parham Window");
+	gtk_window_set_title(GTK_WINDOW(window), "Hello Window");
+	gtk_container_set_border_width(GTK_CONTAINER(window), 10);
+	gtk_widget_set_size_request(window, 200, 200);
 
 	/*
 	 * In order to terminate the application when the GtkWindow is destroyed,
@@ -46,7 +49,12 @@ int main(int argc, char *argv[])
 	*/
 	g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
-	gtk_widget_show(window);
+
+	label = gtk_label_new("Hello world");
+	gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+	gtk_container_add(GTK_CONTAINER(window), label);
+
+	gtk_widget_show_all(window);
 
 	gtk_main();
 }
