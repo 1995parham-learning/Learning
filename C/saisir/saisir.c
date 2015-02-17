@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 16-02-2015
  *
- * [] Last Modified : Mon 16 Feb 2015 03:20:15 AM IRST
+ * [] Last Modified : Tue 17 Feb 2015 07:15:08 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -22,7 +22,7 @@ struct emp {
 };
 
 struct emp *tab;
-int  n = 0;
+int n = 0;
 int *p = &n;
 
 /* Fonction de saisie :   */
@@ -33,7 +33,7 @@ struct emp *saisir(struct emp *t, int *m)
 	printf("\n  Donner le nombre des struct employes a ajouter : ");
 	scanf("%d", &s);
 
-	t = malloc(s * sizeof(struct emp));
+	t = realloc(t, (*m + s) * sizeof(struct emp));
 
 	for (i = *m; i < *m + s; i++) {
 		printf("\n\n\n donner les info de %d eme struct employe\n", i + 1);
