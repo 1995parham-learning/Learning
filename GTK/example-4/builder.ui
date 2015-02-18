@@ -10,6 +10,7 @@
           				<object id="button1" class="GtkButton">
             					<property name="visible">True</property>
             					<property name="label">Button 1</property>
+						<property name="relief">GTK_RELIEF_NONE</property>
           				</object>
           				<packing>
             					<property name="left-attach">0</property>
