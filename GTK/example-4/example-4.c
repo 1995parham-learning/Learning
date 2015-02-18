@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 18-02-2015
  *
- * [] Last Modified : Wed 18 Feb 2015 09:51:12 AM IRST
+ * [] Last Modified : Wed 18 Feb 2015 10:56:10 PM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -14,7 +14,7 @@
 
 static void print_hello(GtkWidget *widget, gpointer data)
 {
-	g_print ("Hello World\n");
+	g_print("Hello World\n");
 }
 
 int main(int argc, char *argv[])
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	g_signal_connect(button, "clicked", G_CALLBACK(print_hello), NULL);
 
 	button = gtk_builder_get_object(builder, "quit");
-	g_signal_connect(button, "clicked", G_CALLBACK(gtk_main_quit), NULL);
+	g_signal_connect_swapped(button, "clicked", G_CALLBACK(gtk_widget_destroy), window);
 
 	gtk_main();
 
