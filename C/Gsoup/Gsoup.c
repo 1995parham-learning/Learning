@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 22-02-2015
  *
- * [] Last Modified : Sun 22 Feb 2015 11:43:25 AM IRST
+ * [] Last Modified : Sun 22 Feb 2015 02:01:40 PM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -25,11 +25,12 @@ int main(int argc, char *argv[])
 	 * SoupMessage *soup_message_new(const char *method,
 	 * const char *uri_string);
 	*/	
-	msg = soup_message_new("GET", "http://google.com/");
+	msg = soup_message_new("GET", "http://127.0.0.1/");
 	
 	/*
 	 * GInputStream *soup_session_send(SoupSession *session,
 	 * SoupMessage *msg, GCancellable *cancellable, GError **error);
+	 *
 	 * Synchronously sends msg and waits for the beginning of a response.
 	 * On success, a GInputStream will be returned which you can use to read
 	 * the response body. ("Success" here means only that an HTTP response
@@ -50,7 +51,10 @@ int main(int argc, char *argv[])
 	 * (Note that this method cannot be called on the deprecated SoupSessionAsync subclass.)
 	*/
 	soup_session_send_message(session, msg);
+	
 	printf("%d\n", msg->status_code);
+	
 	buffer = soup_message_body_flatten(msg->response_body);
-	printf("%s\n", (char *) soup_buffer_get_as_bytes(buffer));
+	
+	printf("%s\n", buffer->data);
 }
