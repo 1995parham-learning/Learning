@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 01-02-2015
  *
- * [] Last Modified : Mon 02 Feb 2015 11:01:52 AM IRST
+ * [] Last Modified : Fri 06 Mar 2015 12:32:41 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -17,14 +17,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-/*
- * __printf(string-index, first-to-check)
- * is preferred over
- * __attribute__((format(printf, string-index, first-to-check)))
-*/
-
-int asprintf(char **str, const char *fmt, ...)
-	__attribute__((format(printf, 2, 3)));
+#include "asprintf.h"
 
 int asprintf(char **str, const char *fmt, ...)
 {
