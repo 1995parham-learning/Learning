@@ -5,14 +5,14 @@
  *
  * [] Creation Date : 09-03-2015
  *
- * [] Last Modified : Mon 09 Mar 2015 12:24:58 AM IRST
+ * [] Last Modified : Mon 09 Mar 2015 12:25:57 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
 */
 .section .data
 str:
-	.asciz	"Hello 2-complement\n"
+	.asciz "Hello 2-complement\n"
 	
 
 .section .text
