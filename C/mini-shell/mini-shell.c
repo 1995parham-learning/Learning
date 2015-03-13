@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 12-03-2015
  *
- * [] Last Modified : Thu 12 Mar 2015 08:31:25 AM IRST
+ * [] Last Modified : Fri 13 Mar 2015 11:13:42 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -31,6 +31,7 @@ int main(int argc, char *args[])
 	while (1) {
 		printf("psh> ");
 		fflush(stdout);
+		/* IMPORTANT */
 		scanf(" %[^\n]", buffer);
 
 		int count = 0;
