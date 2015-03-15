@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 12-01-2015
  *
- * [] Last Modified : Mon 12 Jan 2015 04:06:01 PM IRST
+ * [] Last Modified : Sun 15 Mar 2015 01:32:37 PM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -22,6 +22,14 @@ void die(const char *msg)
 	exit(1);
 }
 
+/*
+ * Tests :
+ * 1) ./non-blocking =>
+ * fgets() [Like I say..]: Resource temporarily unavailable
+ * 2) echo Hello | ./non-blocking =>
+ * Hello : No way !!!
+*/
+
 int main(int argc, char *argv[])
 {
 	int flags = fcntl(0, F_GETFL);
@@ -36,8 +44,8 @@ int main(int argc, char *argv[])
 
 	char buffer[1024];
 
-	if (fgets(buffer, 1024, stdin) == NULL)
-		die("scanf(): Like i said !!!");
+	if (!fgets(buffer, 1024, stdin))
+		die("fgets() [Like I say..]");
 	buffer[strlen(buffer) - 1] = 0;
 	printf("%s : No way !!!\n", buffer);
 }
