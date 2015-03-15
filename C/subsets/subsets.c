@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 15-03-2015
  *
- * [] Last Modified : Mon 16 Mar 2015 12:00:40 AM IRST
+ * [] Last Modified : Mon 16 Mar 2015 12:51:58 AM IRST
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -44,7 +44,7 @@ void subset(const int *S, int n, int k)
 	int *t;
 	
 	t = malloc(k * sizeof(int));
-	subset_r(S, 5, 2, t, 0, 0);
+	subset_r(S, n, k, t, 0, 0);
 	free(t);
 
 }
