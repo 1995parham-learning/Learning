@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 22-02-2015
  *
- * [] Last Modified : Sun 22 Feb 2015 02:01:40 PM IRST
+ * [] Last Modified : Sun 22 Mar 2015 07:28:31 PM IRDT
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	 * SoupMessage *soup_message_new(const char *method,
 	 * const char *uri_string);
 	*/	
-	msg = soup_message_new("GET", "http://127.0.0.1/");
+	msg = soup_message_new("GET", "http://www.google.com/");
 	
 	/*
 	 * GInputStream *soup_session_send(SoupSession *session,
@@ -52,9 +52,12 @@ int main(int argc, char *argv[])
 	*/
 	soup_session_send_message(session, msg);
 	
-	printf("%d\n", msg->status_code);
+	printf("%u\n", msg->status_code);
 	
 	buffer = soup_message_body_flatten(msg->response_body);
 	
 	printf("%s\n", buffer->data);
+	printf("%d\n", SOUP_STATUS_CANT_CONNECT);
+
+//	printf("%s\n", soup_message_headers_get_one(msg->request_headers, "Host"));
 }
