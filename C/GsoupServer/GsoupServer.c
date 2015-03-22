@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 22-03-2015
  *
- * [] Last Modified : Mon 23 Mar 2015 01:53:47 AM IRDT
+ * [] Last Modified : Mon 23 Mar 2015 02:00:03 AM IRDT
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -30,12 +30,12 @@ static void send_headers(SoupMessage *from, SoupMessage *to)
 	g_print("[%p] HTTP/1.%d %d %s\n", to,
 			soup_message_get_http_version(from),
 			from->status_code, from->reason_phrase);
-	
+
 	soup_message_set_status_full(to,
 			from->status_code, from->reason_phrase);
 	soup_message_headers_foreach(from->response_headers,
-			copy_header, to->response_headers);	
-	soup_message_headers_remove(to->response_headers, "Content-Length");	
+			copy_header, to->response_headers);
+	soup_message_headers_remove(to->response_headers, "Content-Length");
 	soup_server_unpause_message(server, to);
 }
 static void send_chunk(SoupMessage *from, SoupBuffer *chunk, SoupMessage *to)
@@ -50,7 +50,7 @@ static void send_chunk(SoupMessage *from, SoupBuffer *chunk, SoupMessage *to)
 static void finish_msg(SoupSession *session, SoupMessage *msg2, gpointer data)
 {
 	SoupMessage *msg = data;
-	
+
 	g_print("[%p] done\n\n", msg);
 	soup_message_body_complete(msg->response_body);
 	soup_server_unpause_message(server, msg);
@@ -76,8 +76,10 @@ static void http_callback(SoupServer *server, SoupMessage *msg,
 			msg2->request_headers);
 	soup_message_headers_remove(msg2->request_headers, "Host");
 	if (msg->request_body->length) {
-		SoupBuffer *request = soup_message_body_flatten (msg->request_body);
-		soup_message_body_append_buffer(msg2->request_body, request);
+		SoupBuffer *request =
+			soup_message_body_flatten(msg->request_body);
+		soup_message_body_append_buffer(msg2->request_body,
+				request);
 		soup_buffer_free(request);
 	}
 
