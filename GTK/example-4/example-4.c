@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 18-02-2015
  *
- * [] Last Modified : Wed 18 Feb 2015 10:56:10 PM IRST
+ * [] Last Modified : Tue 24 Mar 2015 01:03:12 AM IRDT
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 	GtkBuilder *builder;
 	GObject *window;
 	GObject *button;
+	GObject *menubar;
 
 	gtk_init(&argc, &argv);
 
@@ -41,6 +42,8 @@ int main(int argc, char *argv[])
 
 	button = gtk_builder_get_object(builder, "quit");
 	g_signal_connect_swapped(button, "clicked", G_CALLBACK(gtk_widget_destroy), window);
+
+	menubar = gtk_builder_get_object(builder, "menubar");
 
 	gtk_main();
 
