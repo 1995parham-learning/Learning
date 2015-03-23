@@ -1,47 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.18.3 
+
+- 
+Copyright (C) 
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+Author: Parham Alvani
+
+-->
 <interface>
-	<object id="window" class="GtkWindow">
-		<property name="visible">True</property>
-		<property name="resizable">False</property>
-		<property name="title">Parham Alvani</property>
-		<property name="border-width">10</property>
-    		<child>
-      			<object id="grid" class="GtkGrid">
-        			<property name="visible">True</property>
-        			<child>
-          				<object id="button1" class="GtkButton">
-            					<property name="visible">True</property>
-            					<property name="label">Button 1</property>
-						<property name="relief">GTK_RELIEF_NONE</property>
-          				</object>
-          				<packing>
-            					<property name="left-attach">0</property>
-            					<property name="top-attach">0</property>
-          				</packing>
-        			</child>
-				<child>
-					<object id="button2" class="GtkButton">
-				    		<property name="visible">True</property>
-				    		<property name="label">Button 2</property>
-				  	</object>
-				  	<packing>
-				    		<property name="left-attach">1</property>
-				    		<property name="top-attach">0</property>
-				  	</packing>
-				</child>
-        			<child>
-          				<object id="quit" class="GtkButton">
-            					<property name="visible">True</property>
-            					<property name="label">Quit</property>
-          				</object>
-          				<packing>
-            					<property name="left-attach">0</property>
-            					<property name="top-attach">1</property>
-            					<property name="width">2</property>
-          				</packing>
-        			</child>
-      			</object>
-      			<packing>
-      			</packing>
-    		</child>
-  	</object>
+  <requires lib="gtk+" version="3.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-authors Parham Alvani -->
+  <object class="GtkWindow" id="window">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="border_width">10</property>
+    <property name="title">Parham Alvani</property>
+    <property name="resizable">False</property>
+    <child>
+      <object class="GtkGrid" id="grid">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkButton" id="button1">
+            <property name="label">Button 1</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+            <property name="yalign">0.50999999046325684</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button2">
+            <property name="label">Button 2</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="quit">
+            <property name="label">Quit</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+            <property name="width">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
 </interface>
