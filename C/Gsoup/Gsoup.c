@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 22-02-2015
  *
- * [] Last Modified : Sun 22 Mar 2015 07:28:31 PM IRDT
+ * [] Last Modified : Tue 24 Mar 2015 12:51:22 PM IRDT
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
 	SoupMessage *msg;
 	SoupBuffer *buffer;
 
+	g_print("%d\n", soup_get_minor_version());
 
 	session = soup_session_new();
 	/*
