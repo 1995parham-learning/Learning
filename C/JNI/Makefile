@@ -28,6 +28,11 @@ $(P): $(OBJ)
 	$(CC) -shared -o $(P) $(OBJ) $(LDLIBS)
 HelloJNI.o: HelloJNI.h
 
+HelloJNI.class: HelloJNI.java
+	javac HelloJNI.java
+HelloJNI.h: HelloJNI.class
+	javah HelloJNI
+
 .PHONY: clean
 clean:
-	rm $(OBJ) $(P)
+	rm $(OBJ) $(P) HelloJNI.h HelloJNI.class
