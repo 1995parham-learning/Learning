@@ -8,10 +8,17 @@
 # =======================================
 __author__ = 'Parham Alvani'
 
-import sys;
+import sys
+
 
 def hello():
-	sys.stdout.write("Hello world\n")
-	sys.stderr.write("Bye Bye")
+    """
+    :return nothing but the bits
+    :argument nothing but the bits
+    """
+
+    sys.stdout.write("Hello world\n")
+    sys.stderr.write("Bye Bye\n")
+
 
 hello()

@@ -1,12 +1,8 @@
-#!/usr/bin/python
-#
 # In The Name Of God
 # ========================================
 # [] File Name : count-lines.py
 #
 # [] Creation Date : 21-01-2015
-#
-# [] Last Modified : Wed 21 Jan 2015 09:20:42 PM IRST
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
@@ -18,21 +14,21 @@ def count_lines(filename):
     Count the number of lines in file. If the file can't be
     opened, it should be treated the same as if it was empty
     """
-    file = None
+    ifile = None
     try:
-        file = open(filename, 'r')
-        lines = file.readlines()
-    except TypeError as e:
-        logging.error(e)
+        ifile = open(filename, 'r')
+        lines = ifile.readlines()
+    except TypeError as exp:
+        logging.error(exp)
         return 0
-    except EnvironmentError as e:
-        logging.error(e.args[1])
+    except EnvironmentError as exp:
+        logging.error(exp.args[1])
         return 0
-    except UnicodeDecodeError as e:
-        logging.error(e)
+    except UnicodeDecodeError as exp:
+        logging.error(exp)
         return 0
     else:
-        print(lines)
+        print lines
         return len(lines)
     finally:
         if file:
