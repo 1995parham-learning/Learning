@@ -7,3 +7,11 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 __author__ = 'Parham Alvani'
+
+import sys;
+
+def hello():
+	sys.stdout.write("Hello world\n")
+	sys.stderr.write("Bye Bye")
+
+hello()
