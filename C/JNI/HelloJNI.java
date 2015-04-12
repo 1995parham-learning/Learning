@@ -10,12 +10,14 @@ public class HelloJNI {
    	/*
     	* Declare a native method sayHello() that receives nothing and returns void
 	*/
-   	private native void sayHello();
+   	private native void sayHello(int number, int[] A);
 
 	/*
 	 * Test Driver
 	*/
    	public static void main(String[] args) {
-      		new HelloJNI().sayHello();
+		int number = 10;
+		int[] array = new int[10];
+      		new HelloJNI().sayHello(number, array);
    	}
 }
