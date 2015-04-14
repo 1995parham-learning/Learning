@@ -5,7 +5,7 @@
  *
  * [] Creation Date : 20-01-2015
  *
- * [] Last Modified : Tue 20 Jan 2015 12:26:33 PM IRST
+ * [] Last Modified : Tue 14 Apr 2015 10:13:24 AM IRDT
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -16,9 +16,12 @@
 static PyObject *hello_py(PyObject *self, PyObject *args)
 {
 	const char *name;
+
 	if (!PyArg_ParseTuple(args, "s", &name))
 		return NULL;
+	
 	int retval = printf("Hello Mr.%s\n", name);
+	
 	return Py_BuildValue("i", retval);
 }
 
