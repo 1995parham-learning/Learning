@@ -8,17 +8,32 @@
 # =======================================
 __author__ = 'Parham Alvani'
 
-import sys
+print("Hello world of python")
+print(1 + 1)
+print(1.0 + 1)
+parham = 1
+print(parham)
 
+a = ("Parham", "Navid", "Mohammad")
+b = (a, "Bahador")
+print(b)
+print(a.count("Parham"))
 
-def hello():
-    """
-    :return nothing but the bits
-    :argument nothing but the bits
-    """
+a = ["Parham", "Navid", "Mohammad"]
+b = [a, "Bahador"]
+print(b)
+b[0][0] = "Parham Alvani"
+print(a)
+a.sort()
+print(a)
 
-    sys.stdout.write("Hello world\n")
-    sys.stderr.write("Bye Bye\n")
+var = [10, 20, 30]
+c = (var, 10)
+print(c)
+var = var.append(40)
+print(c)
 
-
-hello()
+for name in a:
+    print(name)
+else:
+    print("While finish correctly")
