@@ -1,6 +1,6 @@
 # In The Name Of God
 # ========================================
-# [] File Name : fibonacci
+# [] File Name : fibo
 #
 # [] Creation Date : 17-04-2015
 #
@@ -9,14 +9,33 @@
 __author__ = 'Parham Alvani'
 
 
-def fibonacci(n):
-    if not isinstance(n, int):
-        return None
-    if n == 0 or n == 1:
-        return 1
-    return fibonacci(n - 1) + fibonacci(n - 2)
+class Fibonacci:
+    """
+    simple class for making fibonacci number with divide & conquer and
+     dynamic programming methods.
+    """
+
+    def __init__(self):
+        """
+        build fibo object for you
+        :return: nothing
+        """
+        self.list = list([0, 1])
+
+    def get_fibonacci(self, index):
+        """
+        :param index: fibonacci sequence number
+        :return: fibonacci at sequence number
+        :raise: TypeError if index not a integer
+        """
+        if not isinstance(index, int):
+            raise TypeError
+        if self.list.__len__() - 1 >= index:
+            return self.list[index]
+        else:
+            while self.list.__len__() - 1 < index:
+                self.list.append(self.list[-1] + self.list[-2])
+            return self.list[index]
 
 
-var = input("Please enter fibonacci sequence number ")
-var = int(var)
-print(fibonacci(var))
+print(Fibonacci().get_fibonacci(3))
