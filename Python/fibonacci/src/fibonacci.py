@@ -1,6 +1,6 @@
 # In The Name Of God
 # ========================================
-# [] File Name : fibo
+# [] File Name : fibonacci
 #
 # [] Creation Date : 17-04-2015
 #
@@ -17,7 +17,7 @@ class Fibonacci:
 
     def __init__(self):
         """
-        build fibo object for you
+        build fibonacci object for you
         :return: nothing
         """
         self.list = list([0, 1])
@@ -38,4 +38,12 @@ class Fibonacci:
             return self.list[index]
 
 
-print(Fibonacci().get_fibonacci(3))
+fibonacci = Fibonacci()
+var = input("Please enter fibonacci sequence number ")
+var = int(var)
+print(fibonacci.get_fibonacci(var))
+
+# Test string operations
+s = str("Hello world of %s" % "python")
+print(s)
+print(fibonacci.list)
