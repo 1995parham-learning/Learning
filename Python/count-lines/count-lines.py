@@ -8,12 +8,16 @@
 # =======================================
 import logging
 import sys
+import os
+import time
+
 
 def count_lines(filename):
     """
     Count the number of lines in file. If the file can't be
     opened, it should be treated the same as if it was empty
     """
+
     ifile = None
     try:
         ifile = open(filename, 'r')
@@ -21,21 +25,23 @@ def count_lines(filename):
     except TypeError as exp:
         logging.error(exp)
         return 0
-    except EnvironmentError as exp:
-        logging.error(exp.args[1])
+    except IOError as exp:
+        logging.error(exp)
         return 0
     except UnicodeDecodeError as exp:
         logging.error(exp)
         return 0
     else:
-        print lines
+        # print(lines)
         return len(lines)
     finally:
-        if file:
-            file.close()
+        if ifile:
+            ifile.close()
+
 
 i = 1
 while i < len(sys.argv):
-    print sys.argv[i]
-    count_lines(sys.argv[i])
-    i = i + 1
+    print(os.path.abspath(sys.argv[i]))
+    print(time.ctime(os.path.getctime(sys.argv[i])))
+    print(count_lines(sys.argv[i]))
+    i += 1
