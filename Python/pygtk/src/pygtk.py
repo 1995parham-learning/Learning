@@ -8,20 +8,17 @@
 # =======================================
 __author__ = 'Parham Alvani'
 
-import pygtk
-
-pygtk.require('2.0')
-import gtk
+from gi.repository import Gtk
 
 
 class Base:
     def __init__(self):
-        self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        self.window = Gtk.Window()
         self.window.show()
 
     @staticmethod
     def main():
-        gtk.main()
+        Gtk.main()
 
 
 print(__name__)
