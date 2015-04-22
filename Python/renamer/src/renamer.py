@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # In The Name Of God
 # ========================================
-# [] File Name : renamer
+# [] File Name : renamer.py
 #
 # [] Creation Date : 18-04-2015
 #
