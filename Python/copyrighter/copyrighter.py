@@ -59,7 +59,7 @@ def update_source_c(srcfile):
     :return: nothing
     """
     print("Updating %s\n" % srcfile)
-    file_header = c_header.replace("${filename}", srcfile)
+    file_header = c_header.replace("${filename}", os.path.split(srcfile)[1])
     file_date_header = file_header.replace("${date}", time.strftime("%d-%m-%Y"))
     file_data = open(srcfile, "r").read()
     file = open(srcfile, "w")
@@ -74,7 +74,7 @@ def update_source_py(srcfile):
     :return: nothing
     """
     print("Updating %s\n" % srcfile)
-    file_header = py_header.replace("${filename}", srcfile)
+    file_header = py_header.replace("${filename}", os.path.split(srcfile)[1])
     file_date_header = file_header.replace("${date}", time.strftime("%d-%m-%Y"))
     file_data = open(srcfile, "r").read()
     file = open(srcfile, "w")
@@ -89,7 +89,7 @@ def update_source_php(srcfile):
     :return: nothing
     """
     print("Updating %s\n" % srcfile)
-    file_header = php_header.replace("${filename}", srcfile)
+    file_header = php_header.replace("${filename}", os.path.split(srcfile)[1])
     time_file_header = file_header.replace("${time}", time.strftime("%H:%M"))
     time_file_date_header = time_file_header.replace("${date}", time.strftime("%d-%m-%Y"))
     file_data = open(srcfile, "r").read()
