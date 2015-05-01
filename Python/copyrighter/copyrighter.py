@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # In The Name Of God
 # ========================================
-# [] File Name : copyrighter
+# [] File Name : copyrighter.py
 #
 # [] Creation Date : 02-05-2015
 #
@@ -80,7 +80,11 @@ def update_source(srcfile):
     """
     options = {
         '.c': update_source_c,
-        '.h': update_source_c
+        '.h': update_source_c,
+        '.S': update_source_c,
+        '.s': update_source_c,
+        '.v': update_source_c,
+        '.py': update_source_py
     }
     if os.path.splitext(srcfile)[-1] in options:
         options[os.path.splitext(srcfile)[-1]](srcfile)
