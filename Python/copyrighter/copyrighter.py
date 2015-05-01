@@ -41,6 +41,16 @@ py_header = """# In The Name Of God
 __author__ = 'Parham Alvani'
 """
 
+php_header = """<?php
+/**
+ * In The Name Of God
+ * File: ${filename}
+ * User: Parham Alvani (parham.alvani@gmail.com)
+ * Date: ${date}
+ * Time: ${time}
+ */
+"""
+
 
 def update_source_c(srcfile):
     """
@@ -72,6 +82,22 @@ def update_source_py(srcfile):
     return
 
 
+def update_source_php(srcfile):
+    """
+
+    :param srcfile: name of target PHP source file
+    :return: nothing
+    """
+    print("Updating %s\n" % srcfile)
+    file_header = php_header.replace("${filename}", srcfile)
+    time_file_header = file_header.replace("${time}", time.strftime("%H:%M"))
+    time_file_date_header = time_file_header.replace("${date}", time.strftime("%d-%m-%Y"))
+    file_data = open(srcfile, "r").read()
+    file = open(srcfile, "w")
+    file.write(time_file_date_header + file_data)
+    return
+
+
 def update_source(srcfile):
     """
 
@@ -84,7 +110,8 @@ def update_source(srcfile):
         '.S': update_source_c,
         '.s': update_source_c,
         '.v': update_source_c,
-        '.py': update_source_py
+        '.py': update_source_py,
+        '.php': update_source_php
     }
     if os.path.splitext(srcfile)[-1] in options:
         options[os.path.splitext(srcfile)[-1]](srcfile)
