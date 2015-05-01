@@ -9,19 +9,18 @@
 # =======================================
 __author__ = 'Parham Alvani'
 
-# updates the copyright information for all .cs files
-# usage: call recursive_traversal, with the following parameters
-# parent directory, old copyright text content, new copyright text content
+# updates the copyright information for input files
 
 import sys
 import time
+import os
 
-header = """/*
+c_header = """/*
  * In The Name Of God
  * ========================================
  * [] File Name : ${filename}
  *
- * [] Creation Date : ${data}
+ * [] Creation Date : ${date}
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
@@ -31,17 +30,60 @@ header = """/*
 */
 """
 
+py_header = """# In The Name Of God
+# ========================================
+# [] File Name : ${filename}
+#
+# [] Creation Date : ${date}
+#
+# [] Created By : Parham Alvani (parham.alvani@gmail.com)
+# =======================================
+__author__ = 'Parham Alvani'
+"""
+
+
+def update_source_c(srcfile):
+    """
+
+    :param srcfile: name of target C source file
+    :return: nothing
+    """
+    print("Updating %s\n" % srcfile)
+    file_header = c_header.replace("${filename}", srcfile)
+    file_date_header = file_header.replace("${date}", time.strftime("%d-%m-%Y"))
+    file_data = open(srcfile, "r").read()
+    file = open(srcfile, "w")
+    file.write(file_date_header + file_data)
+    return
+
+
+def update_source_py(srcfile):
+    """
+
+    :param srcfile: name of target python source file
+    :return: nothing
+    """
+    print("Updating %s\n" % srcfile)
+    file_header = py_header.replace("${filename}", srcfile)
+    file_date_header = file_header.replace("${date}", time.strftime("%d-%m-%Y"))
+    file_data = open(srcfile, "r").read()
+    file = open(srcfile, "w")
+    file.write(file_date_header + file_data)
+    return
+
 
 def update_source(srcfile):
     """
 
     :param srcfile: name of target source file
-    :return:
+    :return: nothing
     """
-    file_header = header.replace("${filename}", srcfile)
-    file_date_header = file_header.replace("${data}", time.strftime("%d-%m-%Y"))
-    file = open(srcfile, "r+")
-    file.write(file_date_header)
+    options = {
+        '.c': update_source_c,
+        '.h': update_source_c
+    }
+    if os.path.splitext(srcfile)[-1] in options:
+        options[os.path.splitext(srcfile)[-1]](srcfile)
 
 
 while len(sys.argv) > 1:
