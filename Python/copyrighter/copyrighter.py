@@ -56,13 +56,15 @@ def header_parser(header: str, filename: str) -> str:
     """
 
     :param header: header for parsing
-    :param filename : filename for ${filename}
+    :param filename : filename for replacing ${filename} and ${path}
     :return: parsed version of input header
     """
-    file_header = header.replace("${filename}", filename)
-    time_file_header = file_header.replace("${time}", time.strftime("%H:%M"))
-    time_file_date_header = time_file_header.replace("${date}", time.strftime("%d-%m-%Y"))
-    return time_file_date_header
+    new_header = str(header)
+    new_header = new_header.replace("${filename}", os.path.split(filename)[1])
+    new_header = new_header.replace("${path}", filename)
+    new_header = new_header.replace("${time}", time.strftime("%H:%M"))
+    new_header = new_header.replace("${date}", time.strftime("%d-%m-%Y"))
+    return new_header
 
 
 def update_source(srcfile):
@@ -82,8 +84,8 @@ def update_source(srcfile):
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
-        print("Updating %s\n" % srcfile)
-        header = header_parser(header, os.path.split(srcfile)[1])
+        print("Updating %s" % srcfile)
+        header = header_parser(header, srcfile)
         file_data = open(srcfile, "r").read()
         file = open(srcfile, "w")
         file.write(header + file_data)
@@ -109,6 +111,6 @@ if args.type == 'file':
         py_header = args.py_file.read()
 
 while len(args.files) > 0:
-    filename = args.files.pop()
-    update_source(filename)
+    filepath = args.files.pop()
+    update_source(filepath)
 exit()
