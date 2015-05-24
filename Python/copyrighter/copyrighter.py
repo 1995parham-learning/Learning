@@ -68,7 +68,7 @@ def header_parser(header: str, filename: str) -> str:
     return new_header
 
 
-def update_source(srcfile):
+def update_source(srcfile: str):
     """
 
     :param srcfile: name of target source file
