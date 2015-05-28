@@ -80,6 +80,7 @@ def update_source(srcfile: str):
         '.S': c_header,
         '.s': c_header,
         '.v': c_header,
+        '.go': c_header,
         '.py': py_header,
         '.php': php_header
     }
