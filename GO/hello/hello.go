@@ -13,16 +13,50 @@
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /* with type */
 const M64 int64 = 1 << 20
 /* without type */
 const M = 1 << 20
 
+/* */
+type Point struct {
+	x int
+	y int
+}
+
+func (p Point) ToString() string {
+	return fmt.Sprintf("%d %d", p.x, p.y)
+}
+
+type Stringer interface {
+	ToString() string
+}
+
+func whileTrue() {
+	i := 0
+	for {
+		i++
+		fmt.Println(i)
+	}
+}
+
 func main() {
 	fmt.Println("hello world\n")
-	var s, t string = "foo", "bar"
+	var s, t string = "foo", "bar" 
+	var p1 Point
+	p1.x = 10
+	p1.y = 20
 	fmt.Println(M)
 	fmt.Println(s + t)
+	fmt.Println(p1.ToString())
+	var p2 Stringer
+	p2 = Point {2, 3}
+	fmt.Println(p2)
+	
+	/* the go statement launches a function call as goroutine */
+	go whileTrue()
 }
