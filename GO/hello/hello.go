@@ -59,6 +59,11 @@ func main() {
 	p2 = Point{2, 3}
 	fmt.Println(p2)
 
+	var lst []int
+	lst = append(lst, 10)
+	lst = append(lst, 20)
+	fmt.Println(lst)
+
 	/* channel is lock that can store value */
 	ch = make(chan int, 1)
 
