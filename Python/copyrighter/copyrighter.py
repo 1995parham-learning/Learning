@@ -68,7 +68,7 @@ def header_parser(header: str, filename: str) -> str:
     return new_header
 
 
-def update_source(srcfile: str):
+def update_source(srcfile: str) -> None:
     """
 
     :param srcfile: name of target source file
@@ -94,13 +94,13 @@ def update_source(srcfile: str):
         return
 
 
-parser = argparse.ArgumentParser(description="Header adder program")
-parser.add_argument('files', metavar='F', type=str, nargs='+', help='target files')
+parser = argparse.ArgumentParser(description="Copyright header adder script")
+parser.add_argument('files', metavar='F', type=str, nargs='+', help='Target files')
 parser.add_argument('--type', dest='type', choices=['default', 'file', 'manual'], default="default",
-                    help='select type of headers sources')
-parser.add_argument('--c-header', dest='c_file', type=argparse.FileType('r'), help='C header files source')
-parser.add_argument('--py-header', dest='py_file', type=argparse.FileType('r'), help='Python header files source')
-parser.add_argument('--php-header', dest='php_file', type=argparse.FileType('r'), help='PHP header files source')
+                    help='Select type of headers sources')
+parser.add_argument('--c-header', dest='c_file', type=argparse.FileType('r'), help='C-header source file')
+parser.add_argument('--py-header', dest='py_file', type=argparse.FileType('r'), help='Python-header source file')
+parser.add_argument('--php-header', dest='php_file', type=argparse.FileType('r'), help='PHP-header source file')
 
 args = parser.parse_args()
 
