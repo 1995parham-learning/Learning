@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # In The Name Of God
 # ========================================
 # [] File Name : renamer.py
@@ -24,16 +24,15 @@ class Rename(cmd.Cmd):
         super(Rename, self).__init__()
         self.path = '.'
         self.mode = 'pictures'
+        self.sc = 1
         self.intro = "{0:*^80}\n{1:=^80}\n".format("Welcome", "Renamer program for organizing pictures and tv series")
-        self.prompt = "Renamer> [{0}] ".format(self.mode)
-        if termcolor:
-            self.prompt = termcolor.colored(self.prompt, color="red")
 
     def do_rename(self, line: str):
         print("{0:=^80}".format("Renaming start"))
         if self.mode == 'pictures':
             print("Mode: {0:<80}".format(self.mode))
             print("Path: {0:<80}".format(self.path))
+            print("Sequence Counter: {0:<80}".format(self.sc))
             index = 1
             for file in sorted(os.listdir(self.path)):
                 extension = os.path.splitext(file)[1]
@@ -42,6 +41,8 @@ class Rename(cmd.Cmd):
                     index += 1
                     shutil.move(file, name)
                     print("mv {0} {1}".format(file, name))
+        if self.mode == 'tv-series':
+            pass
         print("{0:=^80}".format("Renaming end"))
 
     def do_shell(self, line: str):
@@ -57,6 +58,13 @@ class Rename(cmd.Cmd):
             self.mode = 'tv-series'
         else:
             print("*** Unknown mode: {0}".format(line))
+
+    @property
+    def prompt(self):
+        prompt = "Renamer> [{0}] ".format(self.mode)
+        if termcolor:
+            prompt = termcolor.colored(prompt, color="red")
+        return prompt
 
     do_EOF = do_quit
 
