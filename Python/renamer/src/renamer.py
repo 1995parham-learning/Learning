@@ -44,13 +44,13 @@ class Rename(cmd.Cmd):
                     print("mv {0} {1}".format(file, name))
 
         if self.mode == 'tv-series':
-            name = input("TV-Series Name: ")
+            series = input("TV-Series Name: ")
             season = input("TV-Series Season#: ")
             index = self.sc
             for file in sorted(os.listdir(self.path)):
                 extension = os.path.splitext(file)[1]
                 if extension.lower() == ".mkv":
-                    name = "Episode {0}/{1} S{2}E{0}.mkv".format(index, name, season)
+                    name = "Episode {0}/{1} S{2:0>2}E{0:0>2}.mkv".format(index, series, season)
                     os.mkdir("Episode {0}".format(index))
                     index += 1
                     shutil.move(file, name)
