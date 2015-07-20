@@ -25,7 +25,14 @@ class Rename(cmd.Cmd):
         self.path = '.'
         self.mode = 'pictures'
         self.sc = 1
-        self.intro = "{0:*^80}\n{1:=^80}\n".format("Welcome", "Renamer program for organizing pictures and tv series")
+        self.intro = """
+{0:*^80}
+{1:=^80}
+Renamer version 2.1, Copyright (C) 2015 Parham Alvani (parham.alvani@gmail.com)
+Renamer comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type `show c' for details.
+""".format("Welcome", "Renamer program for organizing pictures and tv series")
 
     def do_rename(self, line: str):
         print("{0:=^80}".format("Renaming start"))
@@ -62,7 +69,7 @@ class Rename(cmd.Cmd):
         os.system(line)
 
     def do_quit(self, line: str):
-        print("Thank you for using renamer")
+        print("Thank you for using Renamer")
         return True
 
     def do_mode(self, line: str):
