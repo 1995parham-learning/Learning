@@ -86,6 +86,13 @@ under certain conditions; type `show c' for details.
         else:
             print("*** Invalid path: {0}".format(line))
 
+    def do_sc(self, line: str):
+        try:
+            self.sc = int(line)
+        except ValueError as e:
+            self.sc = 1
+            print("*** Invalid number: {0}".format(str(e)))
+
     @property
     def prompt(self):
         prompt = "Renamer at {0} > [{1}] ".format(self.path, self.mode)
