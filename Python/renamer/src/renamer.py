@@ -40,8 +40,8 @@ class Rename(cmd.Cmd):
                 if extension.lower() == ".jpg":
                     name = "{0}.jpg".format(index)
                     index += 1
-                    shutil.move(file, name)
-                    print("mv {0} {1}".format(file, name))
+                    shutil.move(os.path.join(self.path, file), os.path.join(self.path, name))
+                    print("mv {0} {1}".format(os.path.join(self.path, file), os.path.join(self.path, name)))
 
         if self.mode == 'tv-series':
             series = input("TV-Series Name: ")
@@ -51,10 +51,10 @@ class Rename(cmd.Cmd):
                 extension = os.path.splitext(file)[1]
                 if extension.lower() == ".mkv":
                     name = "Episode {0}/{1} S{2:0>2}E{0:0>2}.mkv".format(index, series, season)
-                    os.mkdir("Episode {0}".format(index))
+                    os.mkdir(os.path.join(self.path, "Episode {0}".format(index)))
                     index += 1
-                    shutil.move(file, name)
-                    print("mv {0} {1}".format(file, name))
+                    shutil.move(os.path.join(self.path, file), os.path.join(self.path, name))
+                    print("mv {0} {1}".format(os.path.join(self.path, file), os.path.join(self.path, name)))
 
         print("{0:=^80}".format("Renaming end"))
 
@@ -62,6 +62,7 @@ class Rename(cmd.Cmd):
         os.system(line)
 
     def do_quit(self, line: str):
+        print("Thank you for using renamer")
         return True
 
     def do_mode(self, line: str):
