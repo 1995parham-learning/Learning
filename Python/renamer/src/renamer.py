@@ -29,11 +29,12 @@ class Rename(cmd.Cmd):
 
     def do_rename(self, line: str):
         print("{0:=^80}".format("Renaming start"))
+        print("Mode: {0:<80}".format(self.mode))
+        print("Path: {0:<80}".format(self.path))
+        print("Sequence Counter: {0:<80}".format(self.sc))
+
         if self.mode == 'pictures':
-            print("Mode: {0:<80}".format(self.mode))
-            print("Path: {0:<80}".format(self.path))
-            print("Sequence Counter: {0:<80}".format(self.sc))
-            index = 1
+            index = self.sc
             for file in sorted(os.listdir(self.path)):
                 extension = os.path.splitext(file)[1]
                 if extension.lower() == ".jpg":
@@ -41,8 +42,20 @@ class Rename(cmd.Cmd):
                     index += 1
                     shutil.move(file, name)
                     print("mv {0} {1}".format(file, name))
+
         if self.mode == 'tv-series':
-            pass
+            name = input("TV-Series Name: ")
+            season = input("TV-Series Season#: ")
+            index = self.sc
+            for file in sorted(os.listdir(self.path)):
+                extension = os.path.splitext(file)[1]
+                if extension.lower() == ".mkv":
+                    name = "Episode {0}/{1} S{2}E{0}.mkv".format(index, name, season)
+                    os.mkdir("Episode {0}".format(index))
+                    index += 1
+                    shutil.move(file, name)
+                    print("mv {0} {1}".format(file, name))
+
         print("{0:=^80}".format("Renaming end"))
 
     def do_shell(self, line: str):
@@ -59,11 +72,17 @@ class Rename(cmd.Cmd):
         else:
             print("*** Unknown mode: {0}".format(line))
 
+    def do_path(self, line: str):
+        if os.path.isdir(line):
+            self.path = line
+        else:
+            print("*** Invalid path: {0}".format(line))
+
     @property
     def prompt(self):
-        prompt = "Renamer> [{0}] ".format(self.mode)
+        prompt = "Renamer at {0} > [{1}] ".format(self.path, self.mode)
         if termcolor:
-            prompt = termcolor.colored(prompt, color="red")
+            prompt = termcolor.colored(prompt, color="red", attrs=['bold'])
         return prompt
 
     do_EOF = do_quit
