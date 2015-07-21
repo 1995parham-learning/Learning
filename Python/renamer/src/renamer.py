@@ -12,6 +12,7 @@ __author__ = 'Parham Alvani'
 import os
 import shutil
 import cmd
+import imghdr
 
 try:
     import termcolor
@@ -43,9 +44,12 @@ under certain conditions; type `show c' for details.
         if self.mode == 'pictures':
             index = self.sc
             for file in sorted(os.listdir(self.path)):
-                extension = os.path.splitext(file)[1]
-                if extension.lower() == ".jpg":
-                    name = "{0}.jpg".format(index)
+                if not os.path.isdir(file):
+                    extension = imghdr.what(file)
+                else:
+                    extension = None
+                if extension:
+                    name = "{0}.{1}".format(index, extension)
                     index += 1
                     shutil.move(os.path.join(self.path, file), os.path.join(self.path, name))
                     print("mv {0} {1}".format(os.path.join(self.path, file), os.path.join(self.path, name)))
