@@ -51,6 +51,11 @@ under certain conditions; type `show c' for details.
                 if extension:
                     name = "{0}.{1}".format(index, extension)
                     index += 1
+                    if os.path.exists(os.path.join(self.path, name)):
+                        result = input(
+                            "{0} is exists, do you wish to continue ? (Yes / No)".format(os.path.join(self.path, name)))
+                        if result != 'Yes':
+                            break
                     shutil.move(os.path.join(self.path, file), os.path.join(self.path, name))
                     print("mv {0} {1}".format(os.path.join(self.path, file), os.path.join(self.path, name)))
 
