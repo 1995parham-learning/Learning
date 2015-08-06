@@ -12,7 +12,6 @@ __author__ = 'Parham Alvani'
 import argparse
 import os
 
-
 parser = argparse.ArgumentParser(description="simple script to create simple C & assembly project structure")
 parser.add_argument('projects', metavar='P', type=str, nargs='+',
                     help='Project names')
