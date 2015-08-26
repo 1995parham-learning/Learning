@@ -22,11 +22,11 @@ c_header = """/*
  *
  * [] Creation Date : ${DATE}
  *
- * [] Created By : Parham Alvani (parham.alvani@gmail.com)
+ * [] Created By : ${USER} (${EMAIL})
  * =======================================
 */
 /*
- * Copyright (c) ${YEAR} Parham Alvani.
+ * Copyright (c) ${YEAR} ${USER}.
 */
 """
 
@@ -36,20 +36,44 @@ py_header = """# In The Name Of God
 #
 # [] Creation Date : ${DATE}
 #
-# [] Created By : Parham Alvani (parham.alvani@gmail.com)
+# [] Created By : ${USER} (${EMAIL})
 # =======================================
-__author__ = 'Parham Alvani'
+__author__ = '$[USER}'
 """
 
 php_header = """<?php
 /**
  * In The Name Of God
  * File: ${FILE}
- * User: Parham Alvani (parham.alvani@gmail.com)
+ * User: ${USER} (${EMAIL})
  * Date: ${DATE}
  * Time: ${TIME}
  */
 """
+
+java_header = """/*
+ * In The Name Of God
+ * ========================================
+ * [] File Name : ${FILE}
+ *
+ * [] Creation Date : ${DATE}
+ *
+ * [] Created By : ${USER} (${EMAIL})
+ * =======================================
+*/
+/**
+ * @author ${USER}
+ */
+"""
+
+
+class Config:
+    def __init__(self):
+        self.user = ""
+        self.email = ""
+
+
+config = Config()
 
 
 def header_parser(header: str, filename: str) -> str:
@@ -65,6 +89,8 @@ def header_parser(header: str, filename: str) -> str:
     new_header = new_header.replace("${TIME}", time.strftime("%H:%M"))
     new_header = new_header.replace("${DATE}", time.strftime("%d-%m-%Y"))
     new_header = new_header.replace("${YEAR}", time.strftime("%Y"))
+    new_header = new_header.replace("${USER}", config.user)
+    new_header = new_header.replace("${EMAIL}", config.email)
     return new_header
 
 
@@ -98,11 +124,16 @@ parser = argparse.ArgumentParser(description="Copyright header adder script")
 parser.add_argument('files', metavar='F', type=str, nargs='+', help='Target files')
 parser.add_argument('--type', dest='type', choices=['default', 'file', 'manual'], default="default",
                     help='Select type of headers sources')
+parser.add_argument('--user', dest='user', type=str, default='Parham Alvani')
+parser.add_argument('--email', dest='email', type=str, default='parham.alvani@gmail.com')
 parser.add_argument('--c-header', dest='c_file', type=argparse.FileType('r'), help='C-header source file')
 parser.add_argument('--py-header', dest='py_file', type=argparse.FileType('r'), help='Python-header source file')
 parser.add_argument('--php-header', dest='php_file', type=argparse.FileType('r'), help='PHP-header source file')
 
 args = parser.parse_args()
+
+config.email = args.email
+config.user = args.user
 
 if args.type == 'file':
     if args.c_file is not None:
