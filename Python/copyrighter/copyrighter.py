@@ -108,7 +108,8 @@ def update_source(srcfile: str) -> None:
         '.v': c_header,
         '.go': c_header,
         '.py': py_header,
-        '.php': php_header
+        '.php': php_header,
+        '.java': java_header,
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
