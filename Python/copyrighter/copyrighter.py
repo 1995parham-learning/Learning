@@ -66,6 +66,14 @@ java_header = """/*
  */
 """
 
+vhdl_header = """--------------------------------------------------------------------------------
+-- Author:        ${USER} (${EMAIL})
+--
+-- Create Date:   ${DATE}
+-- Module Name:   ${FILE}
+--------------------------------------------------------------------------------
+"""
+
 
 class Config:
     def __init__(self):
@@ -110,6 +118,7 @@ def update_source(srcfile: str) -> None:
         '.py': py_header,
         '.php': php_header,
         '.java': java_header,
+        '.vhd': vhdl_header,
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
