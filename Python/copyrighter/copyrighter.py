@@ -79,6 +79,13 @@ __author__ = '$[USER}'
 --------------------------------------------------------------------------------
 """
 
+        self.spice_header = """**
+* Author: ${USER} (${EMAIL})
+* Create Date: ${DATE}
+* File Name: ${FILE}
+**
+"""
+
 
 config = Config()
 
@@ -118,6 +125,7 @@ def update_source(srcfile: str) -> None:
         '.php': config.php_header,
         '.java': config.java_header,
         '.vhd': config.vhdl_header,
+        '.sp': config.spice_header,
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
