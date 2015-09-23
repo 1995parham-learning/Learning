@@ -17,6 +17,7 @@ import argparse
 
 
 class Config:
+
     def __init__(self):
         self.user = ""
         self.email = ""
@@ -138,16 +139,52 @@ def update_source(srcfile: str) -> None:
 
 
 parser = argparse.ArgumentParser(description="Copyright header adder script")
-parser.add_argument('files', metavar='F', type=str, nargs='+', help='Target files')
-parser.add_argument('--type', dest='type', choices=['default', 'file', 'manual'], default="default",
-                    help='Select type of headers sources')
+parser.add_argument(
+    'files',
+    metavar='F',
+    type=str,
+    nargs='+',
+    help='Target files')
+parser.add_argument(
+    '--type',
+    dest='type',
+    choices=[
+        'default',
+        'file',
+        'manual'],
+    default="default",
+    help='Select type of headers sources')
 parser.add_argument('--user', dest='user', type=str, default='Parham Alvani')
-parser.add_argument('--email', dest='email', type=str, default='parham.alvani@gmail.com')
-parser.add_argument('--c-header', dest='c_file', type=argparse.FileType('r'), help='C-header source file')
-parser.add_argument('--py-header', dest='py_file', type=argparse.FileType('r'), help='Python-header source file')
-parser.add_argument('--php-header', dest='php_file', type=argparse.FileType('r'), help='PHP-header source file')
-parser.add_argument('--java-header', dest='java_file', type=argparse.FileType('r'), help='Java-header source file')
-parser.add_argument('--vhdl-header', dest='vhdl_file', type=argparse.FileType('r'), help='VHDL-header source file')
+parser.add_argument(
+    '--email',
+    dest='email',
+    type=str,
+    default='parham.alvani@gmail.com')
+parser.add_argument(
+    '--c-header',
+    dest='c_file',
+    type=argparse.FileType('r'),
+    help='C-header source file')
+parser.add_argument(
+    '--py-header',
+    dest='py_file',
+    type=argparse.FileType('r'),
+    help='Python-header source file')
+parser.add_argument(
+    '--php-header',
+    dest='php_file',
+    type=argparse.FileType('r'),
+    help='PHP-header source file')
+parser.add_argument(
+    '--java-header',
+    dest='java_file',
+    type=argparse.FileType('r'),
+    help='Java-header source file')
+parser.add_argument(
+    '--vhdl-header',
+    dest='vhdl_file',
+    type=argparse.FileType('r'),
+    help='VHDL-header source file')
 
 args = parser.parse_args()
 
