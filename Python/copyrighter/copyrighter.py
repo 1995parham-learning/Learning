@@ -127,6 +127,7 @@ def update_source(srcfile: str, str_based: bool) -> None:
         '.java': config.java_header,
         '.vhd': config.vhdl_header,
         '.sp': config.spice_header,
+        '.js': config.c_header,
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
