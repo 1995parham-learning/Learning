@@ -109,7 +109,7 @@ def header_parser(header: str, filename: str) -> str:
     return new_header
 
 
-def update_source(srcfile: str) -> None:
+def update_source(srcfile: str, str_based: bool) -> None:
     """
 
     :param srcfile: name of target source file
@@ -130,11 +130,14 @@ def update_source(srcfile: str) -> None:
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
-        print("Updating %s" % srcfile)
         header = header_parser(header, srcfile)
-        file_data = open(srcfile, "r").read()
-        file = open(srcfile, "w")
-        file.write(header + file_data)
+        if not str_based:
+            print("Updating %s" % srcfile)
+            file_data = open(srcfile, "r").read()
+            file = open(srcfile, "w")
+            file.write(header + file_data)
+        else:
+            print(header)
         return
 
 
@@ -160,6 +163,7 @@ parser.add_argument(
     dest='email',
     type=str,
     default='parham.alvani@gmail.com')
+parser.add_argument('--string', dest='str_based', type=bool, default='false')
 parser.add_argument(
     '--c-header',
     dest='c_file',
@@ -205,5 +209,5 @@ if args.type == 'file':
 
 while len(args.files) > 0:
     filepath = args.files.pop()
-    update_source(filepath)
+    update_source(filepath, args.str_based)
 exit()
