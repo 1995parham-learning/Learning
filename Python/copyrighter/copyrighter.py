@@ -164,7 +164,11 @@ parser.add_argument(
     dest='email',
     type=str,
     default='parham.alvani@gmail.com')
-parser.add_argument('--string', dest='str_based', type=bool, default='false')
+parser.add_argument(
+    '--string',
+    dest='str_based',
+    action='store_true',
+    default=False)
 parser.add_argument(
     '--c-header',
     dest='c_file',
