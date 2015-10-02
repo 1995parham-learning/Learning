@@ -1,0 +1,7 @@
+(define fnd (lambda (x y)
+	      (cond ((eq? y `()) `())
+		    ((eq? x (car y)) x)
+		    (#t (fnd x (cdr y)))
+	       )
+	      )
+  )
