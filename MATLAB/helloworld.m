@@ -1,0 +1,15 @@
+disp ('hello world');
+var1 = 3.14;
+var1 = 3.14;
+var = 3.14;
+mystring = 'hello';
+a = 10;
+b = 13 / 3 ;
+row = [ 1 2 3.2 4 ];
+col = [ 1; 2; -6; 4];
+size(row);
+size(col);
+length(row);
+length(col);
+mat = [ 1 2 ; 3 4 ];
+str = ['hello, i am ','elahe'];
