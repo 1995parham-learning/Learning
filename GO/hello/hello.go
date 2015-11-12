@@ -23,6 +23,7 @@ const M64 int64 = 1 << 20
 /* without type */
 const M = 1 << 20
 
+/* Create integer channel :) */
 var ch chan int
 
 /* Point is public but point is private */
@@ -64,7 +65,7 @@ func main() {
 	lst = append(lst, 20)
 	fmt.Println(lst)
 
-	/* channel is lock that can store value */
+	/* channel is semaphore that can store value */
 	ch = make(chan int, 1)
 
 	/* the go statement launches a function call as goroutine */
