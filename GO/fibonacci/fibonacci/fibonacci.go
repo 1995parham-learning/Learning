@@ -11,19 +11,11 @@
 /*
  * Copyright (c) 2015 Parham Alvani.
  */
-package main
-
-import (
-	"fmt"
-)
+package fibonacci
 
 func Fibonacci(n int) int {
 	if n == 0 || n == 1 {
 		return 1
 	}
 	return Fibonacci(n-1) + Fibonacci(n-2)
-}
-
-func main() {
-	fmt.Println(Fibonacci(8))
 }
