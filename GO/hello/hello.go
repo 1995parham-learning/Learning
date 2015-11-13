@@ -32,7 +32,12 @@ type Point struct {
 	y int
 }
 
-func (p Point) ToString() string {
+/*
+ * This interface implementation works on Point * so
+ * Stringer mapped to Point * :)
+ */
+func (p *Point) ToString() string {
+	p.x = p.x * 2
 	return fmt.Sprintf("%d %d", p.x, p.y)
 }
 
@@ -50,14 +55,17 @@ func whileTrue() {
 func main() {
 	fmt.Println("hello world\n")
 	var s, t string = "foo", "bar"
+
 	var p1 Point
 	p1.x = 10
 	p1.y = 20
 	fmt.Println(M)
 	fmt.Println(s + t)
 	fmt.Println(p1.ToString())
+	fmt.Printf("%d %d\n", p1.x, p1.y)
+
 	var p2 Stringer
-	p2 = Point{2, 3}
+	p2 = &(Point{2, 3})
 	fmt.Println(p2)
 
 	var lst []int
