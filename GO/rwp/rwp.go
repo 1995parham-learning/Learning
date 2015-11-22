@@ -32,30 +32,36 @@ func reader(id int) {
 		value = <-buffer
 		fmt.Printf("Reader %d: %d\n", id, value)
 		buffer <- value
+		if value >= max_value {
+			end <- true
+			return
+		}
 	}
 }
 
 func writer() {
 	for {
-		time.Sleep(15)
 		var value int
 		value = <-buffer
 		value++
-		if value >= max_value {
-			end <- true
-		}
 		fmt.Printf("Writer: %d\n", value)
 		buffer <- value
+		if value >= max_value {
+			end <- true
+			return
+		}
 	}
 }
 
 func main() {
 	buffer = make(chan int, 1)
-	end = make(chan bool, 1)
+	end = make(chan bool, reader_count+1)
 	buffer <- 0
 	for id := 0; id < reader_count; id++ {
 		go reader(id)
 	}
 	go writer()
-	<-end
+	for len(end) < reader_count+1 {
+		time.Sleep(100)
+	}
 }
