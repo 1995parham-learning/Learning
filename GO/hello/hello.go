@@ -53,6 +53,10 @@ func whileTrue() {
 }
 
 func main() {
+	str := `
+	Hello world of GoLang :)
+	`
+	fmt.Println(str)
 	fmt.Println("hello world\n")
 	var s, t string = "foo", "bar"
 
