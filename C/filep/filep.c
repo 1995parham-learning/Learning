@@ -15,10 +15,13 @@
 
 FILE *my_open(const char *name)
 {
-	return fopen(name, "r");
+	return fopen(name, "r+");
 }
 
 int main(int argc, char *argv[])
 {
-	my_open("filep.c");
+	FILE *fp = my_open("filep.c");
+	fgetc(fp);
+	printf("fgetc(): %d\n", fp->_r);
+	printf("fputc(): %d\n", fp->_w);
 }
