@@ -15,7 +15,11 @@
 package main
 
 import (
-	"github.com/kandoo/beehive"
+	bh "github.com/kandoo/beehive"
+)
+
+const (
+	helloDict = "HelloDictionary"
 )
 
 // Hello represents a message in our hello world example.
@@ -24,14 +28,14 @@ type Hello struct {
 }
 
 // Rcvf receives the message and the context.
-func Rcvf(msg beehive.Msg, ctx beehive.RcvContext) error {
+func rcvf(msg bh.Msg, ctx bh.RcvContext) error {
 	// msg is an envelope around the Hello message.
 	// You can retrieve the Hello, using msg.Data() and then
 	// you need to assert that its a Hello.
 	hello := msg.Data().(Hello)
 
 	// Using ctx.Dict you can get (or create) a dictionary.
-	dict := ctx.Dict("hello_dict")
+	dict := ctx.Dict(helloDict)
 
 	// Using Get(), you can get the value associated with
 	// a key in the dictionary. Keys are always string
@@ -57,20 +61,24 @@ func Rcvf(msg beehive.Msg, ctx beehive.RcvContext) error {
 	return dict.Put(hello.Name, cnt)
 }
 
+func mapf(msg bh.Msg, ctx bh.MapContext) bh.MappedCells {
+	return bh.MappedCells{{helloDict, msg.Data().(Hello).Name}}
+}
+
 func main() {
 	// Create the hello world application and make sure .
-	app := beehive.NewApp("hello-world", beehive.Persistent(1))
+	app := bh.NewApp("hello-world", bh.Persistent(2))
 
 	// Register the handler for Hello messages.
-	app.HandleFunc(Hello{}, beehive.RuntimeMap(Rcvf), Rcvf)
+	app.HandleFunc(Hello{}, mapf, rcvf)
 
 	// Emit simply emits a message, here a
 	// string of your name.
-	go beehive.Emit(Hello{Name: "your name"})
+	go bh.Emit(Hello{Name: "Parham Alvani"})
 
 	// Emit another message with the same name
 	// to test the counting feature.
-	go beehive.Emit(Hello{Name: "your name"})
+	go bh.Emit(Hello{Name: "Parham Alvani"})
 
-	beehive.Start()
+	bh.Start()
 }
