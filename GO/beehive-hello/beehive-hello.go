@@ -27,8 +27,13 @@ type Hello struct {
 	Name string // Name is the name of the person saying hello.
 }
 
+// Broad represents a broadcast message in our hello world example.
+type Broad struct {
+	ID int // ID is the id of the broadcast message
+}
+
 // Rcvf receives the message and the context.
-func rcvf(msg bh.Msg, ctx bh.RcvContext) error {
+func hrcvf(msg bh.Msg, ctx bh.RcvContext) error {
 	// msg is an envelope around the Hello message.
 	// You can retrieve the Hello, using msg.Data() and then
 	// you need to assert that its a Hello.
@@ -61,8 +66,17 @@ func rcvf(msg bh.Msg, ctx bh.RcvContext) error {
 	return dict.Put(hello.Name, cnt)
 }
 
-func mapf(msg bh.Msg, ctx bh.MapContext) bh.MappedCells {
+func hmapf(msg bh.Msg, ctx bh.MapContext) bh.MappedCells {
 	return bh.MappedCells{{helloDict, msg.Data().(Hello).Name}}
+}
+
+func brcvf(msg bh.Msg, ctx bh.RcvContext) error {
+	ctx.Printf("broad message %d was recieved\n", msg.Data().(Broad).ID)
+	return nil
+}
+
+func bmapf(msg bh.Msg, ctx bh.MapContext) bh.MappedCells {
+	return bh.MappedCells{{}}
 }
 
 func main() {
@@ -70,15 +84,16 @@ func main() {
 	app := bh.NewApp("hello-world", bh.Persistent(2))
 
 	// Register the handler for Hello messages.
-	app.HandleFunc(Hello{}, mapf, rcvf)
+	app.HandleFunc(Hello{}, hmapf, hrcvf)
 
-	// Emit simply emits a message, here a
-	// string of your name.
+	// Register the handler for broad messages.
+	app.HandleFunc(Broad{}, bmapf, brcvf)
+
 	go bh.Emit(Hello{Name: "Parham Alvani"})
 
-	// Emit another message with the same name
-	// to test the counting feature.
-	go bh.Emit(Hello{Name: "Parham Alvani"})
+	go bh.Emit(Hello{Name: "HamidReza Alvani"})
+
+	go bh.Emit(Broad{ID: 1})
 
 	bh.Start()
 }
