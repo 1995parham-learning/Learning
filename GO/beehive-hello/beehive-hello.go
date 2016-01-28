@@ -71,7 +71,7 @@ func hmapf(msg bh.Msg, ctx bh.MapContext) bh.MappedCells {
 }
 
 func brcvf(msg bh.Msg, ctx bh.RcvContext) error {
-	ctx.Printf("broad message %d was recieved\n", msg.Data().(Broad).ID)
+	ctx.Printf("broad[%v] message %d was recieved\n", msg.IsBroadCast(), msg.Data().(Broad).ID)
 	return nil
 }
 
