@@ -4,12 +4,12 @@
 -- Create Date:   08-02-2016
 -- Module Name:   halfaddr.vhd
 --------------------------------------------------------------------------------
-use IEEE;
-library IEEE.std_logic_1164.all
+library IEEE;
+use IEEE.std_logic_1164.all;
 
 entity halfaddr is
-	port(a b : in std_logic;
-		sum c_out : out std_logic);
+	port(a, b : in std_logic;
+		sum, c_out : out std_logic);
 end entity halfaddr;
 
 architecture arch_halfaddr of halfaddr is
