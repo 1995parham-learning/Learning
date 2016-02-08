@@ -1,7 +1,7 @@
 (*
  * In The Name Of God
  * ========================================
- * [] File Name : List.sml
+ * [] File Name : swap.sml
  *
  * [] Creation Date : 04-10-2015
  *
@@ -11,8 +11,4 @@
 (*
  * Copyright (c) 2015 Parham Alvani.
 *)
-val l1 = [1, 2, 3];
-val l2 = 1::2::3::nil;
-(* `a :: `a list *)
-(* 1::2 error ! *)
-l1 = l2;
+fun swap(x, y) = let val tmp = x in x := !y; y := !tmp end;
