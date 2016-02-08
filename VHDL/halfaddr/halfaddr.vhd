@@ -4,6 +4,8 @@
 -- Create Date:   08-02-2016
 -- Module Name:   halfaddr.vhd
 --------------------------------------------------------------------------------
+use IEEE;
+library IEEE.std_logic_1164.all
 
 entity halfaddr is
 	port(a b : in std_logic;
