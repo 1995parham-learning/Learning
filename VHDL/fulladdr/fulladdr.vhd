@@ -4,8 +4,8 @@
 -- Create Date:   08-02-2016
 -- Module Name:   fulladdr.vhd
 --------------------------------------------------------------------------------
-use IEEE;
-library std_logic_1164.all;
+library IEEE;
+use std_logic_1164.all;
 
 entity fulladdr is
 	port(a, b, c_in : in std_logic;
