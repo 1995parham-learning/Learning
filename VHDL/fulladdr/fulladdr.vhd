@@ -5,7 +5,7 @@
 -- Module Name:   fulladdr.vhd
 --------------------------------------------------------------------------------
 library IEEE;
-use std_logic_1164.all;
+use IEEE.std_logic_1164.all;
 
 entity fulladdr is
 	port(a, b, c_in : in std_logic;
