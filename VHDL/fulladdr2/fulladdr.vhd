@@ -7,12 +7,12 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity fulladdr2 is
+entity fulladdr is
 	port(a, b, c_in : in std_logic;
 		sum, c_out : out std_logic);
-end entity fulladdr2;
+end entity fulladdr;
 
-architecture arch_fulladdr2 of fulladdr2 is
+architecture arch_fulladdr of fulladdr is
 	component halfaddr is
 		port(a, b : in std_logic;
 			sum, c_out : out std_logic);
@@ -24,4 +24,4 @@ begin
 	h1 : halfaddr port map(a, b, temp1, temp2);
 	h2 : halfaddr port map(temp1, c_in, sum, temp3);
 	c_out <= temp3 or temp2;
-end architecture arch_fulladdr2;
+end architecture arch_fulladdr;
