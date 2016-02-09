@@ -4,8 +4,8 @@
 -- Create Date:   08-02-2016
 -- Module Name:   majority.vhd
 --------------------------------------------------------------------------------
-use IEEE;
-library IEEE.std_logic_1165.all;
+library IEEE;
+use IEEE.std_logic_1165.all;
 
 entity majority is
 	port (i1, i2, i3 : in std_logic;
