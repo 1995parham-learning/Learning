@@ -8,10 +8,10 @@
 entity sr_latch_t is
 end entity;
 
-architecture of sr_latch_t of sr_latch_t is
+architecture arch_sr_latch_t of sr_latch_t is
 	s, r, q, q_ : signal std_logic;
 begin
 	sr_latch_1 : entity work.sr_latch port map(s, r, q, q_);
 	s <= '1', '0' after 5ns, '0' after 10ns, '1' after 15ns;
 	r <= '0', '1' after 5ns, '0' after 10ns, '1' after 15ns;
-end architecture sr_latch_t;
+end architecture arch_sr_latch_t;
