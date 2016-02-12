@@ -4,14 +4,16 @@
 -- Create Date:   12-02-2016
 -- Module Name:   sr-latch_t.vhd
 --------------------------------------------------------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
 
 entity sr_latch_t is
 end entity;
 
 architecture arch_sr_latch_t of sr_latch_t is
-	s, r, q, q_ : signal std_logic;
+	signal s, r, q, q_not : std_logic;
 begin
-	sr_latch_1 : entity work.sr_latch port map(s, r, q, q_);
+	sr_latch_1 : entity work.sr_latch port map(s, r, q, q_not);
 	s <= '1', '0' after 5ns, '0' after 10ns, '1' after 15ns;
 	r <= '0', '1' after 5ns, '0' after 10ns, '1' after 15ns;
 end architecture arch_sr_latch_t;
