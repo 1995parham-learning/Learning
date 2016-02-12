@@ -8,11 +8,11 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity mux_2 is
-	port (i1, i2, sel : in std_logic;
+	port (i0, i1, sel : in std_logic;
 		o : out std_logic);
 end entity mux_2;
 
 architecture arch_mux_2 of mux_2 is
 begin
-	o <= i1 when sel = 1 else i2;
+	o <= i1 when sel = '1' else i0;
 end architecture arch_mux_2;
