@@ -12,6 +12,7 @@
 *.jpg
 *.html
 *.bsf
+work
 
 # ignore simulation output of ModelSim
 wlf*
