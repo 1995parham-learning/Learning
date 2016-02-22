@@ -11,8 +11,8 @@ entity d_latch_t is
 end entity;
 
 architecture arch_d_latch_t of d_latch_t is
-	signal d, q, q_not : std_logic;
+	signal d, clk, q, q_not : std_logic := '0';
 begin
-	d_latch_1 : entity work.d_latch(arch_d_latch) port map(d, q, q_not);
+	d_latch_1 : entity work.d_latch(beh_arch_d_latch) port map(d, clk, q, q_not);
 	d <= '1', '0' after 5 ns, '0' after 10 ns, '1' after 15 ns;
 end architecture arch_d_latch_t;
