@@ -8,7 +8,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity sr_latch is
-	port(s, r : in std_logic;
+	port(s, r, clk : in std_logic;
 		q, q_not : buffer std_logic);
 end entity sr_latch;
 
