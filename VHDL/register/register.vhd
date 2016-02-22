@@ -18,7 +18,7 @@ architecture beh_arch_n_register of n_register is
 begin
 	process (clk)
 	begin
-		if clk = '1' and clk`event then
+		if clk = '1' and clk'event then
 			if s = '1' then
 				q <= (others => '1');
 			elsif r = '1' then
