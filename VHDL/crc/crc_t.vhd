@@ -18,7 +18,7 @@ architecture arch_crc_t of crc_t is
 	end component;
 	signal clk, d : std_logic := '0';
 	signal r : std_logic_vector(1 downto 0);
-	signal data : std_logic_vector(3 downto 0) := "1111";
+	signal data : std_logic_vector(3 downto 0) := "1110";
 	for all:crc use entity work.crc(arch_crc);
 begin
 	clk <= not clk after 50 ns;
