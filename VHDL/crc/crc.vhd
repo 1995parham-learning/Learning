@@ -20,13 +20,13 @@ begin
 		if clk = '1' and clk'event then
 			if g(g'low) = '1' then
 				r(g'low) <= r(g'high - 1) xor d;
-			else
+			elsif g(g'low) = '0' then
 				r(g'low) <= d;
 			end if;
 			for I in g'low + 1 to g'high - 1 loop
 				if g(I) = '1' then
 					r(I) <= r(g'high - 1) xor r(I - 1);
-				else
+				elsif g(I) = '0' then
 					r(I) <= r(I - 1);
 				end if;
 			end loop;
