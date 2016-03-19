@@ -56,6 +56,7 @@ func main() {
 	/* This new syntax is gooooooood :) */
 	arith := new(Arith)
 
+	/* Register arith with its associated functions */
 	rpc.Register(arith)
 	rpc.HandleHTTP()
 
