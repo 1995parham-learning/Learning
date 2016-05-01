@@ -1,13 +1,18 @@
 <html>
 	<head>
+		<script src="index.js"></script>
 	</head>
 	<body>
-		<label>n:</label>
-		<input id="inputN"  title="n"/>
-		<label>m:</label>
-		<input id="inputM"  title="m"/>
-		<label>k:</label>
-		<input id="inputK"  title="k"/>
-		<button type="button">Create</button>
+		<div id="inputs">
+			<label>n:</label>
+			<input id="inputN"  title="n"/>
+			<label>m:</label>
+			<input id="inputM"  title="m"/>
+			<label>k:</label>
+			<input id="inputK"  title="k"/>
+			<button type="button" onclick="createMatrixInput()">Create</button>
+		</div>
+		<div id="matrix">
+		</div>
 	</body>
 </html>
