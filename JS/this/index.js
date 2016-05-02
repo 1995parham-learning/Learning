@@ -7,5 +7,16 @@
  * | File Name:     index.js
  * +===============================================
  */
+function onDocumentLoad() {
+    document.getElementById("inJS").onclick = inJS;
+}
 
+function inHTML() {
+    alert(this);
+}
 
+function inJS() {
+    alert(this);
+}
+
+window.onload = onDocumentLoad;
