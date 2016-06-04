@@ -23,6 +23,7 @@ function Person(name, age, work) {
 }
 var p1 = new Person("Parham Alvani", 21, "Student");
 console.log(p1.sayName());
+console.log(typeof p1);
 
 /* Constructor/Prototype Pattern */
 function NewPerson(name, age, work) {
@@ -40,6 +41,8 @@ NewPerson.prototype = {
 
 var p2 = new NewPerson("Parham Alvani :)", 22, "Collegian");
 console.log(p2.sayName());
+console.log(typeof p2);
+
 
 /* ECMAScript 6 Pattern */
 class New6Person {
@@ -62,3 +65,5 @@ class New6Person {
 var p3 = new New6Person("Parham Alvani", 22, "Collegian");
 console.log(p3.sayName());
 console.log(p3.lastName);
+console.log(typeof p3);
+
