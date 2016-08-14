@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="courses.xslt"?>
+<class>
+	<course>
+		<name>Internet Engineering</name>
+		<semester>Spring 2012</semester>
+	</course>
+	<student>
+		<name>Ali</name><family>Alizadeh</family>
+		<grade>18.0</grade><number>123</number>
+	</student>
+	<student>
+		<name>Babak</name><family>Babaki</family>
+		<grade>7.0</grade><number>234</number>
+	</student>
+	<student>
+		<name>Hassan</name><family>Hassani</family>
+		<grade>19.0</grade><number>345</number>
+	</student>
+</class>
