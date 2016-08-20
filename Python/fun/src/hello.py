@@ -37,3 +37,10 @@ for name in a:
     print(name)
 else:
     print("While finish correctly")
+
+
+def retfunc(a):
+    def f(b):
+        print("%d %d" % (a, b))
+    return f
+retfunc(10)(20)
