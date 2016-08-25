@@ -13,6 +13,13 @@ l1.append(4)
 print(l1)
 
 primes = (1, 2, 3, 5, 7)
+
+# List comprehension
 numbers = list(range(10))
 not_primes = [number for number in numbers if number not in primes]
+print(not_primes)
+
+# Filter
+numbers = list(range(10))
+not_primes = list(filter(lambda number: number not in primes, numbers))
 print(not_primes)
