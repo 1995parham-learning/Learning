@@ -1,26 +1,26 @@
 # Lesson 1
 ## abandon
-He abandoned his carrier for marrying with her.
+He abandoned his career to marry  her.
 ## adversely
 Adverse effects of his parents divorce distroyed him.
 ## aggregate
-Please aggregate all the informations that we have about this topic.
-## coltivation
-We create a smart way for land coltivation based on Internet of Things.
+Please aggregate all the information that we have about this topic.
+## cultivation
+We create a smart way for land cultivation based on Internet of Things.
 ## intensify
 We intensify the speed of internet through this project.
 ## obtain
-We obtain the technology of SDN switch creation.
+We must obtain the technology of SDN switch for our next project.
 
 # Lesson 2
 ## anticipate
 We had anticipated this issue even before the project was started.
 ## catastrophic
-We had catastrophic accident last year.
+We had a catastrophic accident last year.
 ## collide
-We have collision between two great person in our university because of simple problem.
+We have collision [clash] between two great person in our university because of a simple problem.
 ## impact
-He has had a great impact on us since first semaster.
+He has had a great impact on us since first semester.
 ## plunge
 Titanic plunged into water dramatically.
 ## unleash
