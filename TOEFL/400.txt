@@ -26,6 +26,18 @@ Titanic plunged into water dramatically.
 ## unleash
 I have never learned to unleash my feelings.
 
+# Lesson 3
+## adapt
+I can't adapt to new circumstances easily.
+## diverse
+Some people love to hold thier choices very diverse.
+## evolve
+Humans have evolved from simple animals.
+## generation
+We have a new generation of people every year in our university.
+## survive
+He survive from the accident.
+
 # Lesson 36
 ## cascading
 We design our network with cascading architecture.
