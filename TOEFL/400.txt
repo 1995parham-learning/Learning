@@ -38,6 +38,20 @@ We have a new generation of people every year in our university.
 ## survive
 He survive from the accident.
 
+# Lesson 4
+## constraint
+We have some constraints about using mobile in our university.
+## contamination
+We must remove the contaminants from the factories garbage.
+## deplete
+The world war II depleted the iran resources.
+## emission
+Emission of CO in to the air could be dangerous.
+## extinction
+We have many extinct species.
+## shrink
+I shrinked my hard drive yesterday.
+
 # Lesson 36
 ## cascading
 We design our network with cascading architecture.
