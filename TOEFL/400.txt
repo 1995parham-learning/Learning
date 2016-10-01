@@ -36,7 +36,7 @@ Humans have evolved from simple animals.
 ## generation
 We have a new generation of people every year in our university.
 ## survive
-He survive from the accident.
+He survived the accident.
 
 # Lesson 4
 ## constraint
@@ -44,13 +44,13 @@ We have some constraints about using mobile in our university.
 ## contamination
 We must remove the contaminants from the factories garbage.
 ## deplete
-The world war II depleted the iran resources.
+The world war II depleted Iran's resources.
 ## emission
-Emission of CO in to the air could be dangerous.
+Emission of CO into the air could be dangerous [lethal].
 ## extinction
 We have many extinct species.
 ## shrink
-I shrinked my hard drive yesterday.
+I shrank my hard drive partintion yesterday.
 
 # Lesson 36
 ## cascading
