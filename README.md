@@ -32,7 +32,11 @@ package.
 ```sh
 sudo apt-get install libbluetooth-dev
 ```
-If you want to access your bluetooth devices directly from linux shell
+If you want to use BLE version of this library you need following library:
+```sh
+sudo apt-get install libglib2.0-dev pkg-config libboost-dev libboost-python-dev libboost-thread-dev
+```
+If you want to access your low power bluetooth devices directly from linux shell
 you can use HCI tools like this:
 ```sh
 # First check HCI device is up and running
