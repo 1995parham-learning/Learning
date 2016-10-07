@@ -14,7 +14,7 @@ You can use these example as tutorial.
 If you think you have such programming example you can send me [email](mailto:parham.alvani@gmail.com)
 and I add them into this repository.
 
-## List
+## Table of Code ?!
 ### Python
 It's better to use `pyvenv` with your python code:
 ```sh
@@ -25,7 +25,7 @@ pyvenv .
 # Deactive
 deactive
 ```
-#### Bluetooth
+#### [Bluetooth](Python/bluetooth)
 simple program for using bluetooth in python.
 In order to use this code on linux you need to install `libbluetooth-dev`
 package.
@@ -42,5 +42,5 @@ sudo hciconfig hci0 up
 # Let's start a scan for LE (Bluetooth LE or Bluetooth smart) devices
 sudo hcitool lescan
 ```
-### Flask
+#### [Flask](Python/flask)
 It's a simple flask application that I had written in the day that 18.20 left me.
