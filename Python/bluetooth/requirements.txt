@@ -1,2 +1,3 @@
 wheel
 pybluez
+pybluez[ble]
