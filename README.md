@@ -54,6 +54,6 @@ It's a simple flask application that I had written in the day that 18.20 left me
 #### [Mastering Python](Python/mastering-python)
 Sample codes of Mastering Python book that is written by Rick van Hattem.
 
-#### Renamer
+#### [Renamer](Python/renamer)
 Simple project for renaming your downloaded TV series or Wallpapers to better naming structure.
 It's far from complete project that can do these things in professional manner.
