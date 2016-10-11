@@ -63,6 +63,20 @@ Let's learn this new animal in Python, first of all we use pure python edition o
 [here](https://github.com/eleme/thriftpy). This example was written for having more fun in our
 trash life ...
 
+#### [eMQTT](Python/emqtt)
+First up and run your [eMQTT](http://emqtt.io/) broker.
+```sh
+unzip emqttd-macosx-v2.0-beta.2-20160910.zip && cd emqttd
+
+# Start emqttd
+./bin/emqttd start
+
+# Check Status
+./bin/emqttd_ctl status
+
+# Stop emqttd
+./bin/emqttd stop
+```
 
 ### Go
 #### [Thrift](Go/thrift)
