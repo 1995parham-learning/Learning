@@ -57,3 +57,17 @@ Sample codes of Mastering Python book that is written by Rick van Hattem.
 #### [Renamer](Python/renamer)
 Simple project for renaming your downloaded TV series or Wallpapers to better naming structure.
 It's far from complete project that can do these things in professional manner.
+
+#### [Thrift](Python/thrift)
+Let's learn this new animal in Python, first of all we use pure python edition of Thrift form
+[here](https://github.com/eleme/thriftpy). This example was written for having more fun in our
+trash life ...
+
+
+### Go
+#### [Thrift](Go/thrift)
+Let's learn this new animal in Go, first install the compiler
+```sh
+sudo apt-get install thrift-compiler
+```
+then create your thrift file to describe your protocol
