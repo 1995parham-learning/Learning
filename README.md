@@ -77,6 +77,7 @@ unzip emqttd-macosx-v2.0-beta.2-20160910.zip && cd emqttd
 # Stop emqttd
 ./bin/emqttd stop
 ```
+Your dashboard available at `:18083`
 
 ### Go
 #### [Thrift](Go/thrift)
