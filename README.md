@@ -79,6 +79,10 @@ unzip emqttd-macosx-v2.0-beta.2-20160910.zip && cd emqttd
 ```
 Your dashboard available at `:18083` with **admin:public**.
 
+#### [Python-YACC](python/python-yacc)
+Sample code for using [Python Lex-Yacc (PLY)](http://www.dabeaz.com/ply/ply.html)
+in your Lonely nights.
+
 ### Go
 #### [Thrift](Go/thrift)
 Let's learn this new animal in Go, first install the compiler
