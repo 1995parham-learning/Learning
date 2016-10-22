@@ -33,7 +33,7 @@ def t_NUMBER(t):
     except ValueError:
         print("Integer value too large %d", t.value)
         t.value = 0
-        return t
+    return t
 
 # Ignored characters
 t_ignore = " \t"
