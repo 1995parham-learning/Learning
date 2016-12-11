@@ -6,6 +6,8 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
+
+
 class RevealAccess(object):
     """
     A data descriptor that sets and returns values
@@ -23,6 +25,7 @@ class RevealAccess(object):
     def __set__(self, obj, val):
         print('Updating', self.name)
         self.val = val
+
 
 class MyClass(object):
     def __init__(self):
