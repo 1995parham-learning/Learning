@@ -99,7 +99,7 @@ contain ‘z’.
 Print 10 commands of /bin sorting by the last access time.
 
 #### [chert-2-5](Shell/chert-2-5.sh)
-. Create a file containing the names of the first 7 files and the last 6 files of
+Create a file containing the names of the first 7 files and the last 6 files of
 /etc directory, in alphabet order.
 
 #### [chert-2-6](Shell/chert-2-6.sh)
