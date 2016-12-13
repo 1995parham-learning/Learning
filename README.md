@@ -23,19 +23,14 @@ all: calc_lcm_gcd
 calc_lcm_gcd: main.o gcd.o lcm.o
 	$(CC) -o $@ $^ $(CFLAGS) $(LDLIBS)
 
-main.o: main.c functions.h
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-gcd.o: gcd.c functions.h
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-lcm.o: lcm.c functions.h
+%.o: %.c functions.h
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 .PHONY: clean
 clean:
 	rm main.o gcd.o lcm.o calc_lcm_gcd
 ```
+check [here](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/) for having even more fun !
 
 ### Python
 It's better to use `pyvenv` with your python code:
