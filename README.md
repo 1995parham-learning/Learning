@@ -15,6 +15,28 @@ If you think you have such programming example you can send me [email](mailto:pa
 and I add them into this repository.
 
 ## Table of Code ?!
+### C
+Makefile is a good thing ! have this for have fun:
+```Makefile
+all: calc_lcm_gcd
+
+calc_lcm_gcd: main.o gcd.o lcm.o
+	$(CC) -o $@ $^ $(CFLAGS) $(LDLIBS)
+
+main.o: main.c functions.h
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+gcd.o: gcd.c functions.h
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+lcm.o: lcm.c functions.h
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+.PHONY: clean
+clean:
+	rm main.o gcd.o lcm.o calc_lcm_gcd
+```
+
 ### Python
 It's better to use `pyvenv` with your python code:
 ```sh
