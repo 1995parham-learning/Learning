@@ -79,9 +79,18 @@ unzip emqttd-macosx-v2.0-beta.2-20160910.zip && cd emqttd
 ```
 Your dashboard available at `:18083` with **admin:public**.
 
-#### [Python-YACC](python/python-yacc)
+#### [Python-YACC](Python/python-yacc)
 Sample code for using [Python Lex-Yacc (PLY)](http://www.dabeaz.com/ply/ply.html)
 in your Lonely nights.
+
+### Bash
+#### [chert-2-4](Shell/chert-2-4.sh)
+Print 10 commands of /bin sorting by the last access time
+
+#### [chert-2-7](Shell/chert-2-7.sh)
+Create a file in /home/directory1, write "hello world !" in it and copy it to a
+new /home/directory2. Finally, remove it from directory1.
+
 
 ### Go
 #### [Thrift](Go/thrift)
