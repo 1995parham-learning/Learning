@@ -100,7 +100,7 @@ Your dashboard available at `:18083` with **admin:public**.
 Sample code for using [Python Lex-Yacc (PLY)](http://www.dabeaz.com/ply/ply.html)
 in your Lonely nights.
 
-### Bash
+### Shell
 #### [chert-2-1](Shell/chert-2/chert-2-1.sh)
 Print the names and determine the number of files in /bin directory whose
 first letter is ‘c’.
@@ -126,6 +126,11 @@ Print the name of 8 files in /usr/sbin/ sorting by the last modification time.
 Create a file in /home/directory1, write "hello world !" in it and copy it to a
 new /home/directory2. Finally, remove it from directory1.
 
+#### [power](Shell/power.sh)
+Do you want integer power function in bash.
+```sh
+power.sh 10 2
+```
 
 ### Go
 #### [Thrift](Go/thrift)
