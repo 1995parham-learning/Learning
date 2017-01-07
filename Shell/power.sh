@@ -20,7 +20,4 @@ power() {
 	echo $answer
 }
 
-# Main script (!) Let's test our power function
-echo `power 2 4`
-echo `power 4 2`
-echo `power 3 4`
+power $@
