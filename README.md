@@ -133,6 +133,8 @@ power.sh 10 2
 ```
 
 ### Go
+#### [Once](Go/once)
+Go uses zero initiation but sometimes you want some initiation and you want it lazy ...
 #### [Thrift](Go/thrift)
 Let's learn this new animal in Go, first install the compiler
 ```sh
