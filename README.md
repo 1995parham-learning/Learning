@@ -36,6 +36,8 @@ check [here](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/) for h
 Let's learn to use new feature in C11, C11 threads.
 Please see [here](http://en.cppreference.com/w/c/thread) as a reference for C11 threads.
 
+**But at the current time nobody implements this feature.**
+
 ### Python
 It's better to use `pyvenv` with your python code:
 ```sh
