@@ -13,7 +13,7 @@ LIB=
 MLIB=
 
 ifdef LIB
-CFLAGS=-Wall -O0 -g -std=gnu11 \
+CFLAGS=-Wall -O0 -g -std=c11 \
        $(shell pkg-config --cflags $(LIB))
 LDLIBS=$(shell pkg-config --libs $(LIB)) $(MLIB)
 else
