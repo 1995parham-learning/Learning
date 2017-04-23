@@ -1,8 +1,6 @@
-var http = require('http');
+var seneca = require('seneca')();
 
-var server = http.createServer(function (request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello World\n");
+seneca.add({role: 'math', cmd: 'sum'}, function (msg, respond) {
+  var sum = msg.left + msg.right;
+  respond(null, {answer: sum});
 });
-
-server.listen(8000);
