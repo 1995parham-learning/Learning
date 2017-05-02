@@ -11,14 +11,19 @@
 /*
  * Copyright (c) 2015 Parham Alvani.
 */
+/*
+ * CPS => continuation-passing style
+*/
 var fs = require('fs');
-var content = ''
+var content = '';
+
 fs.readFile('/etc/passwd', function(err, fileContent) {
 	if (err) {
 		throw err;
 	}
 	content = fileContent.toString();
-	console.log('passwd inner file content:\n', content);
+	console.log('passwd inner file content:', content);
 });
+
 console.log("I am here");
-console.log('passwd outer file content:\n', content);
+console.log('passwd outer file content:', content);
