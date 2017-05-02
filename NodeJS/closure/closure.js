@@ -11,6 +11,7 @@
 /*
  * Copyright (c) 2015 Parham Alvani.
 */
+
 function Circle(r) {
 	
 	function area() {
@@ -24,6 +25,7 @@ function Circle(r) {
 }
 
 c = Circle(10);
+
 console.log(c);
 console.log(c.area());
 console.log(c.radius);
