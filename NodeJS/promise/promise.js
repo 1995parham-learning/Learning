@@ -7,7 +7,7 @@
  * | File Name:     promise.js
  * +===============================================
  */
-p = new Promise((resolve, reject) => {
+var p = new Promise((resolve, reject) => {
   resolve('fast resolve');
   console.log('we can create promise and resolve later')
 });
