@@ -14,7 +14,9 @@ co(function* () {
   var res = yield [
     Promise.resolve(1),
     Promise.resolve(2),
+    /* Promise */
     Promise.resolve(3),
+    /* Thunk */
     (callback) => {
       callback(null, 4);
     }
