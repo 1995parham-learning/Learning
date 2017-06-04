@@ -11,6 +11,7 @@ const co = require('co');
 
 
 co(function* () {
+  /* yielded array execute in parallel */
   var res = yield [
     Promise.resolve(1),
     new Promise(resolve => {
@@ -29,6 +30,7 @@ co(function* () {
       }, 5);
     }
   ];
+  /* sequential yields execute sequentially */
   yield function* () {
     console.log('5');
     yield Promise.resolve(5);
