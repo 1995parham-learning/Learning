@@ -1,4 +1,8 @@
 # Learning Codes
+
+[![license](https://img.shields.io/github/license/1995parham/Learning.svg?style=flat-square)]()
+![me](https://img.shields.io/badge/me-parham-orange.svg?style=flat-square)
+
 ## Who Am I ?
 I am simple lonely person who spent his life on code and ...
 and this is what I have after many years of life ...
