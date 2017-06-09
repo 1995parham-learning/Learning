@@ -42,6 +42,10 @@ Please see [here](http://en.cppreference.com/w/c/thread) as a reference for C11 
 
 **But at the current time nobody implements this feature.**
 
+### NodeJS
+#### [promise](NodeJS/promise)
+promise is a new way in node for handling callbacks, let's learn more about them with some example.
+
 ### Python
 It's better to use `pyvenv` with your python code:
 ```sh
