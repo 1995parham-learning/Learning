@@ -13,6 +13,7 @@
 */
 "use strict";
 /* Constructor Pattern */
+
 function Person(name, age, work) {
 	this.name = name;
 	this.age = age;
@@ -26,6 +27,7 @@ console.log(p1.sayName());
 console.log(typeof p1);
 
 /* Constructor/Prototype Pattern */
+
 function NewPerson(name, age, work) {
 	this.name = name;
 	this.age = age;
@@ -45,6 +47,7 @@ console.log(typeof p2);
 
 
 /* ECMAScript 6 Pattern */
+
 class New6Person {
 	constructor(name, age, work) {
 		this._name = name;
