@@ -20,3 +20,20 @@ Let's learn to use new feature in C11, C11 threads.
 Please see [here](http://en.cppreference.com/w/c/thread) as a reference for C11 threads.
 
 **But at the current time nobody implements this feature.**
+
+## [Generic](Generic)
+Generic selection is implemented with a new keyword: `_Generic`.
+The syntax is similar to a simple switch statement for types:
+
+```c
+_Generic( 'a', char: 1, int: 2, long: 3, default: 0)
+```
+
+evaluates to 2 (character constants are ints in C).
+The use of `_Generic` can be abstracted in a macro:
+
+```c
+#define type_idx(T) _Generic( (T), char: 1, int: 2, long: 3, default: 0)
+```
+
+So that `type_idx('a')` evaluates to 2 and `type_idx("a")` evaluates to 0.
