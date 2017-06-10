@@ -7,8 +7,9 @@
  * | File Name:     defer.js
  * +===============================================
  */
-process.nextTick(() => console.log('tick tack'));
+process.nextTick(() => console.log('-1. tick tack'));
 
 for (let i = 0; i < 10; i++) {
-  console.log('Hello and How are you bro');
+  console.log(`${i}. Hello and How are you bro`);
+  process.nextTick(() => console.log(`${i}. tick tack`));
 }
