@@ -7,9 +7,6 @@
  * | File Name:     defer.js
  * +===============================================
  */
-/* jshint esversion: 6 */
-
-
 process.nextTick(() => console.log('tick tack'));
 
 for (let i = 0; i < 10; i++) {
