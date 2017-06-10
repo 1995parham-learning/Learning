@@ -1,4 +1,8 @@
 # Learning Codes
+
+[![license](https://img.shields.io/github/license/1995parham/Learning.svg?style=flat-square)]()
+![me](https://img.shields.io/badge/me-parham-orange.svg?style=flat-square)
+
 ## Who Am I ?
 I am simple lonely person who spent his life on code and ...
 and this is what I have after many years of life ...
@@ -37,6 +41,10 @@ Let's learn to use new feature in C11, C11 threads.
 Please see [here](http://en.cppreference.com/w/c/thread) as a reference for C11 threads.
 
 **But at the current time nobody implements this feature.**
+
+### NodeJS
+#### [promise](NodeJS/promise)
+promise is a new way in node for handling callbacks, let's learn more about them with some example.
 
 ### Python
 It's better to use `pyvenv` with your python code:
