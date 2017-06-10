@@ -150,3 +150,7 @@ Let's learn this new animal in Go, first install the compiler
 sudo apt-get install thrift-compiler
 ```
 then create your thrift file to describe your protocol
+
+### NodeJS
+#### [Promise](NodeJS/promise)
+Let's learn javascript promises and try to create promisify function.
