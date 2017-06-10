@@ -18,8 +18,7 @@ You can use these example as tutorial.
 </a>
 
 ## Contribution
-If you think you have such programming example you can send me [email](mailto:parham.alvani@gmail.com)
-and I add them into this repository.
+If you have such programming example you can create a pull request and make me happy :smile:.
 
 ## Table of Code ?!
 ### C
