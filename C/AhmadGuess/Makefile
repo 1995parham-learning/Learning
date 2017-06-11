@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=AhmadGuess
+P=AhmadGuess.out
 OBJ=AhmadGuess.o
 LIB=
 MLIB=
