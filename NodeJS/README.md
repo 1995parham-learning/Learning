@@ -26,3 +26,6 @@ Object Oriented design in javascript always is a problem for me, in this example
 
 ## [chalk](chalk)
 [chalk](https://github.com/chalk/chalk), Terminal string styling done right. in this example try to learn it.
+
+## [Stream](stream)
+1. readStdin: Read from stdin while not seeing EOF (ctrl + D) and create event on `process.stdin` readable stream.
