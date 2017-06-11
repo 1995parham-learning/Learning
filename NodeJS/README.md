@@ -23,3 +23,6 @@ in nodejs you can defer execution of a function from main thread to event queue 
 
 ## [OO](OO)
 Object Oriented design in javascript always is a problem for me, in this example I created some example for it.
+
+## [chalk](chalk)
+[chalk](https://github.com/chalk/chalk), Terminal string styling done right. in this example try to learn it.
