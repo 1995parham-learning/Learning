@@ -44,3 +44,14 @@ My Teacher Assistant have guess about floating point number implementation:
 1 + 1/2 + 1/3 + .. + 1/n != 1/n + 1/(n - 1) + ... + 1/2 + 1
 
 Let's check it.
+
+## [Alloca](alloca)
+The `alloca()` function allocates `size` bytes of space in the stack
+frame of the caller. This temporary space is automatically freed
+when the function that called `alloca()` returns to its caller.
+
+```c
+#include <alloca.h>
+
+void *alloca(size_t size);
+```
