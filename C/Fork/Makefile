@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=Fork
+P=Fork.out
 OBJ=Fork.o
 LIB=
 MLIB=
