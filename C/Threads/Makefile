@@ -7,7 +7,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=Threads
+P=Threads.out
 OBJ=Threads.o
 LIB=
 MLIB=
