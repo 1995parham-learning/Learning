@@ -55,3 +55,6 @@ when the function that called `alloca()` returns to its caller.
 
 void *alloca(size_t size);
 ```
+
+## [Fork](Fork)
+Learn `fork` system call with it's related things like `wait`.
