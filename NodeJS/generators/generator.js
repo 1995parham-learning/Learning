@@ -42,3 +42,15 @@ const newFibonacciGenerator = fibonacciGenerator();
 for (let i = 0; i < 50; i++) {
   console.log(newFibonacciGenerator.next());
 }
+
+function* findUser(UID) {
+  var user1 = yield setTimeout(() => {console.log("Hello " + UID);}, 2000);
+  console.log("This should be shown AFTER user1 has a result");
+  console.log(user1);
+  return user1;
+}
+
+var findUser = findUser("FOO");
+var myResult = findUser.next();
+console.log("Result " + myResult.value )
+findUser.next();
