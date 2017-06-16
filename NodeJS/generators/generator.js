@@ -8,6 +8,7 @@
  * +===============================================
  */
 
+/* Generators + :) */
 
 function* fruitGenerator() {
   yield 'apple';
@@ -43,14 +44,24 @@ for (let i = 0; i < 50; i++) {
   console.log(newFibonacciGenerator.next());
 }
 
-function* findUser(UID) {
-  var user1 = yield setTimeout(() => {console.log("Hello " + UID);}, 2000);
-  console.log("This should be shown AFTER user1 has a result");
-  console.log(user1);
-  return user1;
+/* Asynchronous control flow with generators */
+
+function asyncFlow(generatorFunction) {
+  function callback(err) {
+    if (err) {
+      return generator.throw(err);
+    }
+    const results = [].slice.call(arguments, 1);
+    generator.next(results.length > 1 ? results : results[0]);
+  }
+  const generator = generatorFunction(callback);
+  generator.next();
 }
 
-var findUser = findUser("FOO");
-var myResult = findUser.next();
-console.log("Result " + myResult.value )
-findUser.next();
+asyncFlow(function* (callback) {
+  console.log('1. Hello');
+  yield setTimeout(callback, 2000);
+  console.log('2. 2000ms');
+  yield setTimeout(callback, 1000);
+  console.log('3. 1000ms');
+});
