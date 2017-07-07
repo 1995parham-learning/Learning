@@ -32,7 +32,7 @@ sudo hciconfig hci0 up
 sudo hcitool lescan
 ```
 
-# [Flask](flask)
+## [Flask](flask)
 It's a simple flask application that I had written in the day that 18.20 left me.
 
 ## [Mastering Python](mastering-python)
