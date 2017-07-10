@@ -22,8 +22,12 @@ If you have such programming example you can create a pull request and make me h
 
 ## Table of Code ?!
 
+- [AVR](AVR)
 - [C](C)
 - [NodeJS](NodeJS)
 - [Python](Python)
 - [Shell](Shell)
 - [Go](Go)
+
+## Contributors
+- [Ali Gholami](mailto:aligholami7596@gmail.com)
