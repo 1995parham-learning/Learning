@@ -29,3 +29,6 @@ Object Oriented design in javascript always is a problem for me, in this example
 
 ## [Stream](stream)
 1. readStdin: Read from stdin while not seeing EOF (ctrl + D) and create event on `process.stdin` readable stream.
+
+## [Proxy](proxy)
+A proxy is an object that controls access to another object, called subject.
