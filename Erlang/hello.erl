@@ -13,7 +13,7 @@
 %%% Copyright (c)  2017 Parham Alvani.
 %%%
 -module(hello).
--export([say/0]).
+-export([say/1]).
 
-say() ->
-	io:format("Hello\n").
+say(Name) ->
+	io:format("Hello" ++ Name ++ "\n").
