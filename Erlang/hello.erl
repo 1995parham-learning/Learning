@@ -14,6 +14,14 @@
 %%%
 -module(hello).
 -export([say/1]).
+-export([either_or/2]).
 
 say(Name) ->
 	io:format("Hello ~s~n", [Name]).
+
+either_or(true, _) ->
+	true;
+either_or(_, true) ->
+	true;
+either_or(false, false) ->
+	false.
