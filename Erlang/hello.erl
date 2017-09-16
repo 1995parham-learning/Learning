@@ -19,9 +19,9 @@
 say(Name) ->
 	io:format("Hello ~s~n", [Name]).
 
-either_or(true, _) ->
+either_or(true, A) when is_boolean(A) ->
 	true;
-either_or(_, true) ->
+either_or(A, true) when is_boolean(A) ->
 	true;
 either_or(false, false) ->
 	false.
