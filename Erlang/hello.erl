@@ -16,4 +16,4 @@
 -export([say/1]).
 
 say(Name) ->
-	io:format("Hello" ++ Name ++ "\n").
+	io:format("Hello ~s~n", [Name]).
