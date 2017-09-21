@@ -17,7 +17,8 @@
 -export([either_or/2]).
 
 say(Name) ->
-	io:format("Hello ~s~n", [Name]).
+	io:format("Hello ~s~n", [Name]),
+	io:format("Bye ~s~n", [Name]).
 
 either_or(true, A) when is_boolean(A) ->
 	true;
