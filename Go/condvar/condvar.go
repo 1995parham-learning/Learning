@@ -52,7 +52,7 @@ func main() {
 		m.Lock()
 		c.Signal()
 		m.Unlock()
-		<-awake // Will deadlock if no goroutine wakes up
+		<-awake // Will deadlock if no goroutine wakes up so waits for one to wake up
 		select {
 		case <-awake:
 			log.Fatal("too many goroutines awake")
