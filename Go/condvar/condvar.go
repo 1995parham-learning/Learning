@@ -1,35 +1,64 @@
 /*
- * +===============================================
- * | Author:        Parham Alvani (parham.alvani@gmail.com)
- * |
- * | Creation Date: 14-03-2016
- * |
- * | File Name:     condvar.go
- * +===============================================
+* +===============================================
+* | Author:        Parham Alvani (parham.alvani@gmail.com)
+* |
+* | Creation Date: 14-03-2016
+* |
+* | File Name:     condvar.go
+* +===============================================
  */
 package main
 
-import "fmt"
-import "sync"
+import (
+	"fmt"
+	"log"
+	"sync"
+)
+
+// Cond implements a condition variable,
+// a rendezvous point for goroutines waiting for or announcing the occurrence of an event.
 
 func main() {
-	m := make(map[int]string)
-	m[2] = "First Value"
-	var mutex sync.Mutex
-	cv := sync.NewCond(&mutex)
-	updateCompleted := false
-	go func() {
-		cv.L.Lock()
-		m[2] = "Second Value"
-		updateCompleted = true
-		cv.Signal()
-		cv.L.Unlock()
-	}()
-	cv.L.Lock()
-	for !updateCompleted {
-		cv.Wait()
+	var m sync.Mutex
+	c := sync.NewCond(&m)
+	n := 2
+
+	running := make(chan bool, n)
+	awake := make(chan bool, n)
+
+	for i := 0; i < n; i++ {
+		go func(i int) {
+			m.Lock()
+			running <- true
+			c.Wait()
+			fmt.Printf("Goroutine %d: start\n", i)
+			awake <- true
+			m.Unlock()
+		}(i)
 	}
-	v := m[2]
-	cv.L.Unlock()
-	fmt.Printf("%s\n", v)
+
+	// Wait for everyone to run.
+	for i := 0; i < n; i++ {
+		<-running
+	}
+	close(running)
+
+	for n > 0 {
+		select {
+		case <-awake:
+			log.Fatal("goroutine not asleep")
+		default:
+		}
+		m.Lock()
+		c.Signal()
+		m.Unlock()
+		<-awake // Will deadlock if no goroutine wakes up
+		select {
+		case <-awake:
+			log.Fatal("too many goroutines awake")
+		default:
+		}
+		n--
+	}
+	c.Signal()
 }
