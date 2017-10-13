@@ -11,7 +11,7 @@
 /*
  * Copyright (c) 2015 Parham Alvani.
  */
-// Package main provides ...
+
 package main
 
 import (
