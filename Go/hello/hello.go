@@ -1,15 +1,15 @@
 /*
- * In The Name Of God
- * ========================================
- * [] File Name : hello.go
- *
- * [] Creation Date : 28-05-2015
- *
- * [] Created By : Parham Alvani (parham.alvani@gmail.com)
- * =======================================
+* In The Name Of God
+* ========================================
+* [] File Name : hello.go
+*
+* [] Creation Date : 28-05-2015
+*
+* [] Created By : Parham Alvani (parham.alvani@gmail.com)
+* =======================================
  */
 /*
- * Copyright (c) 2015 Parham Alvani.
+* Copyright (c) 2015 Parham Alvani.
  */
 package main
 
@@ -17,30 +17,28 @@ import (
 	"fmt"
 )
 
-/* with type */
+// M64 defines with type
 const M64 int64 = 1 << 20
 
-/* without type */
+// M defines without type
 const M = 1 << 20
 
 /* Create integer channel :) */
 var ch chan int
 
-/* Point is public but point is private */
+// Point is a public but point is private
 type Point struct {
 	x int
 	y int
 }
 
-/*
- * This interface implementation works on Point * so
- * Stringer mapped to Point * :)
- */
+// ToString implements Stringer interface that works on *Point
 func (p *Point) ToString() string {
 	p.x = p.x * 2
 	return fmt.Sprintf("%d %d", p.x, p.y)
 }
 
+// Stringer interface provides toString method to remember us we are Java Developer
 type Stringer interface {
 	ToString() string
 }
