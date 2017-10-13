@@ -11,6 +11,7 @@
 /*
  * Copyright (c) 2015 Parham Alvani.
  */
+
 package main
 
 import "fmt"
