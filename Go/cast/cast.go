@@ -7,6 +7,7 @@
  * | File Name:     cast.go
  * +===============================================
  */
+
 package main
 
 import "fmt"
@@ -33,7 +34,7 @@ func main() {
 	fmt.Printf("%f\n", float)
 
 	/* This will panic at runtime */
-	var e example = i.(example)
+	e := i.(example)
 	fmt.Printf("%d\n", e.(empty).(int))
 
 }
