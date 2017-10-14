@@ -56,7 +56,8 @@ func main() {
 	`
 	fmt.Println(str)
 	fmt.Println("hello world\n")
-	var s, t string = "foo", "bar"
+	var s = "foo"
+	var t = "bar"
 
 	var p1 Point
 	p1.x = 10
