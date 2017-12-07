@@ -76,6 +76,9 @@ func main() {
 	lst = append(lst, 20)
 	fmt.Println(lst)
 
+	// Old but Gold, C formating in Go
+	fmt.Printf("%.*f", 3, 8.9)
+
 	/* channel is semaphore that can store value */
 	ch = make(chan int, 1)
 
