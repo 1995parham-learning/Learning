@@ -33,8 +33,23 @@ func main() {
 		},
 		"diceRoll": &graphql.Field{
 			Type: graphql.NewList(graphql.Int),
+			Args: graphql.FieldConfigArgument{
+				"count": &graphql.ArgumentConfig{
+					Type: graphql.Int,
+				},
+			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-				return []int{rand.Intn(6) + 1, rand.Intn(6) + 1}, nil
+				var l []int
+				var n = 2
+
+				if n, ok := p.Args["count"].(int); ok {
+					n = n // t(ツ)_/¯
+				}
+
+				for i := 0; i < n; i++ {
+					l = append(l, rand.Intn(6)+1)
+				}
+				return l, nil
 			},
 		},
 	}
