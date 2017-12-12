@@ -28,10 +28,10 @@ func New(m int, n int) *Twiddle {
 
 	var i int
 
-	for i = 1; i != n-m+1; i++ {
+	for i = 1; i < n-m; i++ {
 		p[i] = 0
 	}
-	for i != n+1 {
+	for i < n+1 {
 		p[i] = i + m - n
 		i++
 	}
