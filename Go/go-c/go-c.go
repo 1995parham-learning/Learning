@@ -14,11 +14,9 @@
 
 package main
 
-// #include <stdio.h>
-// void say_hello(const char *name) {
-// 	printf("Hello %s\n", name);
-// }
+// #include "hello.h"
 import "C"
+
 import (
 	"fmt"
 )
