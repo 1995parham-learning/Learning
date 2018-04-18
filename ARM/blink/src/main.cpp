@@ -1,12 +1,15 @@
 #include "mbed.h"
 
-DigitalOut myled(LED1);
+DigitalOut ld1(LED1);
+DigitalOut ld2(LED2);
 
 int main() {
     while(1) {
-        myled = 1;
+        ld1 = 1;
+        ld2 = 0;
         wait(1);
-        myled = 0;
+        ld1 = 0;
+        ld2 = 1;
         wait(1);
     }
 }
