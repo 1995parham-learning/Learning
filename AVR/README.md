@@ -14,18 +14,20 @@ AVR ATmega16 Microcontroller programming and simulation using AtmelStudio and Pr
 4. [Known Issues](http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_Known_Issues.html)
 5. [Addressing Modes - See below for quick lookup](https://www.csee.umbc.edu/~tinoosh/cmpe311/notes/AVRAddressingModes.pdf)
 6. [Analog to Digital Conversion Example](http://extremeelectronics.co.in/avr-tutorials/using-adc-of-avr-microcontroller/)
+7. [AVR Simulator](https://github.com/buserror/simavr)
 
 
-# Introduction: Instruction Set and Addressing Modes
+# Introduction
+## Instruction Set and Addressing Modes
 The following is a quick start on basic concepts of ATmega16 microcontroller.
 
-# Introduction: Instruction Set
+## Instruction Set
 This is a set of instructions for ATmega16 microcontroller which decides what operations the microcontroller can perform. Each instruction can control some parts of microcontroller.
 
-# Introduction: Addressing Modes
+## Addressing Modes
 Instructions can be categorized based on **how they access data** and **how they perform operations** on those data. This category consist of about 10 modes that controls this access and operation.
 
-# Introduction: Instruction Format
+## Instruction Format
 Each instruction in ATmega16 consists of two parts:
 * Opcode: Indicates to ALU what to do.
 * Operands: Numbers on which the ALU operates.
