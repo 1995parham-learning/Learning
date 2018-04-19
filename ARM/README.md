@@ -1,3 +1,5 @@
+# Installing ST-Link v2
+
 ```sh
 git clone https://github.com/texane/stlink stlink.git
 cd stlink
