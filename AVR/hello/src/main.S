@@ -1,3 +1,5 @@
+; vim: set ft=avr8bit:
+
 .section .text
 .global main
 
