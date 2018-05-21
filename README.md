@@ -4,7 +4,7 @@
 ![me](https://img.shields.io/badge/me-parham-orange.svg?style=flat-square)
 
 ## Who Am I ?
-I am simple lonely person who spent his life on code and ...
+I am person who spent his life on code
 and this is what I have after many years of life ...
 
 ## Introduction
