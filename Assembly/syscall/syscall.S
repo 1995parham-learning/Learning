@@ -12,13 +12,13 @@
 */
 .section .data
 	string: .asciz "Hello world of syscall !!!\n"
-	.equ len,. - string
+	.equ len, . - string
 .section .text
 	.global main
 main:
 	movq	$1, %rax
 	movq	$1, %rdi
-	movq	$string, %rsi
+	leaq	string(%rip), %rsi
 	movq	$len, %rdx
 	syscall
 
