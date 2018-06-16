@@ -39,11 +39,11 @@ The use of `_Generic` can be abstracted in a macro:
 So that `type_idx('a')` evaluates to 2 and `type_idx("a")` evaluates to 0.
 
 ## [AhmadGuess](AhmadGuess)
-My Teacher Assistant have guess about floating point number implementation:
+My Teacher Assistant, Ahmad Asadi, had guess about floating point number implementation in C:
 
 1 + 1/2 + 1/3 + .. + 1/n != 1/n + 1/(n - 1) + ... + 1/2 + 1
 
-Let's check it.
+Let's check it in AhamadGuess :joy:.
 
 ## [Alloca](alloca)
 The `alloca()` function allocates `size` bytes of space in the stack
