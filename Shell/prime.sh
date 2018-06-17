@@ -11,9 +11,9 @@ a=$1
 
 answer=0
 
-for i in `seq 1 $a`; do
-	if [ $(($a % $i)) -eq 0 ]; then
-		answer=$(($answer + 1))
+for i in $(seq 1 $a); do
+	if [ $((a % i)) -eq 0 ]; then
+		answer=$((answer + 1))
 	fi
 done
 
