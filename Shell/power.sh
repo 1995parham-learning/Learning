@@ -13,8 +13,8 @@ power() {
 	b=$2
 	answer='1'
 
-	for i in `seq 1 $b`; do
-		answer=$(($a * $answer))
+        for i in $(seq 1 $b); do
+		answer=$((a * answer))
 	done
 
 	echo $answer
