@@ -50,6 +50,10 @@ func whileTrue() {
 	ch <- 1
 }
 
+func increase(x *int) {
+	*x++
+}
+
 func main() {
 	str := `
 	Hello world of GoLang :)
@@ -86,4 +90,7 @@ func main() {
 	go whileTrue()
 
 	<-ch
+
+	var number = 10
+	increase(&number)
 }
