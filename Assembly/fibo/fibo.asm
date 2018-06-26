@@ -8,16 +8,20 @@
 ; [] Created By : Parham Alvani <parham.alvani@gmail.com>
 ; =======================================
 ;
-FIN_N equ 10
+
+; Computes Nth fibonacci number
+; 1 1 2
+
+N equ 10
 
 section .data
-	number: db 1
-	fib_even: dd 1
-	fib_odd: dd 1
+	number: db 1 ; current sequence number
+	fib_even: dd 1 ; a = a + b if number is even
+	fib_odd: dd 1 ; b = a + b if number is odd
 
 section .text
-	global main
-main:
+global _start
+_start:
 	mov eax, 0
 	mov edx, 0
 	mov al, [number]
@@ -26,26 +30,26 @@ main:
 	mov bl, 2
 	div bl
 	test ah, ah
-	jz DO_EVEN
-DO_ODD:
+	jz do_even
+do_odd:
 	mov eax, [fib_even]
 	mov ebx, [fib_odd]
 	add ebx, eax
 	mov dword [fib_odd], ebx
 	mov al, [number]
-	cmp al, FIN_N
-	jz FINISH
-	jmp main
-DO_EVEN:
+	cmp al, N
+	jz finish
+	jmp _start
+do_even:
 	mov eax, [fib_even]
 	mov ebx, [fib_odd]
 	add eax, ebx
 	mov dword [fib_even], eax
 	mov al, [number]
-	cmp al, FIN_N
-	jz FINISH
-	jmp main
-FINISH:
+	cmp al, N
+	jz finish
+	jmp _start
+finish:
 	mov eax, 1
 	mov ebx, 0
 	int 80H

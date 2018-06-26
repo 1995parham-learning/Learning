@@ -9,23 +9,16 @@
 
 P=fibo
 OBJ=fibo.o
-LIB=
-MLIB=
 
-ifdef LIB
-CFLAGS=-Wall -O0 -g -std=gnu11 \
-       $(shell pkg-config --cflags $(LIB))
-LDLIBS=$(shell pkg-config --libs $(LIB)) $(MLIB)
-else
-CFLAGS=-Wall -O0 -g -std=gnu11
-LDLIBS=$(MLIB)
-endif
 ASFLAGS=-Wall -O0 -g
+LDFLAGS=
 
 $(P): $(OBJ)
+	ld $(LDFLAGS) -o $(P) $(OBJ)
+
 fibo.o: fibo.asm
-	nasm $(ASFLAGS) -felf64 fibo.asm
+	nasm $(ASFLAGS) -felf64 -l fibo.lst fibo.asm
 
 .PHONY: clean
 clean:
-	rm $(OBJ) $(P)
+	rm $(OBJ) $(P) fibo.lst
