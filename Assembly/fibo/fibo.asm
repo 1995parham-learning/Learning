@@ -1,13 +1,13 @@
-; In The Name Of God
-; ========================================
-; [] File Name : 
-; 
-; [] Creation Date : 21-12-2014
-;
-; [] Last Modified : Sun 21 Dec 2014 01:45:22 AM IRST
-;
-; [] Created By : Parham Alvani (parham.alvani@gmail.com)
+; vim: ft=nasm
+; In The Name of God
 ; =======================================
+; [] File Name : fibo.asm
+;
+; [] Creation Date : 27-06-2018
+;
+; [] Created By : Parham Alvani <parham.alvani@gmail.com>
+; =======================================
+;
 FIN_N equ 10
 
 section .data
