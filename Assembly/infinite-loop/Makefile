@@ -16,4 +16,4 @@ $(P): $(OBJ)
 
 .PHONY: clean
 clean:
-	rm $(OBJ) $(P) *.lst
+	rm $(OBJ) $(P)
