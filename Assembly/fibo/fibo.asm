@@ -50,6 +50,6 @@ do_even:
 	jz finish
 	jmp _start
 finish:
-	mov eax, 1
-	mov ebx, 0
-	int 80H
+	mov rax, 60 ; invoke exit system call
+	xor rdi, rdi ; status code 0
+	syscall
