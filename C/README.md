@@ -1,4 +1,8 @@
 # C
+## Introduction
+C is my life, here I try to have good time with C.
+
+## Introduction to Makefile
 Makefile is a good thing ! have this for have fun:
 ```Makefile
 all: calc_lcm_gcd
