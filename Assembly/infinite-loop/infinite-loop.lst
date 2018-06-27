@@ -1,8 +1,0 @@
-     1                                  section .text
-     2                                  	global main
-     3                                  main:
-     4 00000000 B800000000              	mov eax, 0
-     5 00000005 BB02000000              	mov ebx, 2
-     6                                  wall:
-     7 0000000A 01D8                    	add eax, ebx
-     8 0000000C EBFC                    	jmp wall
