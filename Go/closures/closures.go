@@ -11,11 +11,14 @@
 /*
  * Copyright (c) 2015 Parham Alvani.
  */
+
 package main
 
 import (
 	"fmt"
 )
+
+var global int
 
 func initFib() func() int {
 	a := 1
@@ -25,6 +28,10 @@ func initFib() func() int {
 		temp := a
 		a = b
 		b = temp + b
+
+		// Every function reads its upper scope variables in execution phase
+		fmt.Printf("Global variable: %d\n", global)
+
 		return temp
 	}
 }
@@ -32,9 +39,14 @@ func initFib() func() int {
 func main() {
 	seqFib := initFib()
 
+	global++
 	fmt.Println(seqFib())
+	global++
 	fmt.Println(seqFib())
+	global++
 	fmt.Println(seqFib())
+	global++
 	fmt.Println(seqFib())
+	global++
 	fmt.Println(seqFib())
 }
