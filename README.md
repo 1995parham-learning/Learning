@@ -24,6 +24,7 @@ If you have such programming example you can create a pull request and make me h
 
 - [AVR](AVR)
 - [C](C)
+- [Assembly](Assembly)
 - [NodeJS](NodeJS)
 - [Python](Python)
 - [Shell](Shell)
