@@ -10,15 +10,17 @@
 P=fibo
 OBJ=fibo.o
 
+AS=nasm
+LD=ld
 ASFLAGS=-Wall -O0 -g
 LDFLAGS=
 
 $(P): $(OBJ)
-	ld $(LDFLAGS) -o $(P) $(OBJ)
+	$(LD) $(LDFLAGS) $^ -o $@
 
-fibo.o: fibo.asm
-	nasm $(ASFLAGS) -felf64 -l fibo.lst fibo.asm
+%.o: %.asm
+	$(AS) $(ASFLAGS) -felf64 -l $@.lst $<
 
 .PHONY: clean
 clean:
-	rm $(OBJ) $(P) fibo.lst
+	rm $(OBJ) $(P) *.lst
