@@ -9,7 +9,7 @@
 ; =======================================
 ;
 section .data
-	hello: db "Hello world!!",10 	; 'Hello world!\n'
+	hello: db "Hello world!!", 10 	; 'Hello world!\n'
 	hello_length: equ $-hello	; Length of the 'Hello world!' string
 
 section .text
@@ -21,7 +21,7 @@ _start:
 	mov rdx, hello_length	; hello_length is a constant, so we don't need to say
 			     	; mov rdx, [hello_length] to get it's actual value
 	syscall              	; Call the kernel
-	mov rax,1            	; The system call for exit (sys_exit)
+	mov rax,60            	; The system call for exit (sys_exit)
 	mov rdi,0            	; Exit with return code of 0 (no error)
 	syscall
 	ret
