@@ -14,6 +14,7 @@ global _start
 ; sum(n) = 1 + 2 + ... + n
 sum:
 	; arguments: rdi, rsi, rdx, rcx, r8, r9, the rest is passed on to the stack in reverse order
+	mov rax, rdi
 	xor r10, r10
 .loop:
 	test rax, rax
