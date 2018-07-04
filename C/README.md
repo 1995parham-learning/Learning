@@ -19,6 +19,11 @@ clean:
 ```
 check [here](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/) for having even more fun !
 
+## [clone](clone)
+Linux provides the abiity to create threads using the `clone()` system call.
+when `clone()` is invoked, it is passed a set of flags that determine how much
+sharing is to take place between the parent and child tasks.
+
 ## [Threads](Threads)
 Let's learn to use new feature in C11, C11 threads.
 Please see [here](http://en.cppreference.com/w/c/thread) as a reference for C11 threads.
