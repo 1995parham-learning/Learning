@@ -1,4 +1,7 @@
 # Go
+## [Redis](redis)
+Let's use redis as a cache with MessagePack coding
+
 ## [Once](once)
 Go uses zero initiation but sometimes you want some initiation and you want it lazy ...
 
