@@ -11,20 +11,22 @@
 /*
  * Copyright (c) 2015 Parham Alvani.
  */
+
 package main
 
 import (
 	"fmt"
-	"time"
+	"sync"
 )
 
 const (
-	max_value    int = 10
-	reader_count int = 10
+	maxValue    int = 10
+	readerCount int = 10
 )
 
+// The storage that everyone wants access to it.
 var buffer chan int
-var end chan bool
+var end sync.WaitGroup
 
 func reader(id int) {
 	for {
@@ -32,8 +34,8 @@ func reader(id int) {
 		value = <-buffer
 		fmt.Printf("Reader %d: %d\n", id, value)
 		buffer <- value
-		if value >= max_value {
-			end <- true
+		if value >= maxValue {
+			end.Done()
 			return
 		}
 	}
@@ -46,8 +48,8 @@ func writer() {
 		value++
 		fmt.Printf("Writer: %d\n", value)
 		buffer <- value
-		if value >= max_value {
-			end <- true
+		if value >= maxValue {
+			end.Done()
 			return
 		}
 	}
@@ -55,13 +57,16 @@ func writer() {
 
 func main() {
 	buffer = make(chan int, 1)
-	end = make(chan bool, reader_count+1)
+
+	// storage is zero
 	buffer <- 0
-	for id := 0; id < reader_count; id++ {
+
+	for id := 0; id < readerCount; id++ {
 		go reader(id)
+		end.Add(1)
 	}
 	go writer()
-	for len(end) < reader_count+1 {
-		time.Sleep(100)
-	}
+	end.Add(1)
+
+	end.Wait()
 }
