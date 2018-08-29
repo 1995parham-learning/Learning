@@ -1,4 +1,10 @@
 # Go
+## [Array](array)
+Creates arrays and slices. It tries to demo some features of Go in Array.
+
+## [Beehive Hello](beehive-hello)
+Hello world example in [beehive](https://github.com/kandoo/beehive).
+
 ## [Redis](redis)
 Let's use redis as a cache with MessagePack coding
 
