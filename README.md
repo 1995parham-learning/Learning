@@ -2,6 +2,7 @@
 
 [![license](https://img.shields.io/github/license/1995parham/Learning.svg?style=flat-square)]()
 ![me](https://img.shields.io/badge/me-parham-orange.svg?style=flat-square)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d35c2336684a4b1ba8d62153c9e3e990)](https://www.codacy.com/app/1995parham/Learning?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=1995parham/Learning&amp;utm_campaign=Badge_Grade)
 
 ## Who Am I ?
 I am person who spent his life on code
