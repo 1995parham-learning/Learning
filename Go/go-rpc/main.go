@@ -18,6 +18,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"math"
 	"net"
 	"net/http"
 	"net/rpc"
@@ -38,6 +39,11 @@ type Arith int
 
 // Multiply multiplies given parameters and stores it result
 func (t *Arith) Multiply(args *Args, reply *int) error {
+	if args.A != 0 {
+		if args.B > math.MaxInt32/args.A {
+			return errors.New("signed integer overflow")
+		}
+	}
 	*reply = args.A * args.B
 	return nil
 }
