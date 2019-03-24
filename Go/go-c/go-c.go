@@ -36,6 +36,6 @@ func main() {
 		}
 	}()
 
-	for {
-	}
+	// wait for a signal to handle it in C
+	time.Sleep(1 * time.Hour)
 }
