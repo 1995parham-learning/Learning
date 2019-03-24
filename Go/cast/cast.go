@@ -21,8 +21,8 @@ type empty interface{}
 func main() {
 	one := 1
 	var i empty = one
-	var float float32
-	float = float32(one)
+
+	var float = float32(one)
 
 	switch i.(type) {
 	default:
