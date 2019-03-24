@@ -15,8 +15,9 @@ jobs:
           command: |
             cd ./Go
             for prj in */; do
-              echo $prj
-              golangci-lint run $prj --enable-all
+              echo $prj && cd $prj
+              golangci-lint run --enable-all
+              cd ..
             done
 
 workflows:
