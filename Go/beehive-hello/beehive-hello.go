@@ -15,6 +15,8 @@
 package main
 
 import (
+	"log"
+
 	bh "github.com/kandoo/beehive"
 )
 
@@ -67,7 +69,12 @@ func hrcvf(msg bh.Msg, ctx bh.RcvContext) error {
 }
 
 func hmapf(msg bh.Msg, ctx bh.MapContext) bh.MappedCells {
-	return bh.MappedCells{{helloDict, msg.Data().(Hello).Name}}
+	return bh.MappedCells{
+		bh.CellKey{
+			Dict: helloDict,
+			Key:  msg.Data().(Hello).Name,
+		},
+	}
 }
 
 func brcvf(msg bh.Msg, ctx bh.RcvContext) error {
@@ -84,10 +91,14 @@ func main() {
 	app := bh.NewApp("hello-world", bh.Persistent(2))
 
 	// Register the handler for Hello messages.
-	app.HandleFunc(Hello{}, hmapf, hrcvf)
+	if err := app.HandleFunc(Hello{}, hmapf, hrcvf); err != nil {
+		log.Fatalf("Hello Handle Func: %s", err)
+	}
 
 	// Register the handler for broad messages.
-	app.HandleFunc(Broad{}, bmapf, brcvf)
+	if err := app.HandleFunc(Broad{}, bmapf, brcvf); err != nil {
+		log.Fatalf("Board Handle Func: %s", err)
+	}
 
 	go bh.Emit(Hello{Name: "Parham Alvani"})
 
@@ -95,5 +106,7 @@ func main() {
 
 	go bh.Emit(Broad{ID: 1})
 
-	bh.Start()
+	if err := bh.Start(); err != nil {
+		log.Fatalf("Start: %s", err)
+	}
 }
