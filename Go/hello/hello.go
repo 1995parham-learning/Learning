@@ -20,9 +20,6 @@ import (
 // M defines without type
 const M = 1 << 20
 
-/* Create integer channel :) */
-var ch chan int
-
 // Point is a public but point is private
 type Point struct {
 	x int
@@ -31,7 +28,7 @@ type Point struct {
 
 // ToString implements Stringer interface that works on *Point
 func (p *Point) ToString() string {
-	p.x = p.x * 2
+	p.x *= 2
 	return fmt.Sprintf("%d %d", p.x, p.y)
 }
 
@@ -40,18 +37,14 @@ type Stringer interface {
 	ToString() string
 }
 
-func whileTrue() {
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
-	}
-	ch <- 1
-}
-
 func increase(x *int) {
 	*x++
 }
 
 func main() {
+	// Create integer channel :)
+	var ch chan int
+
 	str := `
 	Hello world of GoLang :)
 	`
@@ -83,7 +76,13 @@ func main() {
 	ch = make(chan int, 1)
 
 	/* the go statement launches a function call as goroutine */
-	go whileTrue()
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println(i)
+		}
+		ch <- 1
+
+	}()
 
 	<-ch
 
