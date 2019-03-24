@@ -7,6 +7,7 @@
  * | File Name:     regex.go
  * +===============================================
  */
+
 package main
 
 import (
@@ -15,7 +16,7 @@ import (
 )
 
 func main() {
-	r, _ := regexp.Compile("[abcd]+")
+	r := regexp.MustCompile("[abcd]+")
 	str := "aa bb c dd de f"
 	fmt.Printf("Replaced: %v\n", r.ReplaceAllString(str, "-"))
 }
