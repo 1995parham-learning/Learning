@@ -1,11 +1,13 @@
 version: 2
 jobs:
   go:
-    working_directory: Go
     docker:
       - image: circleci/golang:latest
     steps:
       - checkout
+      - run:
+          name: Go to Go
+          command: cd ./Go
       - run:
           name: Install golangci-lint
           command: |
