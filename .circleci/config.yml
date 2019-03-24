@@ -13,7 +13,10 @@ jobs:
             golangci-lint --version
       - run:
           name: Lint
-          command: golangci-lint run ./redis/... --enable-all
+          command: |
+            for prj in */; do
+              golangci-lint run prj/... --enable-all
+            done
 
 workflows:
   version: 2
