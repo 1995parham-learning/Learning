@@ -17,8 +17,8 @@ package main
 import "fmt"
 
 func main() {
-	messages := make(chan string, 0)
-	signals := make(chan bool, 0)
+	messages := make(chan string)
+	signals := make(chan bool)
 
 	/*
 	 * Here’s a non-blocking receive.
