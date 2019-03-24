@@ -1,0 +1,4 @@
+github.com/go-redis/redis v6.15.2+incompatible h1:9SpNVG76gr6InJGxoZ6IuuxaCOQwDAhzyXg+Bs+0Sb4=
+github.com/go-redis/redis v6.15.2+incompatible/go.mod h1:NAIEuMOZ/fxfXJIrKDQDz8wamY7mA7PouImQ2Jvg6kA=
+github.com/vmihailenco/msgpack v4.0.3+incompatible h1:g+G529Dqo4BY2Gxn5GKENa/3NVK+mu/6hM7G3jEWszQ=
+github.com/vmihailenco/msgpack v4.0.3+incompatible/go.mod h1:fy3FlTQTDXWkZ7Bh6AcGMlsjHatGryHQYUTf1ShIgkk=
