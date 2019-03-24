@@ -14,39 +14,32 @@
 
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-var global int
-
-func initFib() func() int {
+func createFunc() func(i int) int {
 	a := 1
 	b := 1
 
-	return func() int {
-		temp := a
-		a = b
-		b = temp + b
+	innerFunc := func(i int) int {
+		fmt.Printf("[%d] a = %d\n", i, a)
+		fmt.Printf("[%d] b = %d\n", i, b)
 
-		// Every function reads its upper scope variables in execution phase
-		fmt.Printf("Global variable: %d\n", global)
+		b++
 
-		return temp
+		return 0
 	}
+
+	a++
+
+	return innerFunc
 }
 
 func main() {
-	seqFib := initFib()
+	innerFunc := createFunc()
 
-	global++
-	fmt.Println(seqFib())
-	global++
-	fmt.Println(seqFib())
-	global++
-	fmt.Println(seqFib())
-	global++
-	fmt.Println(seqFib())
-	global++
-	fmt.Println(seqFib())
+	innerFunc(1)
+	innerFunc(2)
+
+	// At the end innerFunc read `a` and `b` on time of its execution.
+	// Please note that innerFunc hold a reference to `a` and `b`.
 }
