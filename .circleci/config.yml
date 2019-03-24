@@ -15,7 +15,8 @@ jobs:
           name: Lint
           command: |
             for prj in */; do
-              golangci-lint run prj/... --enable-all
+              echo $prj
+              golangci-lint run $prj/... --enable-all
             done
 
 workflows:
