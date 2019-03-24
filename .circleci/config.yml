@@ -15,7 +15,7 @@ jobs:
             golangci-lint --version
       - run:
           name: Lint
-          command: golangci-lint run --enable-all
+          command: golangci-lint run ./... --enable-all
 
 workflows:
   version: 2
