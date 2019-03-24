@@ -17,7 +17,7 @@ import (
 )
 
 func main() {
-	listener, err := net.Listen("tcp", ":1373")
+	listener, err := net.Listen("tcp", "127.0.0.1:1373")
 	if err != nil {
 		log.Fatal(err)
 	}
