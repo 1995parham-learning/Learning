@@ -11,11 +11,10 @@
  * +===============================================
  */
 
-package main
+package redis
 
 import (
-	"fmt"
-	"log"
+	"testing"
 
 	"github.com/go-redis/redis"
 	"github.com/vmihailenco/msgpack"
@@ -26,7 +25,7 @@ type student struct {
 	Family string
 }
 
-func main() {
+func TestMain(t *testing.T) {
 	client := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
 		Password: "", // no password set
@@ -35,35 +34,35 @@ func main() {
 
 	pong, err := client.Ping().Result()
 	if err != nil {
-		log.Fatalf("Ping Error: %s", err)
+		t.Fatalf("Ping Error: %s", err)
 	}
-	fmt.Printf("Ping Success: %s", pong)
+	t.Logf("Ping Success: %s", pong)
 
 	s1, err := msgpack.Marshal(student{
 		Name:   "Parham",
 		Family: "Alvani",
 	})
 	if err != nil {
-		log.Fatalf("Student to msgpack marshaling: %s", err)
+		t.Fatalf("Student to msgpack marshaling: %s", err)
 	}
-	fmt.Println(client.RPush("students-list", s1).Result())
+	t.Log(client.RPush("students-list", s1).Result())
 
 	s2, err := msgpack.Marshal(student{
 		Name:   "Navid",
 		Family: "Mashayekhi",
 	})
 	if err != nil {
-		log.Fatalf("Student to msgpack marshaling: %s", err)
+		t.Fatalf("Student to msgpack marshaling: %s", err)
 	}
-	fmt.Println(client.RPush("students-list", s2).Result())
+	t.Log(client.RPush("students-list", s2).Result())
 
 	var s3 student
 	result, err := client.RPop("students-list").Bytes()
 	if err != nil {
-		log.Fatalf("Pop Error: %s", err)
+		t.Fatalf("Pop Error: %s", err)
 	}
 	if err := msgpack.Unmarshal(result, &s3); err != nil {
-		log.Fatalf("Msgpack to student unmarshaling: %s", err)
+		t.Fatalf("Msgpack to student unmarshaling: %s", err)
 	}
-	fmt.Println(s3)
+	t.Log(s3)
 }
