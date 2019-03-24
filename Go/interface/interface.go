@@ -25,7 +25,7 @@ func (i *integer) sampler(a int, b int) (int, int) {
 }
 
 func justForHavingFun(input sample) {
-	fmt.Println(":)")
+	fmt.Printf("%s\n", input)
 }
 
 func main() {
