@@ -15,6 +15,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/go-redis/redis"
 	"github.com/vmihailenco/msgpack"
@@ -33,23 +34,36 @@ func main() {
 	})
 
 	pong, err := client.Ping().Result()
-	fmt.Println(pong, err)
+	if err != nil {
+		log.Fatalf("Ping Error: %s", err)
+	}
+	fmt.Printf("Ping Success: %s", pong)
 
-	s1, _ := msgpack.Marshal(student{
+	s1, err := msgpack.Marshal(student{
 		Name:   "Parham",
 		Family: "Alvani",
 	})
-	fmt.Println(client.RPush("cache", s1).Result())
+	if err != nil {
+		log.Fatalf("Student to msgpack marshaling: %s", err)
+	}
+	fmt.Println(client.RPush("students-list", s1).Result())
 
-	s2, _ := msgpack.Marshal(student{
+	s2, err := msgpack.Marshal(student{
 		Name:   "Navid",
 		Family: "Mashayekhi",
 	})
-
-	fmt.Println(client.RPush("cache", s2).Result())
+	if err != nil {
+		log.Fatalf("Student to msgpack marshaling: %s", err)
+	}
+	fmt.Println(client.RPush("students-list", s2).Result())
 
 	var s3 student
-	result, err := client.RPop("cache").Bytes()
-	msgpack.Unmarshal(result, &s3)
+	result, err := client.RPop("students-list").Bytes()
+	if err != nil {
+		log.Fatalf("Pop Error: %s", err)
+	}
+	if err := msgpack.Unmarshal(result, &s3); err != nil {
+		log.Fatalf("Msgpack to student unmarshaling: %s", err)
+	}
 	fmt.Println(s3)
 }
