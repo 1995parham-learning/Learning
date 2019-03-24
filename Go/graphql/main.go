@@ -42,8 +42,8 @@ func main() {
 				var l []int
 				var n = 2
 
-				if n, ok := p.Args["count"].(int); ok {
-					n = n // t(ツ)_/¯
+				if count, ok := p.Args["count"].(int); ok {
+					n = count
 				}
 
 				for i := 0; i < n; i++ {
