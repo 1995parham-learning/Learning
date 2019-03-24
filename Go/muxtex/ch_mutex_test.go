@@ -14,7 +14,7 @@ import "testing"
 func TestOne(t *testing.T) {
 	m := NewChannelMutex()
 	f := 0
-	t.Log(t.Name)
+	t.Log(t.Name())
 	go func() {
 		m.Acquire()
 		t.Log("Thread-1")
