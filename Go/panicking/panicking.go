@@ -7,6 +7,7 @@
  * | File Name:     panicking.go
  * +===============================================
  */
+
 package main
 
 import "fmt"
@@ -19,8 +20,9 @@ func badFunction() {
 	case 1:
 		panic(0)
 	case 2:
-		var invalid func(int) int
-		invalid(10)
+		// The following code will panic
+		// var invalid func(int) int
+		// invalid(10)
 	}
 }
 
