@@ -17,9 +17,6 @@ import (
 	"fmt"
 )
 
-// M64 defines with type
-const M64 int64 = 1 << 20
-
 // M defines without type
 const M = 1 << 20
 
@@ -59,7 +56,7 @@ func main() {
 	Hello world of GoLang :)
 	`
 	fmt.Println(str)
-	fmt.Println("hello world\n")
+	fmt.Println("hello world")
 	var s = "foo"
 	var t = "bar"
 
@@ -71,8 +68,7 @@ func main() {
 	fmt.Println(p1.ToString())
 	fmt.Printf("%d %d\n", p1.x, p1.y)
 
-	var p2 Stringer
-	p2 = &(Point{2, 3})
+	var p2 Stringer = &(Point{2, 3})
 	fmt.Println(p2)
 
 	var lst []int
