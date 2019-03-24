@@ -7,34 +7,36 @@
  * | File Name:     interface.go
  * +===============================================
  */
+
 package main
 
 import (
 	"fmt"
 )
 
-type Sample interface {
-	sampler(A int, B int) (int, int)
+type sample interface {
+	sampler(int, int) (int, int)
 }
 
-type Integer int
+type integer int
 
-func (self *Integer) sampler(A int, B int) (int, int) {
-	return B + int(*self), A - int(*self)
+func (i *integer) sampler(a int, b int) (int, int) {
+	return b + int(*i), a - int(*i)
 }
 
-func justForHavingFun(input Sample) {
+func justForHavingFun(input sample) {
 	fmt.Println(":)")
 }
 
 func main() {
 	var A, B int
-	var gain Integer
+	var gain integer
 	fmt.Scanf("%d %d %d", &A, &B, &gain)
 	A, B = gain.sampler(A, B)
 	fmt.Printf("%d %d\n", A, B)
 
 	justForHavingFun(&gain)
-	/* And for having more fun :D */
+
+	// And for having more fun uncomment the following line
 	// justForHavingFun(gain)
 }
