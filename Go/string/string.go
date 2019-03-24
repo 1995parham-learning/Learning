@@ -7,6 +7,7 @@
  * | File Name:     string.go
  * +===============================================
  */
+
 package main
 
 import "fmt"
