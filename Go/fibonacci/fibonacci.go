@@ -11,10 +11,8 @@
 /*
  * Copyright (c) 2015 Parham Alvani.
  */
-
 package fibonacci
 
-// Fibonacci generates nth term of fibonacci sequence.
 func Fibonacci(n int) int {
 	if n == 0 || n == 1 {
 		return 1
