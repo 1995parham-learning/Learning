@@ -1,0 +1,9 @@
+---
+version: "3.1"
+
+services:
+  redis:
+    image: tile38/tile38:latest
+    restart: always
+    ports:
+      - 9851:9851
