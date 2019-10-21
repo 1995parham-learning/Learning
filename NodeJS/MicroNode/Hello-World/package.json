@@ -9,7 +9,7 @@
   "author": "Parham Alvani",
   "license": "ISC",
   "dependencies": {
-    "seneca": "^3.3.0"
+    "seneca": "^3.9.0"
   },
   "devDependencies": {
     "jshint": "^2.9.4"
