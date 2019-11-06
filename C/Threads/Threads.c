@@ -1,7 +1,7 @@
 /*
  * In The Name Of God
  * ========================================
- * [] File Name : Threads.c
+ * [] File Name : threads.c
  *
  * [] Creation Date : 13-01-2017
  *
@@ -11,7 +11,11 @@
 /*
  * Copyright (c) 2017 Parham Alvani.
 */
+#ifdef __STDC_NO_THREADS__
+#error "No threading support"
+#else
 #include <threads.h>
+#endif
 #include <stdio.h>
 
 int run(void *arg)
