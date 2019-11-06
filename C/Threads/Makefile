@@ -7,8 +7,8 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-P=Threads.out
-OBJ=Threads.o
+P=threads.out
+OBJ=threads.o
 LIB=
 MLIB=
 
@@ -17,7 +17,7 @@ CFLAGS=-Wall -O0 -g -std=c11 \
        $(shell pkg-config --cflags $(LIB))
 LDLIBS=$(shell pkg-config --libs $(LIB)) $(MLIB)
 else
-CFLAGS=-Wall -O0 -g -std=gnu11
+CFLAGS=-Wall -O0 -g -std=c11
 LDLIBS=$(MLIB)
 endif
 ASFLAGS=-Wall -O0 -g
