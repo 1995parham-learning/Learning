@@ -1,2 +1,0 @@
-game-of-life-tester
-=====
