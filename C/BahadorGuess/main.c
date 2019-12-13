@@ -1,7 +1,7 @@
 /*
  * In The Name Of God
  * ========================================
- * [] File Name : BahadorGuess.c
+ * [] File Name : main.c
  *
  * [] Creation Date : 11-12-2015
  *

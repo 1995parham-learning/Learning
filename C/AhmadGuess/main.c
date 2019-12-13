@@ -1,7 +1,7 @@
 /*
  * In The Name Of God
  * ========================================
- * [] File Name : AhamdGuess.c
+ * [] File Name : main.c
  *
  * [] Creation Date : 01-11-2015
  *
