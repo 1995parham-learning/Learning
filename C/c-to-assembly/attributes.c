@@ -13,7 +13,7 @@
 #include <stdio.h>
 
 /* Variables Attribute */
-int parham __attribute__((section ("PARHAM"))) = 137303;
+int parham __attribute__((section ("PARHAM, .parham"))) = 137303;
 
 int main(int argc, char *argv[])
 {
