@@ -77,3 +77,9 @@ sizeof(a++)
 
 ## [CMakeTest](CMakeTest)
 Example project for using CMake.
+
+## [DataToFile](DataToFile)
+Write user given string into file after some manipulation.
+
+## [c-to-assembly](c-to-assembly)
+Convert some known syntax of C into assembly.
