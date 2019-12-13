@@ -20,7 +20,7 @@ clean:
 check [here](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/) for having even more fun !
 
 ## [clone](clone)
-Linux provides the abiity to create threads using the `clone()` system call.
+Linux provides the ability to create threads using the `clone()` system call.
 when `clone()` is invoked, it is passed a set of flags that determine how much
 sharing is to take place between the parent and child tasks.
 
@@ -38,7 +38,7 @@ The syntax is similar to a simple switch statement for types:
 _Generic( 'a', char: 1, int: 2, long: 3, default: 0)
 ```
 
-evaluates to 2 (character constants are ints in C).
+The above expression evaluates to 2 (character constants are ints in C).
 The use of `_Generic` can be abstracted in a macro:
 
 ```c
@@ -67,3 +67,13 @@ void *alloca(size_t size);
 
 ## [Fork](Fork)
 Learn `fork` system call with it's related things like `wait`.
+
+## [BahadorGuess](BahadorGuess)
+This program shows that the expressions with side effects has no side effect in an unevaluted context.
+
+```c
+sizeof(a++)
+```
+
+## [CMakeTest](CMakeTest)
+Example project for using CMake.
