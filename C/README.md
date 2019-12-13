@@ -83,3 +83,6 @@ Write user given string into file after some manipulation.
 
 ## [c-to-assembly](c-to-assembly)
 Convert some known syntax of C into assembly.
+
+## [random](random)
+Generate random number between 0 to 3 with `random` instead of `rand`.
