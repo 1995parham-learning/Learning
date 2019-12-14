@@ -9,23 +9,22 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-int main(int argc, char *argv[])
-{
-	int p = fork();
-	
-	if (p == 0) {
-		printf("Ok\n");
-		sleep(10);
-	} else {
-		printf("hey!\n");
-		sleep(1);
-	}
-	printf("done!\n");
-	_exit(0);
-	return 0;
+int main(int argc, char *argv[]) {
+  int p = fork();
+
+  if (p == 0) {
+    printf("Ok\n");
+    sleep(10);
+  } else {
+    printf("hey!\n");
+    sleep(1);
+  }
+  printf("done!\n");
+  _exit(0);
+  return 0;
 }

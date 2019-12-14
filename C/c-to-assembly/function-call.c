@@ -9,14 +9,8 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 
-void f(int A)
-{
-	int s = A;
-}
+void f(int A) { int s = A; }
 
-int main(int argc, char *argv[])
-{
-	f(100);	
-}
+int main(int argc, char *argv[]) { f(100); }

@@ -9,34 +9,33 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
-int main(int argc, char *argv[])
-{
-	#pragma omp parallel sections
-	{
-		#pragma omp section
-		{
-			/*
-			 * Everything in this block happens
-			 * only in one thread
-			*/
+int main(int argc, char *argv[]) {
+#pragma omp parallel sections
+  {
+#pragma omp section
+    {
+      /*
+       * Everything in this block happens
+       * only in one thread
+       */
 
-			unsigned int i = -1;
+      unsigned int i = -1;
 
-			printf("Hello world of omp #%u\n", i++);
-		}
-		
-		#pragma omp section
-		{
-			/*
-			 * Everything in this block happens
-			 * only in one other thread
-			*/
-			unsigned int i;
+      printf("Hello world of omp #%u\n", i++);
+    }
 
-			printf("Hello world of omp #%u\n", i++);
-		}
-	}
+#pragma omp section
+    {
+      /*
+       * Everything in this block happens
+       * only in one other thread
+       */
+      unsigned int i;
+
+      printf("Hello world of omp #%u\n", i++);
+    }
+  }
 }

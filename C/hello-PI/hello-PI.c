@@ -9,10 +9,7 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
-int main(int argc, char *argv[])
-{
-	printf("hello world of PI\n");
-}
+int main(int argc, char *argv[]) { printf("hello world of PI\n"); }

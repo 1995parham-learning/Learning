@@ -9,12 +9,10 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <glib.h>
 
-
-int main(int argc, char *argv[])
-{
-	if (!GLIB_CHECK_VERSION(2, 44, 0))
-		g_print("Glib version is too old\n");
+int main(int argc, char *argv[]) {
+  if (!GLIB_CHECK_VERSION(2, 44, 0))
+    g_print("Glib version is too old\n");
 }

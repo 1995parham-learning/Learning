@@ -9,11 +9,10 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <glib.h>
 
-int main(int argc, char *argv[])
-{
-	g_print("Hello world of cmake and glib\n");
-	return 0;
+int main(int argc, char *argv[]) {
+  g_print("Hello world of cmake and glib\n");
+  return 0;
 }

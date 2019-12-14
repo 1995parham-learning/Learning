@@ -9,67 +9,61 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
 struct stack {
-	struct stack *prev;
-	int val;
-	struct stack *next;
+  struct stack *prev;
+  int val;
+  struct stack *next;
 };
 
 struct stack *first, *cur, *tmp;
 int counter = 0;
 
-struct stack *GETNODE()
-{
-	return malloc(sizeof(struct stack));
+struct stack *GETNODE() {
+  return malloc(sizeof(struct stack));
 }
 
+void push(int val) {
+  tmp = GETNODE();
+  tmp->prev = NULL;
+  tmp->val = val;
+  tmp->next = NULL;
 
-void push(int val)
-{
-	tmp = GETNODE();
-	tmp->prev = NULL;
-	tmp->val = val;
-	tmp->next = NULL;
-
-	if (first == NULL) {
-		first = tmp;
-		cur = first;
-	} else {
-		tmp->prev = cur;
-		cur->next = tmp;
-		cur = tmp;
-	}
-	counter++;
+  if (first == NULL) {
+    first = tmp;
+    cur = first;
+  } else {
+    tmp->prev = cur;
+    cur->next = tmp;
+    cur = tmp;
+  }
+  counter++;
 }
 
-int pop(void)
-{
-	int val = cur->val;
+int pop(void) {
+  int val = cur->val;
 
-	tmp = cur;
-	cur = cur->prev;
-	free(tmp);
-	counter--;
+  tmp = cur;
+  cur = cur->prev;
+  free(tmp);
+  counter--;
 
-	return val;
+  return val;
 }
 
+int main(int argc, char *argv[]) {
+  int num;
 
-int main(int argc, char *argv[])
-{
-	int num;
+  scanf("%d", &num);
 
-	scanf("%d", &num);
-
-	while (num != 0) {
-		push(num % 2);
-		num /= 2;
-	}
-	while (counter != 0)
-		printf("%d ", pop());
-	printf("\n");
+  while (num != 0) {
+    push(num % 2);
+    num /= 2;
+  }
+  while (counter != 0)
+    printf("%d ", pop());
+  printf("\n");
 }

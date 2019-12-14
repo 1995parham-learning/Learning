@@ -1,4 +1,4 @@
-/* 
+/*
  * In The Name Of God
  * ========================================
  * [] File Name : alloca.c
@@ -9,9 +9,7 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <alloca.h>
 
-int main(int argc, char* argv[]){
-	alloca(1);
-}
+int main(int argc, char *argv[]) { alloca(1); }

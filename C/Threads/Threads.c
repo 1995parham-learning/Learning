@@ -7,10 +7,10 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 /*
  * Copyright (c) 2017 Parham Alvani.
-*/
+ */
 #ifdef __STDC_NO_THREADS__
 #error "No threading support"
 #else
@@ -18,14 +18,10 @@
 #endif
 #include <stdio.h>
 
-int run(void *arg)
-{
-	printf("Hello world of C11 threads.");
-}
+int run(void *arg) { printf("Hello world of C11 threads."); }
 
-int main(int argc, const char *argv[])
-{
-	thrd_t thread;
+int main(int argc, const char *argv[]) {
+  thrd_t thread;
 
-	thrd_create(&thread, run, NULL);
+  thrd_create(&thread, run, NULL);
 }

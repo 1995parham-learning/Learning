@@ -7,18 +7,16 @@
  *
  * [] Created By : Parham Alvani <parham.alvani@gmail.com>
  * =======================================
-*/
+ */
 /*
-* Copyright (c)  2018 Parham Alvani.
-*/
+ * Copyright (c)  2018 Parham Alvani.
+ */
 #define _GNU_SOURCE
-#include <stdio.h>
 #include <sched.h>
+#include <stdio.h>
 #include <stdlib.h>
 
-int fn(void *arg) {
-  printf("Hello I am here\n");
-}
+int fn(void *arg) { printf("Hello I am here\n"); }
 
 int main(int argc, char *argv[]) {
   printf("Hello, I am back\n");

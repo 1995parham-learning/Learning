@@ -9,13 +9,12 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
 /* Variables Attribute */
-int parham __attribute__((section ("PARHAM, .parham"))) = 137303;
+int parham __attribute__((section("PARHAM, .parham"))) = 137303;
 
-int main(int argc, char *argv[])
-{
-	printf("Hello world of attributes... %d\n", parham);
+int main(int argc, char *argv[]) {
+  printf("Hello world of attributes... %d\n", parham);
 }
