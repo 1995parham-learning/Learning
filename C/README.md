@@ -92,3 +92,6 @@ Static variable in C and how to use them for storing the functions states.
 
 ## [pointer](pointer)
 Let's have fun with pointers and try to understand them even more!
+
+## [TwinPrimes](TwinPrimes)
+A twin prime is a prime number that is either 2 less or 2 more than another prime number—for example, either member of the twin prime pair (41, 43).
