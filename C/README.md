@@ -89,3 +89,6 @@ Generate random number between 0 to 3 with `random` instead of `rand`.
 
 ## [static](static)
 Static variable in C and how to use them for storing the functions states.
+
+## [pointer](pointer)
+Let's have fun with pointers and try to understand them even more!
