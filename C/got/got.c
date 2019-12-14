@@ -1,5 +1,3 @@
 extern int i;
 
-void test(){
-	i = 100;
-}
+void test() { i = 100; }

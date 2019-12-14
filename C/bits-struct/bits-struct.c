@@ -9,24 +9,23 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
 struct attrs {
-	unsigned char p1	: 1;
-	unsigned char p2	: 1;
-	unsigned char p3	: 1;
-	unsigned char p4	: 5;
+  unsigned char p1 : 1;
+  unsigned char p2 : 1;
+  unsigned char p3 : 1;
+  unsigned char p4 : 5;
 };
 
-int main(int argc, char *argv[])
-{
-	printf("%ld\n", sizeof(struct attrs));
-	
-	struct attrs attrs;
-	attrs.p1 = 1;
-	attrs.p2 = 1;
-	attrs.p3 = 1;
-	attrs.p4 = 31;
-	printf("%X\n", attrs);
+int main(int argc, char *argv[]) {
+  printf("%ld\n", sizeof(struct attrs));
+
+  struct attrs attrs;
+  attrs.p1 = 1;
+  attrs.p2 = 1;
+  attrs.p3 = 1;
+  attrs.p4 = 31;
+  printf("%X\n", attrs);
 }

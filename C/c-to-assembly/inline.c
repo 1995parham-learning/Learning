@@ -9,17 +9,13 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
-int main(int argc, char *argv[])
-{
-	int a = 100;
+int main(int argc, char *argv[]) {
+  int a = 100;
 
-	printf("%d\n", a);
-	__asm__("xorl	%1, %1\n"
-		: "=r"(a)
-		: "r"(a)
-		);
-	printf("%d\n", a);
+  printf("%d\n", a);
+  __asm__("xorl	%1, %1\n" : "=r"(a) : "r"(a));
+  printf("%d\n", a);
 }

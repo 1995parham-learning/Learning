@@ -9,25 +9,24 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char *argv[])
-{
-	/*
-	 * change it to char *c and test .... HAVE FUN ;-)))
-	 * when change to char *c it's size in unspecified then
-	 * every things goes wrong.
-	*/
-	char c[10];
-	c[0] = '\0';
-	
-	char str[1024];
+int main(int argc, char *argv[]) {
+  /*
+   * change it to char *c and test .... HAVE FUN ;-)))
+   * when change to char *c it's size in unspecified then
+   * every things goes wrong.
+   */
+  char c[10];
+  c[0] = '\0';
 
-	scanf("%[1]", c);
-	printf("%s\n", c);
+  char str[1024];
 
-	scanf("%[^:]", str);
-	printf("%s\n", str);
+  scanf("%[1]", c);
+  printf("%s\n", c);
+
+  scanf("%[^:]", str);
+  printf("%s\n", str);
 }

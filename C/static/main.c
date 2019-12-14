@@ -9,19 +9,17 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
-void func()
-{
-	static int x = 1;
-	printf("%d\n", x);
-	x *= 2;
+void func() {
+  static int x = 1;
+  printf("%d\n", x);
+  x *= 2;
 }
 
-int main(int argc, char *argv[])
-{
-	func();
-	func();
-	func();
+int main(int argc, char *argv[]) {
+  func();
+  func();
+  func();
 }

@@ -9,38 +9,37 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
-#include <stdio.h>
+ */
 #include <math.h>
+#include <stdio.h>
 
-int main(int argc, char *argv[])
-{
-	int low, high, n, count, i;
+int main(int argc, char *argv[]) {
+  int low, high, n, count, i;
 
-	scanf("%d %d", &low, &high);
+  scanf("%d %d", &low, &high);
 
-	count = 0;
-	n = 0;
+  count = 0;
+  n = 0;
 
-	if (low <= 3)
-		count++;
+  if (low <= 3)
+    count++;
 
-	while (n < low)
-		n += 6;
+  while (n < low)
+    n += 6;
 
-	while (n < high) {
-		i = 1;
-		int flag = 0;
+  while (n < high) {
+    i = 1;
+    int flag = 0;
 
-		while (i * i < n + 1) {
-			i++;
-			if ((n - 1) % i == 0 || (n + 1) % i == 0)
-				flag = 1;
-		}
-		if (!flag)
-			count++;
-		n += 6;
-	}
-	printf("the number of twin primes between %d and %d are %d",
-			low, high, count);
+    while (i * i < n + 1) {
+      i++;
+      if ((n - 1) % i == 0 || (n + 1) % i == 0)
+        flag = 1;
+    }
+    if (!flag)
+      count++;
+    n += 6;
+  }
+  printf("the number of twin primes between %d and %d are %d", low, high,
+         count);
 }

@@ -9,16 +9,15 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
 float A = 10.;
 
-int main(int argc, char *argv[])
-{
-	A *= 10;
-	printf("%g\n", A);
+int main(int argc, char *argv[]) {
+  A *= 10;
+  printf("%g\n", A);
 
-	A += 10.5;
-	printf("%g\n", A);
+  A += 10.5;
+  printf("%g\n", A);
 }

@@ -9,18 +9,16 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
+#include "Practical.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "Practical.h"
 
-void DieWithUserMessage(const char *message, const char *detail)
-{
-	fprintf(stderr, "%s:%s\n", message, detail);
-	exit(1);
+void DieWithUserMessage(const char *message, const char *detail) {
+  fprintf(stderr, "%s:%s\n", message, detail);
+  exit(1);
 }
-void DieWithSystemMessage(const char *message)
-{
-	perror(message);
-	exit(1);
+void DieWithSystemMessage(const char *message) {
+  perror(message);
+  exit(1);
 }

@@ -9,24 +9,20 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
-#include <stdio.h>
+ */
 #include <math.h>
+#include <stdio.h>
 
-double max(double a, double b)
-{
-	return 1 / 2. * (a + b + fabs(a-b));
-}
+double max(double a, double b) { return 1 / 2. * (a + b + fabs(a - b)); }
 
-int main(int argc, char *argv[])
-{
-	double b = 0.01242;
-	double a = 0.04231;
+int main(int argc, char *argv[]) {
+  double b = 0.01242;
+  double a = 0.04231;
 
-	printf("%g\n", max(a, b));
-	
-	int c = ceil(max(a, b) / b);
-	c = (c + 1) % c;
-	/* c should be 1 if a > b or else it should be 0 */
-	printf("%d\n", c);
+  printf("%g\n", max(a, b));
+
+  int c = ceil(max(a, b) / b);
+  c = (c + 1) % c;
+  /* c should be 1 if a > b or else it should be 0 */
+  printf("%d\n", c);
 }

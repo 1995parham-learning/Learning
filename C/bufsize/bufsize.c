@@ -9,24 +9,23 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 #include <stdio_ext.h>
 
-int main(int argc, char *argv[])
-{
-	FILE *f;
-	int bufsize;
+int main(int argc, char *argv[]) {
+  FILE *f;
+  int bufsize;
 
-	f = fopen("test.txt","wb");
-	if (f == NULL) {
-		perror("fopen failed\n");
-		return -1;
-	}
+  f = fopen("test.txt", "wb");
+  if (f == NULL) {
+    perror("fopen failed\n");
+    return -1;
+  }
 
-	bufsize = __fbufsize(f);
+  bufsize = __fbufsize(f);
 
-	printf("The buffer size is %d\n",bufsize);
+  printf("The buffer size is %d\n", bufsize);
 
-	return 0;
+  return 0;
 }

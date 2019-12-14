@@ -9,18 +9,17 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
+#include "HelloJNI.h"
 #include <jni.h>
 #include <stdio.h>
-#include "HelloJNI.h"
 
 /*
  * Implementation of native method sayHello() of HelloJNI class
-*/
+ */
 JNIEXPORT void JNICALL Java_HelloJNI_sayHello(JNIEnv *env, jobject obj,
-		jint number, jintArray array)
-{
-	printf("Hello Number %d !! You have %d item in your array\n",
-			number, (*env)->GetArrayLength(env, array));
-	return;
+                                              jint number, jintArray array) {
+  printf("Hello Number %d !! You have %d item in your array\n", number,
+         (*env)->GetArrayLength(env, array));
+  return;
 }
