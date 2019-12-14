@@ -1,7 +1,7 @@
 /*
  * In The Name Of God
  * ========================================
- * [] File Name : valgrinding.c
+ * [] File Name : main.c
  *
  * [] Creation Date : 05-02-2015
  *
