@@ -86,3 +86,6 @@ Convert some known syntax of C into assembly.
 
 ## [random](random)
 Generate random number between 0 to 3 with `random` instead of `rand`.
+
+## [static](static)
+Static variable in C and how to use them for storing the functions states.
