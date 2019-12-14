@@ -1,7 +1,7 @@
 /*
  * In The Name Of God
  * ========================================
- * [] File Name : static.c
+ * [] File Name : main.c
  *
  * [] Creation Date : 12-01-2015
  *
