@@ -1,7 +1,7 @@
 /*
  * In The Name Of God
  * ========================================
- * [] File Name : TwinPrimes.c
+ * [] File Name : main.c
  *
  * [] Creation Date : 08-02-2015
  *
@@ -40,6 +40,6 @@ int main(int argc, char *argv[]) {
       count++;
     n += 6;
   }
-  printf("the number of twin primes between %d and %d are %d", low, high,
+  printf("the number of twin primes between %d and %d are %d\n", low, high,
          count);
 }
