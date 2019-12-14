@@ -9,38 +9,35 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
-int r_fib(int n)
-{
-	if (n == 1 || n == 0)
-		return 1;
-	return r_fib(n - 1) + r_fib(n - 2);
+int r_fib(int n) {
+  if (n == 1 || n == 0)
+    return 1;
+  return r_fib(n - 1) + r_fib(n - 2);
 }
 
-long long s_fib(void)
-{
-	static long long first = 0;
-	static long long second = 1;
+long long s_fib(void) {
+  static long long first = 0;
+  static long long second = 1;
 
-	long long out = first + second;
-	
-	first = second;
-	second = out;
-	return out;
+  long long out = first + second;
+
+  first = second;
+  second = out;
+  return out;
 }
 
-int main(int argc, char *argv[])
-{
-	int n = 0;
-	int i = 0;
+int main(int argc, char *argv[]) {
+  int n = 0;
+  int i = 0;
 
-	scanf("%d", &n);
-	
-	printf("%d\n", r_fib(n));
+  scanf("%d", &n);
 
-	for (i = 0; i < n - 1; i++)
-		s_fib();
-	printf("%lld\n", s_fib());
+  printf("%d\n", r_fib(n));
+
+  for (i = 0; i < n - 1; i++)
+    s_fib();
+  printf("%lld\n", s_fib());
 }

@@ -9,23 +9,20 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
-#define pfor(...)			\
-	_Pragma("omp parallel for")	\
-	for(__VA_ARGS__)		\
+#define pfor(...) _Pragma("omp parallel for") for (__VA_ARGS__)
 
-int main(int argc, char *argv[])
-{
-	int i = 0;
+int main(int argc, char *argv[]) {
+  int i = 0;
 
-	pfor(i = 0; i < 100; i++) {
-		int j = 0;
+  pfor(i = 0; i < 100; i++) {
+    int j = 0;
 
-		printf("%i\n", i);
-		printf("%i\n", j);
-		j++;
-		printf("%i\n", j);
-	}
+    printf("%i\n", i);
+    printf("%i\n", j);
+    j++;
+    printf("%i\n", j);
+  }
 }

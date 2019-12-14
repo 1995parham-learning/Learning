@@ -42,8 +42,10 @@ int main(int argc, char *argv[]) {
     printf("a[%d]: %d\n", i, a[i]);
   }
   // https://stackoverflow.com/questions/2528318/how-come-an-arrays-address-is-equal-to-its-value-in-c
-  // The name of an array usually evaluates to the address of the first element of the array,
-  // so array and &array have the same value (but different types, so array+1 and &array+1 will not be equal if the array is more than 1 element long).
+  // The name of an array usually evaluates to the address of the first element
+  // of the array, so array and &array have the same value (but different types,
+  // so array+1 and &array+1 will not be equal if the array is more than 1
+  // element long).
   printf("*a: %d\n", *a);
   printf("a: %p\n", a);
   printf("&a: %p\n", &a);

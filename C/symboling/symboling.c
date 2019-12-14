@@ -9,16 +9,14 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
 extern char p;
 
-int main(int argc, char *argv[])
-{
-	printf("%p\n", &p);
-	
+int main(int argc, char *argv[]) {
+  printf("%p\n", &p);
 
-	FILE *fout = stdout;
-	fprintf(fout, "Hello world of symboling\n");
+  FILE *fout = stdout;
+  fprintf(fout, "Hello world of symboling\n");
 }

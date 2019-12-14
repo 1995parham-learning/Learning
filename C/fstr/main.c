@@ -9,25 +9,24 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
-#include <stdlib.h>
+ */
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "fstr.h"
 
-int main(int argc, char *argv[])
-{
-	struct fstr *string = fstr_new("Hello world of Assembly");
+int main(int argc, char *argv[]) {
+  struct fstr *string = fstr_new("Hello world of Assembly");
 
-	fstr_show(string);
+  fstr_show(string);
 
-	struct fstr *sub_string = fstr_cpy(string, 0, 10);
+  struct fstr *sub_string = fstr_cpy(string, 0, 10);
 
-	fstr_show(sub_string);
+  fstr_show(sub_string);
 
-	fstr_free(string);
+  fstr_free(string);
 
-	fstr_show(sub_string);
+  fstr_show(sub_string);
 
-	fstr_free(sub_string);
+  fstr_free(sub_string);
 }

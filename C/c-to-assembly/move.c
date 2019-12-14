@@ -9,21 +9,17 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 #include <stdio.h>
 
-char getch()
-{
-	return -1;
-}
+char getch() { return -1; }
 
-int main(int argc, char *argv[])
-{
-	char a = getch();
-	printf("%u\n", a);
-	printf("%d\n", a);
+int main(int argc, char *argv[]) {
+  char a = getch();
+  printf("%u\n", a);
+  printf("%d\n", a);
 
-	unsigned char b = getch();
-	printf("%u\n", b);
-	printf("%d\n", b);
+  unsigned char b = getch();
+  printf("%u\n", b);
+  printf("%d\n", b);
 }

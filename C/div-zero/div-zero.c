@@ -9,11 +9,10 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
+ */
 
-int main(int argc, char *argv[])
-{
-	int a = 0;
-	int b = 10;
-	int c = b / a;
+int main(int argc, char *argv[]) {
+  int a = 0;
+  int b = 10;
+  int c = b / a;
 }

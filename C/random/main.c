@@ -7,10 +7,10 @@
  *
  * [] Created By : Parham Alvani <parham.alvani@gmail.com>
  * =======================================
-*/
+ */
 /*
-* Copyright (c)  2019 Parham Alvani.
-*/
+ * Copyright (c)  2019 Parham Alvani.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>

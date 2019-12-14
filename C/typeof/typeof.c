@@ -9,10 +9,9 @@
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
-*/
-int main(int argc, char *argv[])
-{
-	int A = 10;
-	typeof(A)* a;
-	a = &A;
+ */
+int main(int argc, char *argv[]) {
+  int A = 10;
+  typeof(A) *a;
+  a = &A;
 }
