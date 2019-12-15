@@ -13,7 +13,11 @@
 #include <stdio.h>
 
 /* Variables Attribute */
+#ifdef __MACH__
 int parham __attribute__((section("PARHAM, .parham"))) = 137303;
+#else
+int parham __attribute__((section(".parham"))) = 137303;
+#endif
 
 int main(int argc, char *argv[]) {
   printf("Hello world of attributes... %d\n", parham);
