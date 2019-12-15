@@ -12,7 +12,7 @@ ASFLAGS=-Wall -O0 -g
 
 .PHONY: all
 all: function-call.out ifthen.out for.out inline.out args.out flonum.out move.out \
-	attributes.out
+	attributes.out global.out
 
 %.out: %.c
 	$(CC) -fverbose-asm -S $<
