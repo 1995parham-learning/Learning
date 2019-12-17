@@ -95,3 +95,6 @@ Let's have fun with pointers and try to understand them even more!
 
 ## [TwinPrimes](TwinPrimes)
 A twin prime is a prime number that is either 2 less or 2 more than another prime number—for example, either member of the twin prime pair (41, 43).
+
+## [DoubleToByte](DoubleToByte)
+Convert a double number into byte representation.
