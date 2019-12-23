@@ -60,6 +60,7 @@ func main() {
 	fmt.Println(s + t)
 	fmt.Println(p1.ToString())
 	fmt.Printf("%d %d\n", p1.x, p1.y)
+	fmt.Printf("%+v\n", p1)
 
 	var p2 Stringer = &(Point{2, 3})
 	fmt.Println(p2)
