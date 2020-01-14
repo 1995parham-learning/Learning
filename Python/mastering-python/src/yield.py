@@ -7,6 +7,21 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
+def fibonacci():
+    print('initiation')
+    n = 0
+    a, b = 0, 1
+    while True:
+        print(f'{n}')
+        yield b
+        a, b = b, a + b
+        n += 1
+fibo = fibonacci()
+print(f'n: 0')
+next(fibo)
+print(f'n: 1')
+next(fibo)
+
 def psychologist():
     print('Please tell me your problem')
     while True:
