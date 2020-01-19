@@ -50,6 +50,6 @@ class Perceptron:
     def predict(self, X):
         '''
         Return class label
-        X: np.ndarray, shape = [n_features]
+        X: np.ndarray, shape = [?, n_features]
         '''
         return np.where(self.net_input(X) >= 0.0, 1, -1)
