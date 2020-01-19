@@ -20,12 +20,12 @@ class Perceptron:
         self._w = []
         self._errors = []
 
-    def fit(self, X, Y):
+    def fit(self, X, y):
         '''
         Fit training data.
 
         X: np.ndarray, shape = [n_examples, n_features]
-        Y: np.ndarray, shape = [n_examples]
+        y: np.ndarray, shape = [n_examples]
         '''
         rgen = np.random.RandomState(self.random_state)
         self._w = rgen.normal(loc=0.0, scale=0.01,
@@ -33,7 +33,7 @@ class Perceptron:
 
         for _ in range(self.n_iter):
             errors = 0
-            for x_i, target in zip(X, Y):
+            for x_i, target in zip(X, y):
                 update = self.eta * (target - self.predict(x_i))
                 self._w[1:] += update * x_i
                 self._w[0] += update
