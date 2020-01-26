@@ -25,7 +25,6 @@ class LogisticRegressionGD:
         return self
 
     def predict(self, X):
-        print(self.net_input(X))
         return np.where(self.net_input(X) > 0, 1, 0)
 
 
