@@ -12,13 +12,13 @@ class LogisticRegressionGD:
         self.n_iter = n_iter
         self.random_state = random_state
         self._w = []
-        self._const: List[float] = []
+        self._cost: List[float] = []
 
-    def activation(self, X):
+    def activation(self, z):
         '''
         Compute logistic sigmoid activation
         '''
-        return 1 / (1 + np.exp(X))
+        return 1 / (1 + np.exp(-z))
 
     def net_input(self, X):
         '''
@@ -44,9 +44,9 @@ class LogisticRegressionGD:
                               size=1 + X.shape[1])
         for _ in range(self.n_iter):
             output = self.activation(self.net_input(X))
-            errors = output - y
+            errors = (y - output)
             self._w[1:] += self.eta * X.T.dot(errors)
-            self._w[0] = self.eta * errors.sum()
+            self._w[0] += self.eta * errors.sum()
 
             cost = (-y.dot(np.log(output)) - ((1 - y).dot(np.log(1 - output))))
             self._cost.append(cost)
