@@ -1,9 +1,7 @@
 fn main() {
-    println!("0: {}", fib(0));
-    println!("1: {}", fib(1));
-    println!("2: {}", fib(2));
-    println!("3: {}", fib(3));
-    println!("4: {}", fib(4));
+    for i in 0..10 {
+        println!("{}: {}", i, fib(i));
+    }
 }
 
 fn fib(n: u32) -> u64 {
@@ -12,13 +10,13 @@ fn fib(n: u32) -> u64 {
 
     for i in 2..=n {
         if i % 2 == 0 {
-            a = a + b;
+            a += b;
         } else {
-            b = a + b;
+            b += a;
         }
     }
 
-    return if n % 2 == 0 {
+    if n % 2 == 0 {
         a
     } else {
         b
