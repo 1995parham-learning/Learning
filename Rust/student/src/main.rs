@@ -7,8 +7,8 @@ struct Student {
 }
 
 impl Student {
-    fn new(name: String, id: String, age: i32) -> Box<Student> {
-        Box::new(Student { name, id, age })
+    fn new(name: String, id: String, age: i32) -> Student {
+        Student { name, id, age }
     }
 }
 
@@ -23,3 +23,11 @@ fn main() {
 
     println!("Hello {}", s1);
 }
+
+/*
+ * Borrowing issue can be seen by the following code
+ * let mut s1 = ...
+ *
+ * let r1 = &mut s1;
+ * println!("{}", r1);
+ */
