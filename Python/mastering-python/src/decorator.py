@@ -9,6 +9,7 @@
 from typing import Callable, Dict
 import functools
 
+
 def fibo(n: int) -> int:
     if n == 1:
         return 1
@@ -16,15 +17,19 @@ def fibo(n: int) -> int:
         return 1
     return fibo(n - 1) + fibo(n - 2)
 
+
 # as function
 def memorize(f: Callable[[int], int]) -> Callable[[int], int]:
     memory: Dict[int, int] = dict()
+
     @functools.wraps(f)
     def wrapper(arg: int) -> int:
         if arg not in memory:
             memory[arg] = f(arg)
         return memory[arg]
+
     return wrapper
+
 
 # as class
 class Memorize:
@@ -38,6 +43,21 @@ class Memorize:
             self.memory[arg] = self.function(arg)
         return self.memory[arg]
 
+
 ff = memorize(fibo)
 fc = Memorize(fibo)
-print(f'{ff(10)} as function and {fc(10)} as class')
+print(f"{ff(10)} as function and {fc(10)} as class")
+
+
+class Fake:
+    def __init__(self, function):
+        self.function = function
+
+
+@Fake
+def to_nil(n: int) -> int:
+    return n
+
+
+print(type(to_nil))
+print(to_nil.function(10))
