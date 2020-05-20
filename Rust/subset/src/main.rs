@@ -10,7 +10,7 @@ fn main() {
     for ss in 0..(1 << N) {
         print!("{{");
         for i in 0..N {
-            if ss & 1<<i != 0 {
+            if ss & 1 << i != 0 {
                 print!("{}", arr[i]);
             }
         }
