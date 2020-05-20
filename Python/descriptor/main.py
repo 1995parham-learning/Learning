@@ -6,33 +6,49 @@
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
+import abc
 
 
-class Alg:
+class Alg(abc.ABC):
+    def __init__(self):
+        pass
+
     def __get__(self, obj, objtype):
+        self.core = obj
         return self
 
     def __call__(self):
+        return self.run()
+
+    @abc.abstractmethod
+    def run(self):
         pass
 
 
 class Alg1(Alg):
-    def __call__(self):
-        print("Alg-1")
+    def run(self):
+        return f"Alg-1 from {self.core.name}"
 
 
 class Alg2(Alg):
-    def __call__(self):
-        print("Alg-2")
+    def run(self):
+        return f"Alg-2 from {self.core.name}"
 
 
 class Core:
-    def __init__(self, alg: Alg):
-        self.alg = alg
+    alg: Alg = Alg1()
+
+    def __init__(self, name: str = "default"):
+        self.name = name
 
 
-c1 = Core(Alg1())
-c2 = Core(Alg2())
+c1 = Core("elahe")
+c2 = Core("raha")
 
-c1.alg()
-c2.alg()
+assert c1.alg() == "Alg-1 from elahe"
+assert c2.alg() == "Alg-1 from raha"
+
+Core.alg = Alg2()
+
+assert c1.alg() == "Alg-2 from elahe"
+assert c2.alg() == "Alg-2 from raha"
