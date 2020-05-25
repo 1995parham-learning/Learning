@@ -1,9 +1,0 @@
-zimpl	v       0	x$Oatmeal       	"x$Oatmeal"
-zimpl	v       1	x$Chicken       	"x$Chicken"
-zimpl	v       2	x$Eggs          	"x$Eggs"
-zimpl	v       3	x$Milk          	"x$Milk"
-zimpl	v       4	x$Pie           	"x$Pie"
-zimpl	v       5	x$Pork          	"x$Pork"
-zimpl	c       0	need_1          	"need_1"	0.0000000000000000e+00
-zimpl	c       1	need_2          	"need_2"	0.0000000000000000e+00
-zimpl	c       2	need_3          	"need_3"	0.0000000000000000e+00
