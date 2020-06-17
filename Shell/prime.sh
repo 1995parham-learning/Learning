@@ -7,18 +7,28 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-a=$1
 
-answer=0
+is_prime() {
+        n=$1
+        count=0
 
-for i in $(seq 1 $a); do
-	if [ $((a % i)) -eq 0 ]; then
-		answer=$((answer + 1))
-	fi
-done
+        for i in $(seq 1 $n); do
+                if [ $((n % i)) -eq 0 ]; then
+                        count=$((count + 1))
+                fi
+        done
 
-if [ $answer -eq 2 ]; then
-	echo "Prime"
+        if [ $count -eq 2 ]; then
+                return 0
+        fi
+
+        return 1
+}
+
+is_prime $1
+
+if [ $? -eq 0 ]; then
+        echo "Prime"
 else
-	echo "Not Prime"
+        echo "Not Prime"
 fi
