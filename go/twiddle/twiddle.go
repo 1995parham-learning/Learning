@@ -18,9 +18,11 @@ type Twiddle struct {
 	end bool
 }
 
-// New creates new twiddle algorithm instance
+// New creates new twiddle algorithm instance.
+// nolint: gomnd
 func New(m int, n int) *Twiddle {
 	p := make([]int, n+2)
+
 	b := make([]bool, n)
 
 	// initiate p
@@ -31,6 +33,7 @@ func New(m int, n int) *Twiddle {
 	for i = 1; i < n-m; i++ {
 		p[i] = 0
 	}
+
 	for i < n+1 {
 		p[i] = i + m - n
 		i++
@@ -46,6 +49,7 @@ func New(m int, n int) *Twiddle {
 	for i = 0; i != n-m; i++ {
 		b[i] = false
 	}
+
 	for i != n {
 		b[i] = true
 		i++
@@ -58,7 +62,7 @@ func New(m int, n int) *Twiddle {
 }
 
 // Next creates next combination and return it.
-// it returns nil on end of combinations
+// it returns nil on end of combinations.
 func (t *Twiddle) Next() []bool {
 	if t.end {
 		return nil
@@ -77,8 +81,10 @@ func (t *Twiddle) Next() []bool {
 	return r
 }
 
+// nolint: nestif
 func (t *Twiddle) twiddle() (int, int, bool) {
 	var i, j, k int
+
 	var x, y int
 
 	j = 1
@@ -90,6 +96,7 @@ func (t *Twiddle) twiddle() (int, int, bool) {
 		for i = j - 1; i != 1; i-- {
 			t.p[i] = -1
 		}
+
 		t.p[j] = 0
 		x = 0
 		t.p[1] = 1
@@ -124,6 +131,6 @@ func (t *Twiddle) twiddle() (int, int, bool) {
 			y = i - 1
 		}
 	}
-	return x, y, false
 
+	return x, y, false
 }

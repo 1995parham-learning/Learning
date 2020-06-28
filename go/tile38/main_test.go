@@ -11,7 +11,7 @@
  * +===============================================
  */
 
-package redis
+package redis_test
 
 import (
 	"fmt"
@@ -28,6 +28,7 @@ type Truck struct {
 	Longitude float64
 }
 
+// nolint: funlen
 func TestMain(t *testing.T) {
 	client := redis.NewClient(&redis.Options{
 		Addr: "localhost:9851",
@@ -37,12 +38,13 @@ func TestMain(t *testing.T) {
 	if err != nil {
 		t.Fatalf("ping error: %s", err)
 	}
+
 	t.Logf("ping success: %s", pong)
 
 	pipe := client.Pipeline()
 
 	trucks := []Truck{
-		Truck{
+		{
 			ID:        2,
 			Ready:     0,
 			Latitude:  35.8138692,
@@ -69,13 +71,13 @@ func TestMain(t *testing.T) {
 	}
 
 	trucks = []Truck{
-		Truck{
+		{
 			ID:        1,
 			Ready:     1,
 			Latitude:  35.8138692,
 			Longitude: 51.4023944,
 		},
-		Truck{
+		{
 			ID:        2,
 			Ready:     1,
 			Latitude:  35.8138692,
@@ -100,8 +102,10 @@ func TestMain(t *testing.T) {
 	if err != nil {
 		t.Logf("pipe execution error %s", err)
 	}
+
 	for i, cmd := range cmds {
 		fmt.Println(i)
+
 		err := cmd.Err()
 		if err != nil {
 			t.Logf("pipeline error %s (%d)", err, i)
@@ -136,8 +140,10 @@ func TestMain(t *testing.T) {
 	if err != nil {
 		t.Logf("pipe execution error %s", err)
 	}
+
 	for i, cmd := range cmds {
 		fmt.Println(i)
+
 		err := cmd.Err()
 		if err != nil {
 			t.Logf("pipeline error %s (%d)", err, i)
