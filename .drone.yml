@@ -4,7 +4,20 @@ name: default
 type: docker
 
 steps:
-  - name: lint
+  - name: rust
+    image: rust
+    commands:
+      - rustup component add rustfmt
+      - rustup component add clippy
+      - cd ./rust
+      - |
+        for prj in */; do
+          echo $prj && cd $prj
+          cargo fmt
+          cargo clippy
+          cd ..
+        done
+  - name: go
     image: golangci/golangci-lint
     commands:
       - cd ./go
