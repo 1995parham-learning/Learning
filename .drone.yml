@@ -14,7 +14,7 @@ steps:
         for prj in */; do
           echo $prj && cd $prj
           cargo fmt
-          cargo clippy
+          cargo clippy -Dwarnings
           cd ..
         done
   - name: go
