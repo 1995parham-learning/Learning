@@ -12,17 +12,26 @@ package main
 
 import "fmt"
 
+const (
+	manualPanic  = 1
+	runtimePanic = 2
+)
+
 func badFunction() {
 	fmt.Printf("Select Panic type (0=no panic, 1=int, 2=runtime panic)\n")
+
 	var choice int
+
 	fmt.Scanf("%d", &choice)
+
 	switch choice {
-	case 1:
+	case manualPanic:
 		panic(0)
-	case 2:
+	case runtimePanic:
 		// The following code will panic
-		// var invalid func(int) int
-		// invalid(10)
+		var invalid func(int) int
+
+		invalid(0)
 	}
 }
 

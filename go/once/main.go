@@ -24,6 +24,8 @@ func (s *LazyInit) SetValue(v int) {
 }
 
 func main() {
+	const v = 12
+
 	var l LazyInit
 	/*
 	 * if you use SetValue() berfore getting the value (initiation happens on Value())
@@ -32,6 +34,6 @@ func main() {
 	 *	l.Value() --> 1820
 	 */
 	fmt.Printf("%d\n", l.Value())
-	l.SetValue(12)
+	l.SetValue(v)
 	fmt.Printf("%d\n", l.Value())
 }
