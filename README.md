@@ -21,14 +21,3 @@ If you have such programming example you can create a pull request and make me h
 ## Contributors
 - [Ali Gholami](mailto:aligholami7596@gmail.com)
 - [Mohamad Khajavi](mailto:khajavi_mohamad@yahoo.com)
-
-
-## Table of Code
-
-- [AVR](AVR)
-- [C](C)
-- [Assembly](Assembly)
-- [NodeJS](NodeJS)
-- [Python](python)
-- [Shell](sh)
-- [Go](go)
