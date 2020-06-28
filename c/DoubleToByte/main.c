@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
   void *d_pointer = &d;
 
   for (int i = 0; i < sizeof(d); i++) {
-    printf("0x%x\n", *((char *) d_pointer + i));
+    printf("0x%x\n", *((char *)d_pointer + i));
   }
 }
 
