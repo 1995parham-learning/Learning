@@ -16,14 +16,21 @@ import (
 	"strconv"
 )
 
+// nolint: gomnd
 func main() {
 	var n = 4
 
 	if len(os.Args) > 1 {
-		n, _ = strconv.Atoi(os.Args[1])
+		arg, err := strconv.Atoi(os.Args[1])
+		if err != nil {
+			panic(err)
+		}
+
+		n = arg
 	}
 
 	var acc = 1.0
+
 	fmt.Printf("1")
 
 	for i := 2; i <= n; i++ {
@@ -32,6 +39,7 @@ func main() {
 		for j := 1; j < i; j++ {
 			term *= -1
 		}
+
 		acc += term
 
 		fmt.Printf(" + (-1)^%d * (1/%d)", i-1, i*i)
