@@ -17,10 +17,10 @@ import (
 	"fmt"
 )
 
-// M defines without type
+// M defines without type.
 const M = 1 << 20
 
-// Point is a public but point is private
+// Point is a public but point is private.
 type Point struct {
 	x int
 	y int
