@@ -22,6 +22,8 @@ import (
 
 const (
 	helloDict = "HelloDictionary"
+
+	replicationFactor = 2
 )
 
 // Hello represents a message in our hello world example.
@@ -78,7 +80,7 @@ func hmapf(msg bh.Msg, ctx bh.MapContext) bh.MappedCells {
 }
 
 func brcvf(msg bh.Msg, ctx bh.RcvContext) error {
-	ctx.Printf("broad[%v] message %d was recieved\n", msg.IsBroadCast(), msg.Data().(Broad).ID)
+	ctx.Printf("broad[%v] message %d was received\n", msg.IsBroadCast(), msg.Data().(Broad).ID)
 	return nil
 }
 
@@ -87,8 +89,8 @@ func bmapf(msg bh.Msg, ctx bh.MapContext) bh.MappedCells {
 }
 
 func main() {
-	// Create the hello world application and make sure .
-	app := bh.NewApp("hello-world", bh.Persistent(2))
+	// Create the hello world application
+	app := bh.NewApp("hello-world", bh.Persistent(replicationFactor))
 
 	// Register the handler for Hello messages.
 	if err := app.HandleFunc(Hello{}, hmapf, hrcvf); err != nil {
