@@ -20,7 +20,7 @@ import (
 	"github.com/go-redis/redis"
 )
 
-// Truck is a yogurt truck
+// Truck is a yogurt truck.
 type Truck struct {
 	ID        int
 	Ready     int
