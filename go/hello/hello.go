@@ -26,15 +26,10 @@ type Point struct {
 	y int
 }
 
-// ToString implements Stringer interface that works on *Point
-func (p *Point) ToString() string {
+// String implements Stringer interface that works on *Point.
+func (p *Point) String() string {
 	p.x *= 2
 	return fmt.Sprintf("%d %d", p.x, p.y)
-}
-
-// Stringer interface provides toString method to remember us we are Java Developer
-type Stringer interface {
-	ToString() string
 }
 
 func increase(x *int) {
@@ -50,22 +45,28 @@ func main() {
 	`
 	fmt.Println(str)
 	fmt.Println("hello world")
+
 	var s = "foo"
+
 	var t = "bar"
 
 	var p1 Point
+
 	p1.x = 10
 	p1.y = 20
+
 	fmt.Println(M)
 	fmt.Println(s + t)
-	fmt.Println(p1.ToString())
+	fmt.Println(p1.String())
 	fmt.Printf("%d %d\n", p1.x, p1.y)
 	fmt.Printf("%+v\n", p1)
 
-	var p2 Stringer = &(Point{2, 3})
+	var p2 fmt.Stringer = &(Point{2, 3})
+
 	fmt.Println(p2)
 
 	var lst []int
+
 	lst = append(lst, 10)
 	lst = append(lst, 20)
 	fmt.Println(lst)
@@ -82,11 +83,11 @@ func main() {
 			fmt.Println(i)
 		}
 		ch <- 1
-
 	}()
 
 	<-ch
 
 	var number = 10
+
 	increase(&number)
 }
