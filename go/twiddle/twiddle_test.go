@@ -8,14 +8,16 @@
  * +===============================================
  */
 
-package twiddle
+package twiddle_test
 
 import (
 	"testing"
+
+	"github.com/1995parham/Learning/go/twiddle"
 )
 
 func TestBasic1(t *testing.T) {
-	tw := New(2, 2)
+	tw := twiddle.New(2, 2)
 
 	b := tw.Next()
 	for _, v := range b {
@@ -26,7 +28,7 @@ func TestBasic1(t *testing.T) {
 }
 
 func TestBasic2(t *testing.T) {
-	tw := New(1, 2)
+	tw := twiddle.New(1, 2)
 
 	var table = []struct {
 		ex [2]bool
@@ -36,6 +38,7 @@ func TestBasic2(t *testing.T) {
 	}
 
 	i := 0
+
 	for b := tw.Next(); b != nil; b = tw.Next() {
 		for j := 0; j < len(b); j++ {
 			if table[i].ex[j] != b[j] {
