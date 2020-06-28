@@ -7,23 +7,33 @@
  * | File Name:     ch_mutex_test.go
  * +===============================================
  */
-package mutex
+package mutex_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/1995parham/Learning/go/mutex"
+)
 
 func TestOne(t *testing.T) {
-	m := NewChannelMutex()
+	m := mutex.NewChannelMutex()
 	f := 0
+
 	t.Log(t.Name())
+
 	go func() {
 		m.Acquire()
 		t.Log("Thread-1")
+
 		f = 1
+
 		m.Release()
 	}()
+
 	for {
 		m.Acquire()
 		t.Log("Thread-2")
+
 		if f == 1 {
 			m.Release()
 			break
