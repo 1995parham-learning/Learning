@@ -37,9 +37,9 @@ func createFunc() func(i int) int {
 func main() {
 	innerFunc := createFunc()
 
-	innerFunc(1)
-	innerFunc(2)
-
 	// At the end innerFunc read `a` and `b` on time of its execution.
 	// Please note that innerFunc hold a reference to `a` and `b`.
+	for i := 1; i < 3; i++ {
+		innerFunc(i)
+	}
 }

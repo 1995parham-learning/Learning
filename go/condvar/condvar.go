@@ -30,8 +30,11 @@ func main() {
 		go func(i int) {
 			m.Lock()
 			running <- true
+
 			c.Wait()
+
 			fmt.Printf("Goroutine %d: start\n", i)
+
 			awake <- true
 			m.Unlock()
 		}(i)
