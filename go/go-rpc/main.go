@@ -37,11 +37,16 @@ type Quotient struct {
 // Arith is an integer with multiply and divide methods.
 type Arith int
 
+var (
+	ErrOverflow       = errors.New("signed integer overflow")
+	ErrDivisionByZero = errors.New("divide by zero")
+)
+
 // Multiply multiplies given parameters and stores it result.
 func (t *Arith) Multiply(args *Args, reply *int) error {
 	if args.A != 0 {
 		if args.B > math.MaxInt32/args.A {
-			return errors.New("signed integer overflow")
+			return ErrOverflow
 		}
 	}
 
@@ -53,7 +58,7 @@ func (t *Arith) Multiply(args *Args, reply *int) error {
 // Divide divides given parameters and stores it reminder and quotient.
 func (t *Arith) Divide(args *Args, reply *Quotient) error {
 	if args.B == 0 {
-		return errors.New("divide by zero")
+		return ErrDivisionByZero
 	}
 
 	reply.Quo = args.A / args.B
