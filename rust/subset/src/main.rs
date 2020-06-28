@@ -9,7 +9,7 @@ fn main() {
 
     for ss in 0..(1 << N) {
         print!("{{");
-        for i in 0..N {
+        for (i, _) in arr.iter().enumerate() {
             if ss & 1 << i != 0 {
                 print!("{}", arr[i]);
             }
