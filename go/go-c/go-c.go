@@ -22,6 +22,9 @@ import (
 	"time"
 )
 
+const waitTime = 1 * time.Hour
+const period = 100 * time.Millisecond
+
 func main() {
 	fmt.Println("Hello world .. from Go :D")
 	C.say_hello(C.CString("Parham Alvani"))
@@ -29,7 +32,8 @@ func main() {
 	C.setup_signal_handler()
 
 	go func() {
-		timer := time.Tick(100 * time.Millisecond)
+		timer := time.Tick(period)
+
 		for {
 			<-timer
 			fmt.Println("Go Go ...")
@@ -37,5 +41,5 @@ func main() {
 	}()
 
 	// wait for a signal to handle it in C
-	time.Sleep(1 * time.Hour)
+	time.Sleep(waitTime)
 }
