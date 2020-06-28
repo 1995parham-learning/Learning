@@ -20,6 +20,10 @@ import (
 	"github.com/graphql-go/graphql"
 )
 
+const (
+	diceFaces = 6
+)
+
 func main() {
 	rand.Seed(time.Now().Unix())
 
@@ -47,13 +51,14 @@ func main() {
 				}
 
 				for i := 0; i < n; i++ {
-					l = append(l, rand.Intn(6)+1)
+					l = append(l, rand.Intn(diceFaces)+1)
 				}
 				return l, nil
 			},
 		},
 	}
 	rootQuery := graphql.ObjectConfig{Name: "RootQuery", Fields: fields}
+
 	schema, err := graphql.NewSchema(graphql.SchemaConfig{Query: graphql.NewObject(rootQuery)})
 	if err != nil {
 		log.Fatalf("failed to create new schema, error: %v", err)
@@ -66,10 +71,16 @@ func main() {
 	}
 	`
 	r := graphql.Do(graphql.Params{Schema: schema, RequestString: query})
+
 	if len(r.Errors) > 0 {
 		log.Fatalf("failed to execute graphql operation, errors: %+v", r.Errors)
 	}
-	rj, _ := json.Marshal(r)
-	fmt.Printf("client request: %s \n", query)
-	fmt.Printf("server answer: %s \n", rj)
+
+	rj, err := json.Marshal(r)
+	if err != nil {
+		log.Fatalf("json marshal failed %s", err)
+	}
+
+	fmt.Printf("client request: %s\n", query)
+	fmt.Printf("server answer: %s\n", rj)
 }
