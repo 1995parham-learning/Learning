@@ -11,20 +11,36 @@
 /*
  * Copyright (c) 2015 Parham Alvani.
  */
-package fibonacci
+package fibonacci_test
 
 import (
 	"testing"
+
+	"github.com/1995parham/Learning/Go/fibonacci"
 )
 
 func TestFibonacci(t *testing.T) {
-	if Fibonacci(2) != 2 {
-		t.Errorf("Fibonacci(2) ==> %d != 2)", Fibonacci(2))
+	tests := []struct {
+		input    int
+		expected int
+	}{
+		{
+			input:    2,
+			expected: 2,
+		},
+		{
+			input:    3,
+			expected: 3,
+		},
+		{
+			input:    4,
+			expected: 5,
+		},
 	}
-	if Fibonacci(3) != 3 {
-		t.Errorf("Fibonacci(3) ==> %d != 3)", Fibonacci(3))
-	}
-	if Fibonacci(4) != 5 {
-		t.Errorf("Fibonacci(4) ==> %d != 5)", Fibonacci(4))
+
+	for _, tc := range tests {
+		if fibonacci.Fibonacci(tc.input) != tc.expected {
+			t.Errorf("Fibonacci(%d) ==> %d != %d)", tc.input, fibonacci.Fibonacci(tc.input), tc.expected)
+		}
 	}
 }
