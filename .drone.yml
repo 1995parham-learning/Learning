@@ -1,0 +1,16 @@
+---
+kind: pipeline
+name: default
+type: docker
+
+steps:
+  - name: lint
+    image: golangci/golangci-lint
+    commands:
+      - cd ./go
+      - |
+        for prj in */; do
+          echo $prj && cd $prj
+          golangci-lint run --enable-all
+          cd ..
+        done
