@@ -11,7 +11,7 @@
  * +===============================================
  */
 
-package redis
+package redis_test
 
 import (
 	"testing"
@@ -36,6 +36,7 @@ func TestMain(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Ping Error: %s", err)
 	}
+
 	t.Logf("Ping Success: %s", pong)
 
 	s1, err := msgpack.Marshal(student{
@@ -45,6 +46,7 @@ func TestMain(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Student to msgpack marshaling: %s", err)
 	}
+
 	t.Log(client.RPush("students-list", s1).Result())
 
 	s2, err := msgpack.Marshal(student{
@@ -54,15 +56,19 @@ func TestMain(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Student to msgpack marshaling: %s", err)
 	}
+
 	t.Log(client.RPush("students-list", s2).Result())
 
 	var s3 student
+
 	result, err := client.RPop("students-list").Bytes()
 	if err != nil {
 		t.Fatalf("Pop Error: %s", err)
 	}
+
 	if err := msgpack.Unmarshal(result, &s3); err != nil {
 		t.Fatalf("Msgpack to student unmarshaling: %s", err)
 	}
+
 	t.Log(s3)
 }
