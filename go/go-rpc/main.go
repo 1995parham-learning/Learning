@@ -29,7 +29,7 @@ type Args struct {
 	A, B int
 }
 
-// Quotient contains division reminder and quotient
+// Quotient contains division reminder and quotient.
 type Quotient struct {
 	Quo, Rem int
 }
@@ -37,14 +37,16 @@ type Quotient struct {
 // Arith is an integer with multiply and divide methods.
 type Arith int
 
-// Multiply multiplies given parameters and stores it result
+// Multiply multiplies given parameters and stores it result.
 func (t *Arith) Multiply(args *Args, reply *int) error {
 	if args.A != 0 {
 		if args.B > math.MaxInt32/args.A {
 			return errors.New("signed integer overflow")
 		}
 	}
+
 	*reply = args.A * args.B
+
 	return nil
 }
 
@@ -53,16 +55,17 @@ func (t *Arith) Divide(args *Args, reply *Quotient) error {
 	if args.B == 0 {
 		return errors.New("divide by zero")
 	}
+
 	reply.Quo = args.A / args.B
+
 	reply.Rem = args.A % args.B
+
 	return nil
 }
 
 func main() {
 	// Server side
 	// ===========
-
-	/* This new syntax is gooooooood :) */
 	arith := new(Arith)
 
 	/* Register arith with its associated functions */
@@ -86,7 +89,6 @@ func main() {
 
 	// Client side
 	// ===========
-
 	client, err := rpc.DialHTTP("tcp", "localhost:1373")
 	if err != nil {
 		log.Fatal("dialing:", err)
@@ -94,10 +96,13 @@ func main() {
 
 	/* Synchronous RPC call */
 	args := &Args{7, 8}
+
 	var reply int
+
 	err = client.Call("Arith.Multiply", args, &reply)
 	if err != nil {
 		log.Fatal("arith error:", err)
 	}
+
 	fmt.Printf("Arith: %d * %d = %d\n", args.A, args.B, reply)
 }
