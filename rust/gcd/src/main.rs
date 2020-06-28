@@ -6,7 +6,8 @@ fn main() {
 
 fn gcd(a: u32, b: u32) -> u32 {
     if a % b == 0 {
-        return b;
+        b
+    } else {
+        gcd(b, a % b)
     }
-    return gcd(b, a % b);
 }
