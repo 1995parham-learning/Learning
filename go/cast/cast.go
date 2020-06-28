@@ -20,6 +20,7 @@ type empty interface{}
 
 func main() {
 	one := 1
+
 	var i empty = one
 
 	var float = float32(one)
@@ -36,5 +37,4 @@ func main() {
 	/* This will panic at runtime */
 	e := i.(example)
 	fmt.Printf("%d\n", e.(empty).(int))
-
 }
