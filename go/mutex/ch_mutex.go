@@ -14,7 +14,7 @@ type channelMutex struct {
 	ch chan int
 }
 
-// NewChannelMutex creates new channel mutex implementation of mutex
+// NewChannelMutex creates new channel mutex implementation of mutex.
 func NewChannelMutex() Mutex {
 	return &channelMutex{
 		ch: make(chan int, 1),
