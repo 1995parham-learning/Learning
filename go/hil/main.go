@@ -25,6 +25,7 @@ import (
 
 func main() {
 	name := "main.rjn"
+
 	tmpl, err := ioutil.ReadFile(name)
 	if err != nil {
 		log.Fatal(err)
@@ -48,7 +49,7 @@ func main() {
 		config := &hil.EvalConfig{
 			GlobalScope: &ast.BasicScope{
 				VarMap: map[string]ast.Variable{
-					"name": ast.Variable{
+					"name": {
 						Type:  ast.TypeString,
 						Value: name,
 					},
