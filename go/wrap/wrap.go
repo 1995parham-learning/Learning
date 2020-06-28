@@ -18,7 +18,7 @@ import (
 	"fmt"
 )
 
-// ErrInnerFailure represents core system failure
+// ErrInnerFailure represents core system failure.
 var ErrInnerFailure = errors.New("something is wrong with core")
 
 func main() {
