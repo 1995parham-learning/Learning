@@ -38,5 +38,6 @@ func outerError() error {
 	if err != nil {
 		return fmt.Errorf("inner failure: %w", err)
 	}
+
 	return nil
 }
