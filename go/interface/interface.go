@@ -28,11 +28,16 @@ func justForHavingFun(input sample) {
 	fmt.Printf("%s\n", input)
 }
 
+// nolint: wsl
 func main() {
 	var A, B int
+
 	var gain integer
+
 	fmt.Scanf("%d %d %d", &A, &B, &gain)
+
 	A, B = gain.sampler(A, B)
+
 	fmt.Printf("%d %d\n", A, B)
 
 	justForHavingFun(&gain)
