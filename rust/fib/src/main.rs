@@ -1,24 +1,17 @@
+mod fib;
+
+use fib::lin::Linear;
+use fib::Fibonacci;
+
 fn main() {
-    for i in 0..10 {
-        println!("{}: {}", i, fib(i));
-    }
-}
+    let mut n = String::new();
 
-fn fib(n: u32) -> u64 {
-    let mut a = 1;
-    let mut b = 1;
+    std::io::stdin()
+        .read_line(&mut n)
+        .expect("cannot read n from command line");
 
-    for i in 2..=n {
-        if i % 2 == 0 {
-            a += b;
-        } else {
-            b += a;
-        }
-    }
+    let n: u64 = n.trim().parse().expect("invalid number");
 
-    if n % 2 == 0 {
-        a
-    } else {
-        b
-    }
+    let f = Linear;
+    println!("{}", f.fib(n));
 }
