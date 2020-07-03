@@ -4,9 +4,7 @@ pub struct Recursive;
 
 impl Fibonacci for Recursive {
     fn fib(&self, n: u64) -> u64 {
-        if n == 0 {
-            1
-        } else if n == 1 {
+        if n == 0 || n == 1 {
             1
         } else {
             self.fib(n - 1) + self.fib(n - 2)
