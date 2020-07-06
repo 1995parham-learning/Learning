@@ -30,7 +30,7 @@ func TestBasic1(t *testing.T) {
 func TestBasic2(t *testing.T) {
 	tw := twiddle.New(1, 2)
 
-	var table = []struct {
+	table := []struct {
 		ex [2]bool
 	}{
 		{[2]bool{false, true}},

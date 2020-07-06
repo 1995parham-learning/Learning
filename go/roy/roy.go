@@ -18,7 +18,7 @@ import (
 
 // nolint: gomnd
 func main() {
-	var n = 4
+	n := 4
 
 	if len(os.Args) > 1 {
 		arg, err := strconv.Atoi(os.Args[1])
@@ -29,7 +29,7 @@ func main() {
 		n = arg
 	}
 
-	var acc = 1.0
+	acc := 1.0
 
 	fmt.Printf("1")
 

@@ -46,9 +46,9 @@ func main() {
 	fmt.Println(str)
 	fmt.Println("hello world")
 
-	var s = "foo"
+	s := "foo"
 
-	var t = "bar"
+	t := "bar"
 
 	var p1 Point
 
@@ -87,7 +87,7 @@ func main() {
 
 	<-ch
 
-	var number = 10
+	number := 10
 
 	increase(&number)
 }
