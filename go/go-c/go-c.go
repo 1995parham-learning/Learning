@@ -22,8 +22,10 @@ import (
 	"time"
 )
 
-const waitTime = 1 * time.Hour
-const period = 100 * time.Millisecond
+const (
+	waitTime = 1 * time.Hour
+	period   = 100 * time.Millisecond
+)
 
 func main() {
 	fmt.Println("Hello world .. from Go :D")
