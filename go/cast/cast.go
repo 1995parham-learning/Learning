@@ -23,7 +23,7 @@ func main() {
 
 	var i empty = one
 
-	var float = float32(one)
+	float := float32(one)
 
 	switch i.(type) {
 	default:
@@ -34,7 +34,7 @@ func main() {
 
 	fmt.Printf("%f\n", float)
 
-	/* This will panic at runtime */
+	// This will panic at runtime
 	e := i.(example)
 	fmt.Printf("%d\n", e.(empty).(int))
 }
