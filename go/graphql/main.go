@@ -20,9 +20,7 @@ import (
 	"github.com/graphql-go/graphql"
 )
 
-const (
-	diceFaces = 6
-)
+const diceFaces = 6
 
 func main() {
 	rand.Seed(time.Now().Unix())
@@ -44,7 +42,7 @@ func main() {
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 				var l []int
-				var n = 2
+				n := 2
 
 				if count, ok := p.Args["count"].(int); ok {
 					n = count
@@ -70,8 +68,8 @@ func main() {
 		diceRoll
 	}
 	`
-	r := graphql.Do(graphql.Params{Schema: schema, RequestString: query})
 
+	r := graphql.Do(graphql.Params{Schema: schema, RequestString: query})
 	if len(r.Errors) > 0 {
 		log.Fatalf("failed to execute graphql operation, errors: %+v", r.Errors)
 	}
