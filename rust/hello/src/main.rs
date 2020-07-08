@@ -2,7 +2,7 @@ use actix_web::{App, HttpResponse, HttpServer, Responder, get};
 
 #[get("/hello")]
 async fn hello() -> impl Responder {
-    HttpResponse::Ok().json("Hey there!")
+    HttpResponse::Ok().json("Hi Elahe ✋")
 }
 
 #[actix_rt::main]
