@@ -48,13 +48,10 @@ m.addConstrs(
 )
 
 m.setObjective(
-    quicksum(
-        _lambda[machine, task] * costs[machine, task]
-        for task in tasks
-        for machine in machines
-    ),
-    GRB.MINIMIZE,
+    _lambda.prod(costs), GRB.MINIMIZE,
 )
+
+m.write("gap.lp")
 
 m.optimize()
 
