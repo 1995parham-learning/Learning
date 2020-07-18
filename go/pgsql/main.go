@@ -51,4 +51,9 @@ func main() {
 
 	db.First(&user, 1)
 	fmt.Println(user)
+
+	var users []User
+
+	db.Find(&users)
+	fmt.Println(users)
 }
