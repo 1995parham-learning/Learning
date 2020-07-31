@@ -13,3 +13,5 @@ services:
         published: 5432
         protocol: tcp
         mode: host
+    volumes:
+      - ./tables.sql:/docker-entrypoint-initdb.d/tables.sql
