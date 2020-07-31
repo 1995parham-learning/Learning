@@ -5,8 +5,11 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=pgsql
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: pgsql
     ports:
-      - 5432:5432
+      - target: 5432
+        published: 5432
+        protocol: tcp
+        mode: host
