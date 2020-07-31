@@ -8,7 +8,6 @@
  * +===============================================
  */
 
-// nolint: gofumpt
 package twiddle
 
 // Twiddle type contains all information twiddle algorithm
