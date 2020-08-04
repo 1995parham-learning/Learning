@@ -25,7 +25,20 @@ Create a file in /home/directory1, write "hello world !" in it and copy it to a
 new /home/directory2. Finally, remove it from directory1.
 
 ## [power](power.sh)
-Do you want integer power function in bash.
+Do you want integer power function in bash 🙈
 ```sh
 power.sh 10 2
+```
+
+## Useful Examples
+1. List all Go packages that are belong to 1995parham in evey sub directories' go and go.mod files.
+
+```sh
+grep -E "github.com/1995parham/.*" **/*.go **/go.mod
+```
+
+2. Remove all Go's package prefix in evey sub directories' go and go.mod files.
+
+```sh
+sed -e "s#github.com/1995parham/Learning/[Gg]o/##g" -i **/*.go **/go.mod
 ```
