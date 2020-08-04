@@ -12,7 +12,6 @@ package twiddle_test
 
 import (
 	"testing"
-
 	"twiddle"
 )
 

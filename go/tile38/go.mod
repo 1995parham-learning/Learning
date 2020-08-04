@@ -1,4 +1,4 @@
-module til38
+module tile38
 
 go 1.13
 
