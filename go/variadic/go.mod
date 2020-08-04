@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/variadic
+module variadic
 
 go 1.14

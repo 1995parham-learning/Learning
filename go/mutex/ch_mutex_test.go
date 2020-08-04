@@ -12,7 +12,7 @@ package mutex_test
 import (
 	"testing"
 
-	"github.com/1995parham/Learning/go/mutex"
+	"mutex"
 )
 
 func TestOne(t *testing.T) {

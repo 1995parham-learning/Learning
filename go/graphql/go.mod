@@ -1,4 +1,4 @@
-module github.com/1995parham/Learning/Go/graphql
+module graphql
 
 go 1.12
 

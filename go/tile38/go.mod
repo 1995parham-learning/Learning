@@ -1,4 +1,4 @@
-module github.com/1995parham/Learning/Go/til38
+module til38
 
 go 1.13
 

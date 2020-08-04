@@ -1,4 +1,4 @@
-module github.com/1995parham/Learning/Go/redis
+module redis
 
 go 1.12
 

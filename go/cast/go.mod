@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/cast
+module cast
 
 go 1.14

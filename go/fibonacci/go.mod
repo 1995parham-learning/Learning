@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/Go/fibonacci
+module fibonacci
 
 go 1.12

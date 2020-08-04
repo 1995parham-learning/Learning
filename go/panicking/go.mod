@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/panicking
+module panicking
 
 go 1.14

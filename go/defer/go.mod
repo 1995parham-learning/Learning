@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/defer
+module defer
 
 go 1.14
