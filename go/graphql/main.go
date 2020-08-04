@@ -49,8 +49,10 @@ func main() {
 				}
 
 				for i := 0; i < n; i++ {
+					// nolint: gosec
 					l = append(l, rand.Intn(diceFaces)+1)
 				}
+
 				return l, nil
 			},
 		},

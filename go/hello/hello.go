@@ -29,6 +29,7 @@ type Point struct {
 // String implements Stringer interface that works on *Point.
 func (p *Point) String() string {
 	p.x *= 2
+
 	return fmt.Sprintf("%d %d", p.x, p.y)
 }
 

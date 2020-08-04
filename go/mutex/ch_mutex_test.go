@@ -10,9 +10,8 @@
 package mutex_test
 
 import (
-	"testing"
-
 	"mutex"
+	"testing"
 )
 
 func TestOne(t *testing.T) {
@@ -36,6 +35,7 @@ func TestOne(t *testing.T) {
 
 		if f == 1 {
 			m.Release()
+
 			break
 		} else {
 			m.Release()

@@ -11,8 +11,10 @@
 package main
 
 import (
+	"crypto/rand"
 	"fmt"
-	"math/rand"
+	"log"
+	"math/big"
 )
 
 const (
@@ -35,8 +37,19 @@ func main() {
 			inner := 0
 
 			for i := 0; i < n; i++ {
-				x := rand.Intn(width)
-				y := rand.Intn(height)
+				xbig, err := rand.Int(rand.Reader, big.NewInt(width))
+				if err != nil {
+					log.Fatal(err)
+				}
+
+				x := xbig.Int64()
+
+				ybig, err := rand.Int(rand.Reader, big.NewInt(height))
+				if err != nil {
+					log.Fatal(err)
+				}
+
+				y := ybig.Int64()
 
 				if (x-width/2)*(x-width/2)+(y-height/2)*(y-height/2) <= (width/2)*(height/2) {
 					inner++

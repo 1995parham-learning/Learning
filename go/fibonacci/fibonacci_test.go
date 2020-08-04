@@ -14,9 +14,8 @@
 package fibonacci_test
 
 import (
-	"testing"
-
 	"fibonacci"
+	"testing"
 )
 
 func TestFibonacci(t *testing.T) {

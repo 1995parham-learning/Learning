@@ -12,6 +12,7 @@ type LazyInit struct {
 
 func (s *LazyInit) Value() int {
 	s.init()
+
 	return s.value
 }
 
