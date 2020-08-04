@@ -1,8 +1,7 @@
 # Learn from birth to death
 
-[![license](https://img.shields.io/github/license/1995parham/Learning.svg?style=flat-square)]()
-![me](https://img.shields.io/badge/me-parham-orange.svg?style=flat-square)
-[![Drone (cloud)](https://img.shields.io/drone/build/1995parham/Learning.svg?style=flat-square)](https://cloud.drone.io/1995parham/Learning)
+[![license](https://img.shields.io/github/license/1995parham/Learning.svg?style=flat-square&logo=gnu)]()
+[![Drone (cloud)](https://img.shields.io/drone/build/1995parham/Learning.svg?style=flat-square&logo=drone)](https://cloud.drone.io/1995parham/Learning)
 
 ## Who Am I?
 I am person who spent his life on code and this is what I have after many years of life.
