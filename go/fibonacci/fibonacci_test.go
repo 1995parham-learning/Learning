@@ -16,7 +16,7 @@ package fibonacci_test
 import (
 	"testing"
 
-	"github.com/1995parham/Learning/Go/fibonacci"
+	"fibonacci"
 )
 
 func TestFibonacci(t *testing.T) {

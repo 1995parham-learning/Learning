@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/string
+module string
 
 go 1.14

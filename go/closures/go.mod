@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/closures
+module closures
 
 go 1.14

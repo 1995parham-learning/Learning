@@ -13,7 +13,7 @@ package twiddle_test
 import (
 	"testing"
 
-	"github.com/1995parham/Learning/go/twiddle"
+	"twiddle"
 )
 
 func TestBasic1(t *testing.T) {

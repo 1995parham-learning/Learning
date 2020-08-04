@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/interface
+module interface
 
 go 1.14

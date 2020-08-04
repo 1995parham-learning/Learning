@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/twiddle
+module twiddle
 
 go 1.14

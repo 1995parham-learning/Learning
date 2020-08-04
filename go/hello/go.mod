@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/hello
+module hello
 
 go 1.14

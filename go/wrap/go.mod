@@ -1,3 +1,3 @@
-module github.com/1995parham/Learning/go/wrap
+module wrap
 
 go 1.14
