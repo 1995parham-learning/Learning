@@ -9,6 +9,6 @@ There are many libraries and projects out there that need a try so I give them s
 
 ## Structure
 
-- [go](go/) Go language and related libraries and projects.
-- [rust](rust/) Rust language and related libraries and projects.
-- [ml](ml/) Machine Learning training with examples in Python.
+- [go](go/): Go language and related libraries and projects.
+- [rust](rust/): Rust language and related libraries and projects.
+- [ml](ml/): Machine Learning training with examples in Python.
