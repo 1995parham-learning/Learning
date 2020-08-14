@@ -3,20 +3,12 @@
 [![license](https://img.shields.io/github/license/1995parham/Learning.svg?style=flat-square&logo=gnu)]()
 [![Drone (cloud)](https://img.shields.io/drone/build/1995parham/Learning.svg?style=flat-square&logo=drone)](https://cloud.drone.io/1995parham/Learning)
 
-## Who Am I?
-I am person who spent his life on code and this is what I have after many years of life.
-
 ## Introduction
-These codes are collected from my learning path in C, Assembly, Python, etc.
-These can be used as an examples or tutorials.
+I am using this repository for learning and testing new technologies and languages.
+There are many libraries and projects out there that need a try so I give them shot here.
 
-<a href="http://stackexchange.com/users/5317842">
-<img src="https://stackexchange.com/users/flair/5317842.png?theme=dark" width="208" height="58" alt="profile for Parham Alvani on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Parham Alvani on Stack Exchange, a network of free, community-driven Q&amp;A sites">
-</a>
+## Structure
 
-## Contribution
-If you have such programming example you can create a pull request and make me happy :smile:.
-
-## Contributors
-- [Ali Gholami](mailto:aligholami7596@gmail.com)
-- [Mohamad Khajavi](mailto:khajavi_mohamad@yahoo.com)
+- [go](go/) Go language and related libraries and projects.
+- [rust](rust/) Rust language and related libraries and projects.
+- [ml](ml/) Machine Learning training with examples in Python.
