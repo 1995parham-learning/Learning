@@ -1,5 +1,8 @@
 use actix_web::{App, HttpResponse, HttpServer, Responder, get, web};
 
+const HOST: &str = "127.0.0.1";
+const PORT: u32 = 1378;
+
 struct From {
     from: String
 }
@@ -19,16 +22,17 @@ impl From {
 #[get("/hello")]
 async fn hello(data: web::Data<From>) -> impl Responder {
     HttpResponse::Ok().json(
-        format!("Hi Elahe ✋ from {}", data.from())
+        format!("Hi Elahe ✋from {}", data.from())
         )
 }
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
+    println!("listen on {}:{}", HOST, PORT);
     HttpServer::new(|| {
         App::new().data(From::new("Parham")).service(hello)
     })
-    .bind("127.0.0.1:1378")?
+    .bind(format!("{}:{}", HOST, PORT))?
     .run()
     .await
 }
