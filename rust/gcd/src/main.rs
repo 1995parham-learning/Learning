@@ -11,3 +11,9 @@ fn gcd(a: u32, b: u32) -> u32 {
         gcd(b, a % b)
     }
 }
+
+#[test]
+fn test_gcd() {
+    assert_eq!(gcd(14, 15), 1);
+    assert_eq!(gcd(14, 7), 7);
+}
