@@ -33,5 +33,19 @@ fn main() {
     }
 
     // uncomment the following line to get a nice compile error
+    // because it moves into inner context
     // println!("{}", p)
+
+    // learn about clourses
+    let p = Person {
+        name: "Parham Alvani",
+        age: 25,
+    };
+
+    let parham_namer = || {
+        println!("{}", p.name);
+    };
+
+    parham_namer();
+    parham_namer();
 }
