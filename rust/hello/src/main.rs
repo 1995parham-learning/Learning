@@ -1,10 +1,10 @@
-use actix_web::{App, HttpResponse, HttpServer, Responder, get, web};
+use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
 
 const HOST: &str = "127.0.0.1";
 const PORT: u32 = 1378;
 
 struct From {
-    from: String
+    from: String,
 }
 
 impl From {
@@ -21,16 +21,15 @@ impl From {
 
 #[get("/hello")]
 async fn hello(data: web::Data<From>) -> impl Responder {
-    HttpResponse::Ok().json(
-        format!("Hi Elahe ✋from {}", data.from())
-        )
+    HttpResponse::Ok().json(format!("Hi Elahe ✋from {}", data.from()))
 }
 
-#[actix_rt::main]
+#[actix_web::main]
 async fn main() -> std::io::Result<()> {
     println!("listen on {}:{}", HOST, PORT);
     HttpServer::new(|| {
-        App::new().data(From::new("Parham")).service(hello)
+        let api = web::scope("/api").data(From::new("Parham")).service(hello);
+        App::new().service(api)
     })
     .bind(format!("{}:{}", HOST, PORT))?
     .run()
