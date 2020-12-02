@@ -13,13 +13,30 @@
 
 package main
 
-import "go.uber.org/zap"
+import (
+	"log"
+	"os"
+
+	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
+)
 
 func main() {
-	logger, err := zap.NewDevelopment()
-	if err != nil {
-		panic(err)
-	}
+	w := zapcore.AddSync(os.Stdout)
+
+	core := zapcore.NewCore(
+		zapcore.NewJSONEncoder(zap.NewDevelopmentEncoderConfig()),
+		w,
+		zap.InfoLevel,
+	)
+
+	logger := zap.New(core)
+
+	defer func() {
+		if err := logger.Sync(); err != nil {
+			log.Printf("logs doesn't sync: %s", err)
+		}
+	}()
 
 	sugar := logger.Named("main").WithOptions(zap.Fields(zap.Any("parent", 12.2))).Sugar()
 
