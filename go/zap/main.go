@@ -14,31 +14,42 @@
 package main
 
 import (
-	"log"
+	"log/syslog"
 	"os"
 
+	"github.com/tchap/zapext/zapsyslog"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
 
 func main() {
-	w := zapcore.AddSync(os.Stdout)
+	syslogEncoder := zapcore.NewJSONEncoder(zap.NewProductionEncoderConfig())
+	consoleEncoder := zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig())
 
-	core := zapcore.NewCore(
-		zapcore.NewJSONEncoder(zap.NewDevelopmentEncoderConfig()),
-		w,
-		zap.InfoLevel,
+	// Initialize a syslog writer.
+	writer, err := syslog.Dial("tcp", "127.0.0.1:1514", syslog.LOG_ERR|syslog.LOG_LOCAL0, "zap-hello")
+	if err != nil {
+		panic(err)
+	}
+
+	core := zapcore.NewTee(
+		zapcore.NewCore(consoleEncoder, zapcore.Lock(zapcore.AddSync(os.Stderr)), zapcore.InfoLevel),
+		zapsyslog.NewCore(zapcore.ErrorLevel, syslogEncoder, writer),
 	)
 
+	// From a zapcore.Core, it's easy to construct a Logger.
 	logger := zap.New(core)
+	logger.Info("constructed a logger")
 
 	defer func() {
-		if err := logger.Sync(); err != nil {
-			log.Printf("logs doesn't sync: %s", err)
-		}
+		// ignore the sync error based on
+		// https://github.com/uber-go/zap/issues/328
+		err := logger.Sync()
+		_ = err
 	}()
 
-	sugar := logger.Named("main").WithOptions(zap.Fields(zap.Any("parent", 12.2))).Sugar()
+	sugar := logger.Named("main").WithOptions(zap.Fields(zap.Any("version", 1))).Sugar()
 
 	sugar.Infow("Everything is up and running", "key", 1)
+	sugar.Errorw("There is an error", "key", 1378)
 }
