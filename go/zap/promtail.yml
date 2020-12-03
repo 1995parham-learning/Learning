@@ -8,6 +8,7 @@ scrape_configs:
     pipeline_stages:
       - json:
           expressions:
+            logger:
             msg:
             level:
             ts:
@@ -15,6 +16,7 @@ scrape_configs:
           source: ts
           format: Unix
       - labels:
+          logger:
           msg:
           level:
     syslog:
