@@ -100,7 +100,8 @@ func main() {
 	}
 
 	/* Synchronous RPC call */
-	args := &Args{7, 8}
+	// nolint: gomnd
+	args := &Args{A: 7, B: 8}
 
 	var reply int
 
