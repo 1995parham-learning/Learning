@@ -20,6 +20,8 @@ import (
 )
 
 func TestFibonacci(t *testing.T) {
+	t.Parallel()
+
 	tests := []struct {
 		input    int
 		expected int
@@ -41,6 +43,7 @@ func TestFibonacci(t *testing.T) {
 	for _, tc := range tests {
 		tc := tc
 		t.Run(fmt.Sprintf("%d", tc.input), func(t *testing.T) {
+			t.Parallel()
 			if fibonacci.Fibonacci(tc.input) != tc.expected {
 				t.Errorf("Fibonacci(%d) ==> %d != %d)", tc.input, fibonacci.Fibonacci(tc.input), tc.expected)
 			}
