@@ -20,3 +20,7 @@ services:
     image: grafana/grafana:latest
     ports:
       - "3000:3000"
+  rsyslog:
+    image: rsyslog/syslog_appliance_alpine
+    volumes:
+      - ./rsyslog.conf:/config/rsyslog.conf
