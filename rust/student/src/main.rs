@@ -13,7 +13,7 @@ impl Student {
 }
 
 impl fmt::Display for Student {
-    fn fmt(self: &Self, formatter: &mut fmt::Formatter) -> fmt::Result {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         write!(formatter, "{} - {} - {}", self.name, self.id, self.age)
     }
 }
