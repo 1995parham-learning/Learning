@@ -27,7 +27,7 @@ func main() {
 	consoleEncoder := zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig())
 
 	// Initialize a syslog writer.
-	writer, err := syslog.Dial("tcp", "127.0.0.1:1514", syslog.LOG_USER|syslog.LOG_ERR, "zap-hello")
+	writer, err := syslog.Dial("udp", "127.0.0.1:514", syslog.LOG_USER|syslog.LOG_ERR, "zap-hello")
 	if err != nil {
 		panic(err)
 	}
