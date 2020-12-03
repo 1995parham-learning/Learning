@@ -15,6 +15,7 @@ package fibonacci_test
 
 import (
 	"fibonacci"
+	"fmt"
 	"testing"
 )
 
@@ -38,8 +39,11 @@ func TestFibonacci(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		if fibonacci.Fibonacci(tc.input) != tc.expected {
-			t.Errorf("Fibonacci(%d) ==> %d != %d)", tc.input, fibonacci.Fibonacci(tc.input), tc.expected)
-		}
+		tc := tc
+		t.Run(fmt.Sprintf("%d", tc.input), func(t *testing.T) {
+			if fibonacci.Fibonacci(tc.input) != tc.expected {
+				t.Errorf("Fibonacci(%d) ==> %d != %d)", tc.input, fibonacci.Fibonacci(tc.input), tc.expected)
+			}
+		})
 	}
 }
