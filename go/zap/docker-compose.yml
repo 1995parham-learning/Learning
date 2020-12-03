@@ -22,5 +22,7 @@ services:
       - "3000:3000"
   rsyslog:
     image: rsyslog/syslog_appliance_alpine
+    ports:
+      - "514:514/udp"
     volumes:
-      - ./rsyslog.conf:/config/rsyslog.conf
+      - ./rsyslog.conf:/etc/rsyslog.conf
