@@ -19,21 +19,20 @@ impl fmt::Display for Student {
 }
 
 fn main() {
-    let s1 = Student::new(String::from("Raha Dastan"), String::from("9631025"), 20);
+    let mut s1 = Student::new(String::from("Raha Dastan"), String::from("9631025"), 20);
 
+    // borrow mutable reference from a mutable variable
+    let r1 = &mut s1;
+
+    // here you cannot borrow s1 because there is a mutable reference
+    // exists from s1.
+
+    println!("Hello Reference {:p}", r1);
     println!("Hello {}", s1);
 
     let i: &i32 = &10;
 
-    // use pointer formatter
+    // use pointer formatter for printing the reference address
     println!("i: {:p}", i);
     println!("*i: {}", *i);
 }
-
-/*
- * Borrowing issue can be seen by the following code
- * let mut s1 = ...
- *
- * let r1 = &mut s1;
- * println!("{}", r1);
- */
