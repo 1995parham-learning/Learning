@@ -22,6 +22,12 @@ fn main() {
     let s1 = Student::new(String::from("Raha Dastan"), String::from("9631025"), 20);
 
     println!("Hello {}", s1);
+
+    let i: &i32 = &10;
+
+    // use pointer formatter
+    println!("i: {:p}", i);
+    println!("*i: {}", *i);
 }
 
 /*
