@@ -2,8 +2,8 @@ use super::Fibonacci;
 
 pub struct Linear;
 
-impl Fibonacci for Linear {
-    fn fib(&self, n: u64) -> u64 {
+impl Fibonacci for &Linear {
+    fn fib(self, n: u64) -> u64 {
         let mut a = 1;
         let mut b = 1;
 
