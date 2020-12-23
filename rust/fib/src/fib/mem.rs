@@ -9,7 +9,7 @@ where
     cacher: Cacher<T>,
 }
 
-fn new() -> Memorization<impl Fn(u64) -> u64> {
+pub fn new() -> Memorization<impl Fn(u64) -> u64> {
     let r = Recursive;
     Memorization {
         cacher: Cacher::new(move |x| r.fib(x)),

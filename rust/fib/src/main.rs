@@ -1,6 +1,7 @@
 mod fib;
 
 use fib::lin::Linear;
+use fib::mem::new;
 use fib::Fibonacci;
 
 fn main() {
@@ -13,5 +14,8 @@ fn main() {
     let n: u64 = n.trim().parse().expect("invalid number");
 
     let f = Linear;
+    println!("{}", f.fib(n));
+
+    let f = &mut new();
     println!("{}", f.fib(n));
 }
