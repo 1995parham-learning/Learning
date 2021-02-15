@@ -7,11 +7,15 @@
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
+set -e
 
 cd rust
+
 for prj in */; do
-  echo $prj && cd $prj
-  cargo fmt
-  cargo clippy --all-targets --all-features -- -D warnings
-  cd ..
+        echo $prj && cd $prj
+
+        cargo fmt
+        cargo clippy --all-targets --all-features -- -D warnings
+
+        cd ..
 done
