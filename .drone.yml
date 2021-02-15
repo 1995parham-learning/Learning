@@ -24,6 +24,6 @@ steps:
       - |
         for prj in */; do
           echo $prj && cd $prj
-          golangci-lint run --enable-all
+          golangci-lint run
           cd ..
         done
