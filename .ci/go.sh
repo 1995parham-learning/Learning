@@ -7,11 +7,14 @@
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
+set -e
 
 cd ./go
 
 for prj in */; do
         echo $prj && cd $prj
+
         golangci-lint run
+
         cd ..
 done
