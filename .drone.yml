@@ -14,3 +14,8 @@ steps:
     image: golangci/golangci-lint
     commands:
       - ./.ci/go.sh
+  - name: hello
+    image: hello-world
+    depends_on:
+      - rust
+      - go
