@@ -18,11 +18,14 @@ func main() {
 	if f, ok := lv.(*lua.LFunction); ok {
 		log.Println(f.String())
 
-		lua.NewState().CallByParam(lua.P{
+		// nolint: exhaustivestruct
+		if err := lua.NewState().CallByParam(lua.P{
 			Fn:      f,
 			NRet:    0,
 			Protect: true,
-		})
+		}); err != nil {
+			panic(err)
+		}
 	}
 
 	if lv.Type() != lua.LTFunction {
