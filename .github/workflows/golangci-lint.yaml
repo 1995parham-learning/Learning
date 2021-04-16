@@ -16,7 +16,7 @@ jobs:
       - id: set-matrix
         run: |
           mapfile -d $'\0' projects < <(find go -maxdepth 1 -type d -not -path go -printf '%P\0')
-          echo -n '::set-output name=matrix::{"projects": ['
+          echo -n '::set-output name=matrix::{"project": ['
           printf '"%s",' "${projects[@]}" | sed '$s/,$//'
           echo ']}'
   golangci:
