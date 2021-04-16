@@ -1,5 +1,3 @@
-
-
 ---
 name: golangci-lint
 on:
@@ -8,9 +6,24 @@ on:
       - go
       - .github/workflows/golangci-lint.yaml
 jobs:
+  go-projects:
+    name: go-projects
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.set-projects.outputs.projects }}
+    steps:
+      - id: set-projects
+        run: |
+          mapfile -d $'\0' projects < <(find go -maxdepth 1 -type d -not -path go -printf '%P\0')
+          echo -n 'name=projects::[ '
+          printf '"%s",' "${projects[@]}" | sed '$s/,$//'
+          echo ' ]'
   golangci:
     name: lint
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: ${{fromJSON(needs.go-projects.outputs.projects)}}
     steps:
       - uses: actions/checkout@v2
 
@@ -18,4 +31,4 @@ jobs:
         uses: golangci/golangci-lint-action@v2
         with:
           version: latest
-          working-directory: go
+          working-directory: go/${{ project }}
