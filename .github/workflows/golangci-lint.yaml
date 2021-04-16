@@ -10,7 +10,7 @@ jobs:
     name: go-projects
     runs-on: ubuntu-latest
     outputs:
-      matrxi: ${{ steps.set-matrix.outputs.matrix }}
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v2
       - id: set-matrix
