@@ -10,21 +10,20 @@ jobs:
     name: go-projects
     runs-on: ubuntu-latest
     outputs:
-      projects: ${{ steps.set-projects.outputs.projects }}
+      matrxi: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v2
-      - id: set-projects
+      - id: set-matrix
         run: |
           mapfile -d $'\0' projects < <(find go -maxdepth 1 -type d -not -path go -printf '%P\0')
-          echo -n '::set-output name=projects::['
+          echo -n '::set-output name=matrix::{"projects": ['
           printf '"%s",' "${projects[@]}" | sed '$s/,$//'
-          echo ']'
+          echo ']}'
   golangci:
     name: lint
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        project: ${{fromJSON(needs.go-projects.outputs.projects)}}
+      matrix: ${{fromJSON(needs.go-projects.outputs.matrix)}}
     steps:
       - uses: actions/checkout@v2
       - name: golangci-lint
