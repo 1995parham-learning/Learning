@@ -1,7 +1,7 @@
 # Learn from birth to death
 
 [![license](https://img.shields.io/github/license/1995parham/Learning.svg?style=flat-square&logo=gnu)]()
-[![Drone (cloud)](https://img.shields.io/drone/build/1995parham/Learning.svg?style=flat-square&logo=drone)](https://cloud.drone.io/1995parham/Learning)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/dotfiles/golangci-lint?label=golang&logo=github&style=flat-square)
 
 ## Introduction
 
