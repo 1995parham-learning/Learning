@@ -21,9 +21,10 @@ jobs:
           echo ']}'
   golangci:
     name: lint
+    needs: go-projects
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJSON(needs.go-projects.outputs.matrix)}}
+      matrix: ${{ fromJSON(needs.go-projects.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v2
       - name: golangci-lint
