@@ -16,7 +16,7 @@ jobs:
       - id: set-projects
         run: |
           mapfile -d $'\0' projects < <(find go -maxdepth 1 -type d -not -path go -printf '%P\0')
-          echo -n 'name=projects::['
+          echo -n '::set-output name=projects::['
           printf '"%s",' "${projects[@]}" | sed '$s/,$//'
           echo ']'
   golangci:
