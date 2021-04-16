@@ -42,5 +42,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
-      - run: cd go/${{ matrix.project }} && [ -f docker-compose.yml ] && docker-compose up -d
+      - run: |
+          cd go/${{ matrix.project }}
+          if [ -f docker-compose.yml ]; then
+            docker-compose up -d
+          fi
       - run: cd go/${{ matrix.project }} && go test ./...
