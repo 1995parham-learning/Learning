@@ -12,6 +12,7 @@ jobs:
     outputs:
       projects: ${{ steps.set-projects.outputs.projects }}
     steps:
+      - uses: actions/checkout@v2
       - id: set-projects
         run: |
           mapfile -d $'\0' projects < <(find go -maxdepth 1 -type d -not -path go -printf '%P\0')
@@ -26,7 +27,6 @@ jobs:
         project: ${{fromJSON(needs.go-projects.outputs.projects)}}
     steps:
       - uses: actions/checkout@v2
-
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
