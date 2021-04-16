@@ -1,10 +1,10 @@
 ---
-name: golangci-lint
+name: golang
 on:
   push:
     paths:
       - go
-      - .github/workflows/golangci-lint.yaml
+      - .github/workflows/golang.yaml
 jobs:
   go-projects:
     name: go-projects
@@ -32,3 +32,14 @@ jobs:
         with:
           version: latest
           working-directory: go/${{ matrix.project }}
+
+  go:
+    name: test
+    needs: go-projects
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJSON(needs.go-projects.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+      - run: cd go/${{ matrix.project }} && go test ./...
