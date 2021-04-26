@@ -1,0 +1,8 @@
+---
+matrix:
+  - name: english
+    aspell:
+      lang: en
+      d: en_US
+    sources:
+      - english/**.txt
