@@ -53,5 +53,5 @@ jobs:
             docker-compose up -d
           fi
       - run: |
-          rust/${{ matrix.project }}
+          cd rust/${{ matrix.project }}
           cargo test
