@@ -3,7 +3,7 @@ name: golang
 on:
   push:
     paths:
-      - go
+      - go/
       - .github/workflows/golang.yaml
 jobs:
   go-projects:

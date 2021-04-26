@@ -3,7 +3,7 @@ name: spell
 on:
   push:
     paths:
-      - english
+      - english/
       - .github/workflows/spell.yaml
       - spellcheck.yaml
 jobs:
