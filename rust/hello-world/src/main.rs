@@ -29,12 +29,13 @@ fn main() {
         let name: String = String::from("Elahe Dastan");
         p.name = name.as_str();
 
-        println!("{}", p)
+        println!("{}", p);
     }
 
     // uncomment the following line to get a nice compile error
-    // because it moves into inner context
-    // println!("{}", p)
+    // because it moves into inner context and name doesn't live
+    // enough
+    // println!("{}", p);
 
     // learn about clourses
     let p = Person {
