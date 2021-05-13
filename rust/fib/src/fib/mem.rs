@@ -2,24 +2,25 @@ use super::rec::Recursive;
 use super::Fibonacci;
 use std::collections::HashMap;
 
-pub struct Memorization<T>
-where
-    T: Fn(u64) -> u64,
-{
-    cacher: Cacher<T>,
+pub struct Memorization {
+    cacher: Cacher<fn(u64) -> u64>,
 }
 
-pub fn new() -> Memorization<impl Fn(u64) -> u64> {
-    let r = Recursive;
-    Memorization {
-        cacher: Cacher::new(move |x| r.fib(x)),
+impl Memorization {
+    pub fn new() -> Memorization {
+        Memorization {
+            cacher: Cacher::new(Self::_fib),
+        }
+    }
+
+    fn _fib(n: u64) -> u64 {
+        let r = Recursive;
+
+        r.fib(n)
     }
 }
 
-impl<T> Fibonacci for &mut Memorization<T>
-where
-    T: Fn(u64) -> u64,
-{
+impl Fibonacci for &mut Memorization {
     fn fib(self, n: u64) -> u64 {
         self.cacher.value(n)
     }
@@ -59,13 +60,13 @@ where
 #[cfg(test)]
 mod tests {
     use super::super::Fibonacci;
-    use super::new;
+    use super::Memorization;
 
     macro_rules! fib_test {
         ($name:ident, $($i:expr, $e:expr),+) => {
             #[test]
             fn $name() {
-                let r = &mut new();
+                let r = &mut Memorization::new();
                 $({
                     let o = r.fib($i);
                     assert_eq!(o, $e);

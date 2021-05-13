@@ -1,7 +1,7 @@
 mod fib;
 
 use fib::lin::Linear;
-use fib::mem::new;
+use fib::mem::Memorization;
 use fib::Fibonacci;
 
 fn main() {
@@ -16,6 +16,6 @@ fn main() {
     let f = Linear;
     println!("{}", f.fib(n));
 
-    let f = &mut new();
+    let f = &mut Memorization::new();
     println!("{}", f.fib(n));
 }
