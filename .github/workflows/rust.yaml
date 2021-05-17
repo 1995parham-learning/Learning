@@ -3,7 +3,7 @@ name: rust
 on:
   push:
     paths:
-      - rust/
+      - rust/**
       - .github/workflows/rust.yaml
 jobs:
   rust-projects:
