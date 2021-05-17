@@ -60,8 +60,8 @@ impl Config {
         let case_sensitive = env::var("CASE_INSESITIVE").is_err();
 
         Ok(Config {
-            query,
             filename,
+            query,
             case_sensitive,
         })
     }
