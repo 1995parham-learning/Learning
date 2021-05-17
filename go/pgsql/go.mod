@@ -1,8 +1,11 @@
 module pgsql
 
-go 1.14
+go 1.16
 
 require (
-	gorm.io/driver/postgres v0.2.5
-	gorm.io/gorm v0.2.20
+	go.uber.org/multierr v1.7.0 // indirect
+	go.uber.org/zap v1.16.0 // indirect
+	gorm.io/driver/postgres v1.1.0
+	gorm.io/gorm v1.21.10
+	moul.io/zapgorm2 v1.1.0
 )

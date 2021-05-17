@@ -1,12 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"time"
 
+	"go.uber.org/zap"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"moul.io/zapgorm2"
 )
 
 type User struct {
@@ -18,18 +19,28 @@ type User struct {
 }
 
 func main() {
+	logger, err := zap.NewDevelopment()
+	if err != nil {
+		logger = zap.NewNop()
+	}
+
 	dsn := "host=127.0.0.1 user=postgres password=postgres DB.name=pgsql port=5432 sslmode=disable"
 
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	// nolint: exhaustivestruct
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
+		Logger: zapgorm2.New(logger),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Migrate the schema
+	// migrate the schema with gorm migrator manually
+	// nolint: exhaustivestruct
 	if err := db.Migrator().DropTable(&User{}); err != nil {
 		log.Fatal(err)
 	}
 
+	// nolint: exhaustivestruct
 	if err := db.Migrator().CreateTable(&User{}); err != nil {
 		log.Fatal(err)
 	}
@@ -39,7 +50,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Create
+	// create user with gorm
+	// nolint: exhaustivestruct
 	db.Create(&User{
 		ID:       1,
 		Name:     "Elahe Dastan",
@@ -50,10 +62,10 @@ func main() {
 	var user User
 
 	db.First(&user, 1)
-	fmt.Println(user)
+	logger.Info("first user from database", zap.Any("user", user))
 
 	var users []User
 
 	db.Find(&users)
-	fmt.Println(users)
+	logger.Info("users from database", zap.Any("users", users))
 }
