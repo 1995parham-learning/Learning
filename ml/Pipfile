@@ -11,6 +11,7 @@ numpy = "*"
 scikit-learn = "*"
 pandas = "*"
 matplotlib = "*"
+torch = "*"
 
 [requires]
 python_version = "3"
