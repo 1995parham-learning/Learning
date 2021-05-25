@@ -1,0 +1,11 @@
+---
+name: learning-ml
+channels:
+  - defaults
+  - pytorch
+dependencies:
+  - python
+  - tensorflow
+  - numpy
+  - cpuonly
+  - pytorch
