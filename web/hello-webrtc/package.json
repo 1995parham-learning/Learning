@@ -1,0 +1,10 @@
+{
+  "name": "hello-webrtc",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "next"
+  }
+}
