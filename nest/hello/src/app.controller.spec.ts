@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { SayDto } from './say.dto';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -15,8 +16,15 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return "Hello Elahe!"', () => {
+      expect(appController.getHello()).toBe('Hello Elahe!');
+    });
+
+    it('should return "Hello Parham!"', () => {
+      const req = new SayDto();
+      req.name = 'Parham';
+
+      expect(appController.sayHello(req)).toBe('Hello Parham!');
     });
   });
 });
