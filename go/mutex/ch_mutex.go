@@ -1,13 +1,3 @@
-/*
- * +===============================================
- * | Author:        Parham Alvani <parham.alvani@gmail.com>
- * |
- * | Creation Date: 10-10-2017
- * |
- * | File Name:     ch_mutex.go
- * +===============================================
- */
-
 package mutex
 
 type channelMutex struct {

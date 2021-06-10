@@ -1,20 +1,14 @@
-/*
- * +===============================================
- * | Author:        Parham Alvani <parham.alvani@gmail.com>
- * |
- * | Creation Date: 10-10-2017
- * |
- * | File Name:     ch_mutex_test.go
- * +===============================================
- */
 package mutex_test
 
 import (
-	"mutex"
 	"testing"
+
+	"mutex"
 )
 
 func TestOne(t *testing.T) {
+	t.Parallel()
+
 	m := mutex.NewChannelMutex()
 	f := 0
 
