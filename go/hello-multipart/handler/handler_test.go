@@ -2,7 +2,6 @@ package handler_test
 
 import (
 	"bytes"
-	"fmt"
 	"hello-multipart/handler"
 	"mime/multipart"
 	"net/http"
@@ -28,7 +27,7 @@ func (suite *HandlerTestSuite) TestFormValue() {
 	reqWriter.Close()
 
 	req := httptest.NewRequest(http.MethodPost, "/", body)
-	req.Header.Set(echo.HeaderContentType, fmt.Sprintf("%s; boundary=%s", echo.MIMEMultipartForm, reqWriter.Boundary()))
+	req.Header.Set(echo.HeaderContentType, reqWriter.FormDataContentType())
 
 	rec := httptest.NewRecorder()
 
@@ -38,5 +37,7 @@ func (suite *HandlerTestSuite) TestFormValue() {
 }
 
 func TestHandler(t *testing.T) {
+	t.Parallel()
+
 	suite.Run(t, new(HandlerTestSuite))
 }
