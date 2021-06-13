@@ -1,0 +1,15 @@
+---
+version: '3.2'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: pgsql
+    ports:
+      - target: 5432
+        published: 5432
+        protocol: tcp
+        mode: host
