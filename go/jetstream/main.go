@@ -55,7 +55,8 @@ func main() {
 		return
 	}
 
-	// simply publish on nats but also they can publish directly on jet stream to remove the stream creation process?
+	// simply publish on nats but also they can publish directly on jet stream
+	// but in both case you need to create the stream.
 	if err := nc.Publish("ORDERS.new", []byte("hello world")); err != nil {
 		log.Println(err)
 
