@@ -3,10 +3,10 @@ version: '3'
 services:
   n1.1995parham.me:
     container_name: n1
-    image: synadia/jsm:nightly
+    image: nats
     dns_search: 1995parham.me
     entrypoint: /nats-server
-    command: --name S1 --cluster_name JSC --js --sd /data --cluster nats://0.0.0.0:4245 --routes nats://n1:4245,nats://n2:4245,nats://n3:4245 -p 4222
+    command: --name S1 --cluster_name raha --js --sd /data --cluster nats://0.0.0.0:4245 --routes nats://n1:4245,nats://n2:4245,nats://n3:4245 -p 4222
     networks:
       - nats
     ports:
@@ -14,10 +14,10 @@ services:
 
   n2.1995parham.me:
     container_name: n2
-    image: synadia/jsm:nightly
+    image: nats
     dns_search: 1995parham.me
     entrypoint: /nats-server
-    command: --name S2 --cluster_name JSC --js --sd /data --cluster nats://0.0.0.0:4245 --routes nats://n1:4245,nats://n2:4245,nats://n3:4245 -p 4222
+    command: --name S2 --cluster_name raha --js --sd /data --cluster nats://0.0.0.0:4245 --routes nats://n1:4245,nats://n2:4245,nats://n3:4245 -p 4222
     networks:
       - nats
     ports:
@@ -25,10 +25,10 @@ services:
 
   n3.1995parham.me:
     container_name: n3
-    image: synadia/jsm:nightly
+    image: nats
     dns_search: 1995parham.me
     entrypoint: /nats-server
-    command: --name S3 --cluster_name JSC --js --sd /data --cluster nats://0.0.0.0:4245 --routes nats://n1:4245,nats://n2:4245,nats://n3:4245 -p 4222
+    command: --name S3 --cluster_name raha --js --sd /data --cluster nats://0.0.0.0:4245 --routes nats://n1:4245,nats://n2:4245,nats://n3:4245 -p 4222
     networks:
       - nats
     ports:

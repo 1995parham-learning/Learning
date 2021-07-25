@@ -14,60 +14,59 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"time"
 
-	"github.com/nats-io/jsm.go"
 	"github.com/nats-io/nats.go"
 )
 
 const (
-	ConsumerName      = "elconsumer"
-	NATSServer        = "nats://127.0.0.1:4222"
-	ConnectionTimeout = 10 * time.Second
+	ConsumerName = "elconsumer"
+	NATSServer   = "nats://127.0.0.1:4222"
 )
 
 func main() {
 	nc, err := nats.Connect(NATSServer)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+
+		return
 	}
 	defer nc.Close()
 
-	fmt.Printf("Connected to %s from %v\n", nc.ConnectedAddr(), nc.DiscoveredServers())
+	log.Printf("Connected to %s from %v\n", nc.ConnectedAddr(), nc.DiscoveredServers())
 
-	mgr, err := jsm.New(nc, jsm.WithTimeout(ConnectionTimeout))
+	jsm, err := nc.JetStream()
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+
+		return
 	}
 
-	stream, err := mgr.LoadOrNewStream("ORDERS",
-		jsm.Subjects("ORDERS.*"),
-		jsm.MaxAge(24*365*time.Hour),
-		jsm.MemoryStorage(),
-	)
-	if err != nil {
-		log.Fatal(err)
+	// nolint: exhaustivestruct
+	if _, err := jsm.AddStream(&nats.StreamConfig{
+		Name:     "ORDERS",
+		Subjects: []string{"ORDERS.>"},
+		MaxAge:   24 * 365 * time.Hour,
+		Storage:  nats.MemoryStorage,
+	}); err != nil {
+		log.Println(err)
+
+		return
 	}
 
-	consumer, err := stream.LoadOrNewConsumer(
-		ConsumerName,
-		jsm.FilterStreamBySubject("ORDERS.new"),
-		jsm.DurableName(ConsumerName),
-	)
-	if err != nil {
-		log.Fatal(err)
-	}
-
+	// simply publish on nats but also they can publish directly on jet stream to remove the stream creation process?
 	if err := nc.Publish("ORDERS.new", []byte("hello world")); err != nil {
-		log.Fatal(err)
+		log.Println(err)
+
+		return
 	}
 
-	msg, err := consumer.NextMsg()
-	if err != nil {
-		log.Fatal(err)
-	}
+	if _, err := jsm.Subscribe("ORDERS.new", func(msg *nats.Msg) {
+		log.Println(string(msg.Data))
+	}, nats.Durable(ConsumerName)); err != nil {
+		log.Println(err)
 
-	fmt.Println(string(msg.Data))
+		return
+	}
 }
