@@ -14,6 +14,7 @@
 package main
 
 import (
+	"errors"
 	"log"
 	"time"
 
@@ -43,16 +44,27 @@ func main() {
 		return
 	}
 
-	// nolint: exhaustivestruct
-	if _, err := jsm.AddStream(&nats.StreamConfig{
-		Name:     "ORDERS",
-		Subjects: []string{"ORDERS.>"},
-		MaxAge:   24 * 365 * time.Hour,
-		Storage:  nats.MemoryStorage,
-	}); err != nil {
+	info, err := jsm.StreamInfo("ORDERS")
+
+	switch {
+	case errors.Is(err, nats.ErrStreamNotFound):
+		// nolint: exhaustivestruct
+		if _, err := jsm.AddStream(&nats.StreamConfig{
+			Name:     "ORDERS",
+			Subjects: []string{"ORDERS.>"},
+			MaxAge:   24 * 365 * time.Hour,
+			Storage:  nats.MemoryStorage,
+		}); err != nil {
+			log.Println(err)
+
+			return
+		}
+	case err != nil:
 		log.Println(err)
 
 		return
+	default:
+		log.Printf("%+v\n", info)
 	}
 
 	// simply publish on nats but also they can publish directly on jet stream
@@ -64,10 +76,25 @@ func main() {
 	}
 
 	if _, err := jsm.Subscribe("ORDERS.new", func(msg *nats.Msg) {
+		log.Printf("receive message from %s\n", msg.Subject)
+
+		metadata, err := msg.Metadata()
+		if err != nil {
+			log.Println("not a jetstream message")
+		} else {
+			log.Printf("metadata: %+v\n", metadata)
+		}
+
 		log.Println(string(msg.Data))
-	}, nats.Durable(ConsumerName)); err != nil {
+		if err := msg.Ack(); err != nil {
+			log.Println(err)
+		}
+	}, nats.Durable(ConsumerName), nats.DeliverAll(), nats.ManualAck()); err != nil {
 		log.Println(err)
 
 		return
 	}
+
+	wait := make(chan struct{})
+	<-wait
 }
