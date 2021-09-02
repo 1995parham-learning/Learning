@@ -9,7 +9,4 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: pgsql
     ports:
-      - target: 5432
-        published: 5432
-        protocol: tcp
-        mode: host
+      - 5432:5432
