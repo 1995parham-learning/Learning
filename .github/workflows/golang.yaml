@@ -42,7 +42,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
-        go-version: '1.17'
+        with:
+          go-version: '1.17'
       - run: |
           cd go/${{ matrix.project }}
           if [ -f docker-compose.yml ]; then
