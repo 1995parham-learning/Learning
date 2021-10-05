@@ -11,12 +11,11 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"os"
 	"strconv"
 )
 
-// nolint: gomnd
 func main() {
 	n := 4
 
@@ -31,7 +30,7 @@ func main() {
 
 	acc := 1.0
 
-	fmt.Printf("1")
+	log.Printf("1")
 
 	for i := 2; i <= n; i++ {
 		term := 1.0 / float64(i*i)
@@ -42,7 +41,8 @@ func main() {
 
 		acc += term
 
-		fmt.Printf(" + (-1)^%d * (1/%d)", i-1, i*i)
+		log.Printf(" + (-1)^%d * (1/%d)", i-1, i*i)
 	}
-	fmt.Printf("%d: %g\n", n, acc)
+
+	log.Printf("%d: %g\n", n, acc)
 }
