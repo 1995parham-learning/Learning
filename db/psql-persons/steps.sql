@@ -10,3 +10,5 @@ insert into persons values ('Sara', 'Dastan');
 alter table if exists persons add column if not exists id text;
 
 insert into persons values ('Negin', 'Amjadi', '0017784646');
+
+create view persons_name_view as select first_name, last_name from persons;
