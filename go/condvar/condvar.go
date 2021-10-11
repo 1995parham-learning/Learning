@@ -10,7 +10,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"sync"
 )
@@ -33,7 +32,7 @@ func main() {
 
 			c.Wait()
 
-			fmt.Printf("Goroutine %d: start\n", i)
+			log.Printf("goroutine %d: start\n", i)
 
 			awake <- true
 			m.Unlock()
