@@ -11,12 +11,13 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"regexp"
 )
 
 func main() {
 	r := regexp.MustCompile("[abcd]+")
 	str := "aa bb c dd de f"
-	fmt.Printf("Replaced: %v\n", r.ReplaceAllString(str, "-"))
+
+	log.Printf("replaced: %v\n", r.ReplaceAllString(str, "-"))
 }
