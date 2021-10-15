@@ -1,0 +1,49 @@
+---
+version: '3'
+
+services:
+  pd0:
+    image: pingcap/pd:latest
+    ports:
+      - "2379"
+    volumes:
+      - ./data:/data
+      - ./logs:/logs
+    command:
+      - --name=pd0
+      - --client-urls=http://0.0.0.0:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-client-urls=http://pd0:2379
+      - --advertise-peer-urls=http://pd0:2380
+      - --initial-cluster=pd0=http://pd0:2380
+      - --data-dir=/data/pd0
+      - --log-file=/logs/pd0.log
+    restart: on-failure
+
+  tikv0:
+    image: pingcap/tikv:latest
+    volumes:
+      - ./data:/data
+      - ./logs:/logs
+    command:
+      - --addr=0.0.0.0:20160
+      - --advertise-addr=tikv0:20160
+      - --data-dir=/data/tikv0
+      - --pd=pd0:2379
+      - --log-file=/logs/tikv0.log
+    depends_on:
+      - "pd0"
+    restart: on-failure
+
+  tidis:
+    image: yongman/tidis:latest
+    ports:
+      - "5379:5379"
+    volumes:
+      - ./data:/data
+    command:
+      - -backend=pd0:2379
+    depends_on:
+      - "pd0"
+      - "tikv0"
+    restart: on-failure
