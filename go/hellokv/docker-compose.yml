@@ -6,9 +6,6 @@ services:
     image: pingcap/pd:latest
     ports:
       - "2379"
-    volumes:
-      - ./data:/data
-      - ./logs:/logs
     command:
       - --name=pd0
       - --client-urls=http://0.0.0.0:2379
@@ -22,9 +19,6 @@ services:
 
   tikv0:
     image: pingcap/tikv:latest
-    volumes:
-      - ./data:/data
-      - ./logs:/logs
     command:
       - --addr=0.0.0.0:20160
       - --advertise-addr=tikv0:20160
@@ -39,8 +33,6 @@ services:
     image: yongman/tidis:latest
     ports:
       - "5379:5379"
-    volumes:
-      - ./data:/data
     command:
       - -backend=pd0:2379
     depends_on:
