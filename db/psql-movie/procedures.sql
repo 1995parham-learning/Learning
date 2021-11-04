@@ -78,7 +78,11 @@ declare
   actual_duration interval;
 begin
   select film.rental_duration into film_duration from film, inventory where inventory.inventory_id = NEW.inventory_id and inventory.film_id = film.film_id;
-  select now() - NEW.return_date into actual_duration;
+  select NEW.return_date - NEW.rental_date into actual_duration;
+
+  if actual_duration > film_duration then
+    insert into rental_logs values (NEW.customer_id, actual_duration);
+  end if;
 end
 $$;
 
