@@ -40,7 +40,7 @@ begin
 end
 $$;
 
--- reports films that are rented between given dates
+-- reports customers that rent films rented between given dates but do not return them
 create or replace function bad_customers (
   in begin_date date,
   in end_date date
