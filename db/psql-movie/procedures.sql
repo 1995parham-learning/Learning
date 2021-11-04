@@ -71,18 +71,21 @@ create table if not exists rental_logs (
   duration interval
 );
 
--- read phone number as a text and then detects its type, city and reports them.
-create or replace procedure on_rental_procedure () language plpgsql as $$
+-- procedure will be called on insert or update of rental table to calculate the rent duration.
+create or replace function on_rental_procedure () returns trigger language plpgsql as $$
+declare
+  film_duration interval;
+  actual_duration interval;
 begin
-  set @film_duration = select film.rental_duration from film, inventory where inventory.inventory_id = NEW.inventory_id and inventory.film_id = film.film_id;
-  set @actual_duration = now() - NEW.return_date;
+  select film.rental_duration into film_duration from film, inventory where inventory.inventory_id = NEW.inventory_id and inventory.film_id = film.film_id;
+  select now() - NEW.return_date into actual_duration;
 end
 $$;
 
 -- trigger that check the rent duration for rental_logs tbale.
-create or replace trigger on_rental before update or insert
-  on rental
-  execute procedure on_rental_procedure;
+create trigger on_rental
+  before insert or update on rental
+  execute procedure on_rental_procedure();
 
 -- update every film row to increase rent duration.
 create or replace procedure increase_duration (
