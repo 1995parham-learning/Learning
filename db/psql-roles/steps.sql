@@ -30,7 +30,7 @@ grant the_group to testrole2;
 -- enable inheritance on testrole1
 alter role testrole1 inherit;
 -- ignore row level security  on testrole1
-alter role testrole1 set row_security to off;
+alter role testrole1 bypassrls;
 
 -- change role name
 alter role testrole2 rename to newtestrole2;
