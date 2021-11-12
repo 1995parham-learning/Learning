@@ -1,6 +1,6 @@
 create database elahe;
 
-create table psersons (
+create table persons (
   id int,
   name text,
   username text
