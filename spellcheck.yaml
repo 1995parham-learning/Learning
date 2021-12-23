@@ -4,5 +4,8 @@ matrix:
     aspell:
       lang: en
       d: en_US
+    dictionary:
+      wordlists:
+      - .wordlist.txt
     sources:
       - english/**.txt
