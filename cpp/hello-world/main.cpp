@@ -2,6 +2,9 @@
 #include <fmt/core.h>
 
 int main() {
-  std::cout << fmt::format("Hello, World {}", 42) << std::endl;
+  int answer {42};
+
+  std::cout << fmt::format("Hello, World {}", answer) << std::endl;
+
   return 0;
 }
