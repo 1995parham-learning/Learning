@@ -13,11 +13,11 @@ power() {
 	b=$2
 	answer='1'
 
-        for i in $(seq 1 $b); do
+	for ((i = 0; i < b; i++)); do
 		answer=$((a * answer))
 	done
 
 	echo $answer
 }
 
-power $@
+power "$@"
