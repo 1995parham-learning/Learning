@@ -11,7 +11,7 @@ if [ ! -f matched-segments-data.csv ]; then
 	exit
 fi
 
-if [ $# -ne 2 ]; then
+if [ $# -ne 1 ]; then
 	echo "./sharedstreets.sh output-before-IQR.csv"
 	exit 1
 fi
@@ -51,8 +51,8 @@ echo "sharedstreet,$(seq -s',' 0 671)" >"$output_csv"
 for shared_street in "${shared_streets[@]}"; do
 	echo "shared_street: $shared_street"
 	grep "$shared_street" "$input_csv" >>"$output_csv" || {
-		echo "$shared_street" >"$output_csv"
-		printf '0,%.0s' {0..670} >"$output_csv"
-		echo "0" >"$output_csv"
-	}
+		echo "$shared_street"
+		printf '0,%.0s' {0..670}
+		echo "0"
+	} >>"$output_csv"
 done
