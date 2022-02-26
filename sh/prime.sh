@@ -9,26 +9,24 @@
 # =======================================
 
 is_prime() {
-        n=$1
-        count=0
+	n=$1
+	count=0
 
-        for i in $(seq 1 $n); do
-                if [ $((n % i)) -eq 0 ]; then
-                        count=$((count + 1))
-                fi
-        done
+	for i in $(seq 1 "$n"); do
+		if [ $((n % i)) -eq 0 ]; then
+			count=$((count + 1))
+		fi
+	done
 
-        if [ $count -eq 2 ]; then
-                return 0
-        fi
+	if [ $count -eq 2 ]; then
+		return 0
+	fi
 
-        return 1
+	return 1
 }
 
-is_prime $1
-
-if [ $? -eq 0 ]; then
-        echo "Prime"
+if [ "$(is_prime "$1")" -eq 0 ]; then
+	echo "Prime"
 else
-        echo "Not Prime"
+	echo "Not Prime"
 fi
