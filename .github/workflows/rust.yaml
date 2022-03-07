@@ -12,7 +12,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - id: set-matrix
         run: |
           mapfile -d $'\0' projects < <(find rust -maxdepth 1 -type d -not -path rust -printf '%P\0')
@@ -27,7 +27,7 @@ jobs:
       matrix: ${{ fromJSON(needs.rust-projects.outputs.matrix) }}
     steps:
       - name: checkout sources
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: install stable toolchain
         uses: actions-rs/toolchain@v1
