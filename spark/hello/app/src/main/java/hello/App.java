@@ -19,7 +19,7 @@ public class App {
         SparkSession session = SparkSession.builder().appName("Hello World").master("local").getOrCreate();
         Dataset<Row> df = session.read().csv("names.csv");
 
-        long count = df.filter((Row r) -> r.getString(0).startsWith("parham")).count();
+        long count = df.filter((Row r) -> r.getString(0).toLowerCase().startsWith("parham")).count();
         System.out.println(count);
 
         session.close();
