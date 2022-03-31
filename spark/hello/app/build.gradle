@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     // https://mvnrepository.com/artifact/org.apache.spark/spark-sql
-    compileOnly group: 'org.apache.spark', name: 'spark-sql_2.13', version: '3.2.1'
+    implementation group: 'org.apache.spark', name: 'spark-sql_2.13', version: '3.2.1'
     // https://mvnrepository.com/artifact/org.apache.spark/spark-core
     implementation group: 'org.apache.spark', name: 'spark-core_2.13', version: '3.2.1'
 }
