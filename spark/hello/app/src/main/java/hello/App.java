@@ -3,6 +3,8 @@
  */
 package hello;
 
+import static org.apache.spark.sql.functions.lit;
+
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -16,8 +18,19 @@ public class App {
         System.out.println(new App().getGreeting());
         System.out.println();
 
-        SparkSession session = SparkSession.builder().appName("Hello World").master("local").getOrCreate();
-        Dataset<Row> df = session.read().csv("names.csv");
+        SparkSession session = SparkSession.builder()
+          .appName("Hello World")
+          .master("local")
+          .getOrCreate();
+
+        Dataset<Row> df = session
+          .read()
+          .option("header", "true")
+          .csv("names.csv");
+
+        df = df.withColumn("city", lit("Tehran"));
+
+        df.printSchema();
 
         long count = df.filter((Row r) -> r.getString(0).toLowerCase().startsWith("parham")).count();
         System.out.println(count);
