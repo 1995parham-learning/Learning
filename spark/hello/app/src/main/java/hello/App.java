@@ -33,7 +33,9 @@ public class App {
         df.printSchema();
 
         long count = df.filter((Row r) -> r.getString(0).toLowerCase().startsWith("parham")).count();
-        System.out.println(count);
+        System.out.println("number of rows that has first column started with parham: " + count);
+
+        System.out.println("data partitions: " + df.rdd().partitions().length);
 
         session.close();
     }
