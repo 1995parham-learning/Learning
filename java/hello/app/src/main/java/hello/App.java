@@ -1,12 +1,22 @@
 package hello;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class App {
-    public App() {}
+    private List<String> friends;
+
+    public App() {
+      this.friends = new ArrayList<>();
+      this.friends.addAll(List.of("Navid", "Mohammad"));
+    }
 
     public List<String> getFriends() {
-      return List.of("Navid", "Mohammad");
+      return this.friends;
+    }
+
+    public void addFriends(String name) {
+      this.friends.add(name);
     }
 
     public static void main(String[] args) {
