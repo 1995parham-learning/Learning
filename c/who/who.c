@@ -40,7 +40,7 @@ int disp_del(gpointer key, gpointer value, gpointer userdata) {
 
 int main(int argc, char *argv[]) {
   if (argc > 1) {
-    printf("Too many input arguments. \n");
+    printf("Too many input arguments.\n");
     exit(1);
   }
 
