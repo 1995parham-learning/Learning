@@ -1,0 +1,29 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Iwho.p",
+      "-I.",
+      "-I..",
+      "-I/usr/include/glib-2.0",
+      "-I/usr/lib/glib-2.0/include",
+      "-I/usr/include/sysprof-4",
+      "-fdiagnostics-color=always",
+      "-D_FILE_OFFSET_BITS=64",
+      "-Wall",
+      "-Winvalid-pch",
+      "-Wextra",
+      "-Wpedantic",
+      "-O0",
+      "-g",
+      "-pthread",
+      "-c",
+      "-o",
+      "who.p/who.c.o",
+      "../who.c"
+    ],
+    "directory": "/home/parham/Documents/Git/parham/1995parham/Learning/c/who/target",
+    "file": "/home/parham/Documents/Git/parham/1995parham/Learning/c/who/who.c",
+    "output": "/home/parham/Documents/Git/parham/1995parham/Learning/c/who/target/who.p/who.c.o"
+  }
+]
