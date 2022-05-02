@@ -19,10 +19,10 @@
 
 int main(int argc, char *argv[]) {
   int server_socket_fd;
-  int sck;
+  int client_socket_fd;
   FILE *fp;
-  char buffer[1024];
-  char buff[1024];
+  char output_buffer[2048];
+  char input_buffer[1024];
   struct sockaddr_in server_addr;
 
   server_addr.sin_family = AF_INET;
@@ -40,10 +40,10 @@ int main(int argc, char *argv[]) {
   if (listen(server_socket_fd, 10) == -1)
     perror("listen()");
 
-  sck = accept(server_socket_fd, NULL, NULL);
-  fp = fdopen(sck, "r");
-  while (fgets(buff, sizeof(buff), fp)) {
-    sprintf(buffer, "<tr><td>%s", buff);
-    send(sck, buffer, strlen(buffer), 0);
+  client_socket_fd = accept(server_socket_fd, NULL, NULL);
+  fp = fdopen(client_socket_fd, "r");
+  while (fgets(input_buffer, sizeof(input_buffer) / sizeof(char), fp)) {
+    sprintf(output_buffer, "<tr><td>%s", input_buffer);
+    send(client_socket_fd, output_buffer, strlen(output_buffer), 0);
   }
 }
