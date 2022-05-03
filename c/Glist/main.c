@@ -13,9 +13,9 @@
 #include <glib.h>
 #include <stdio.h>
 
-GList *list;
-
 int main(int argc, char *argv[]) {
+  GList *list = NULL;
+
   char str[] = "My name is parham";
 
   list = g_list_append(list, "a");
@@ -27,20 +27,19 @@ int main(int argc, char *argv[]) {
   for (; it != NULL; it = it->next)
     printf("%s\n", (char *)it->data);
 
-  str[0] = 'N';
+  str[0] = 'm';
 
   it = list;
   for (; it != NULL; it = it->next)
     printf("%s\n", (char *)it->data);
   /*
    * GList only stores pointer so if you change variable,
-   * it's value changes in GList
+   * its value changes in GList
    */
 
-  /* Cleanuping GList ... */
   /*
-   * Frees all of the memory used by a GList.
-   * The freed elements are returned to the slice allocator.
+   * frees all of the memory used by a GList.
+   * the freed elements are returned to the slice allocator.
    */
   g_list_free(list);
 }
