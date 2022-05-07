@@ -86,7 +86,7 @@ To update, run /gotip download/ again. This will always download the main branch
 
 ## libc
 
-you can control to use /cgo/ with /CGO_ENABLED/ flag in go build. we have different implementation of c library.
+you can control to use `cgo` with `CGO_ENABLED` flag in go build. we have different implementation of c library.
 
 - GNU C Library (glibc)
 - musl
@@ -207,9 +207,9 @@ func main() {
 		Logger: zapgorm2.New(logger),
 	})
 }
-#+end_src
+```
 
-#+begin_src go
+```go
 type User struct {
 	ID uint
 	FirstName string
@@ -224,9 +224,9 @@ db.Where("name = ?", "parham").First()
 db.Where("name = ?", "parham").Find()
 ```
 
-- /User/ (structure) :: plural snake-case as table name
-- /ID/ (field) :: primary-key by default, _please pay attention_
-- /FirstName/ (field) :: snake-case as column name
+- /User/ (structure) : plural snake-case as table name
+- /ID/ (field) : primary-key by default, _please pay attention_
+- /FirstName/ (field) : snake-case as column name
 
 Hooks as methods on model.
 
@@ -450,7 +450,7 @@ Also there is another official library for Streams in Golang:
 
 ## MQTT
 
-the pure go implementation of mqtt protocol is available from [[https://github.com/eclipse/paho.mqtt.golang][paho.mqtt.golang]].
+the pure go implementation of mqtt protocol is available from [paho.mqtt.golang](https://github.com/eclipse/paho.mqtt.golang).
 
 ```go
 	c.setConnected(connected)
