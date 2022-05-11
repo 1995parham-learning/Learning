@@ -23,14 +23,18 @@
 #include <stdio.h>
 
 int run(void *arg) {
-  printf("hello world of c11 threads.\n");
+  char **argv = arg;
+
+  printf("hello world of c11 threads, %s.\n", argv[0]);
+
   return 0;
 }
 
 int main(int argc, const char *argv[]) {
   thrd_t thread;
 
-  thrd_create(&thread, run, NULL);
+  thrd_create(&thread, run, argv);
+
 
   thrd_join(thread, NULL);
 }
