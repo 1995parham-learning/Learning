@@ -1,7 +1,10 @@
-from typing import NamedTuple, Iterable, Union
+import dataclasses
 import re
+from typing import Iterable, Union
 
-class Token(NamedTuple):
+
+@dataclasses.dataclass
+class Token():
     type: str
     value: Union[str, float, int]
     column: int
