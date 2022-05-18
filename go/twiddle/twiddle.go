@@ -69,9 +69,7 @@ func (t *Twiddle) Next() []bool {
 	}
 
 	r := make([]bool, len(t.b))
-	for i := 0; i < len(t.b); i++ {
-		r[i] = t.b[i]
-	}
+	copy(r, t.b)
 
 	x, y, end := t.twiddle()
 	t.b[x] = true
