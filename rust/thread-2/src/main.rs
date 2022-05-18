@@ -1,6 +1,5 @@
 use std::sync::Arc;
 
-#[derive(Debug)]
 struct Person {
     name: String,
     age: i32,
@@ -24,10 +23,10 @@ fn main() {
             "number of references for person in thread {}",
             Arc::strong_count(&q)
         );
-        println!("person from the thread {:?}", q);
+        println!("hello from {}({}) which is in the thread ", q.name, q.age);
     });
 
-    println!("person from the main {:?}", p);
+    println!("hello from {}({}) which is in the main", p.name, p.age);
     t.join().unwrap();
 
     println!(
