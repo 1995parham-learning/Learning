@@ -5,8 +5,8 @@ description = "Insert random data into Mongodb"
 authors = ["Parham Alvani <parham.alvani@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-pymongo = "^3.11.0"
+python = "^3.10"
+pymongo = "^4.1.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

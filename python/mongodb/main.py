@@ -1,20 +1,18 @@
-# In The Name of God
-# =======================================
-# [] File Name : main.py
-#
-# [] Creation Date : 14-08-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
-import sys
+'''
+this demo python application create random data
+fro the I1820 platform.
+'''
 import datetime
-import typing
 import random
+import sys
 
 import pymongo
 
 
-def data() -> typing.Any:
+def data() -> dict:
+    '''
+    generate random data
+    '''
     lng, lat = random.choice(
         [(51.4133924, 35.7944779), (50.952981, 35.723737)]
     )
@@ -38,6 +36,9 @@ def data() -> typing.Any:
 
 
 def usage():
+    '''
+    usage function print a usage message
+    '''
     print(
         "main.py <database-url e.g. mongodb://127.0.0.1:27017>"
         "<database-name> <collection-name> <count>"
