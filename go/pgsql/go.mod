@@ -1,11 +1,11 @@
 module pgsql
 
-go 1.17
+go 1.18
 
 require (
 	go.uber.org/zap v1.21.0
-	gorm.io/driver/postgres v1.3.5
-	gorm.io/gorm v1.23.5
+	gorm.io/driver/postgres v1.3.7
+	gorm.io/gorm v1.23.6
 	moul.io/zapgorm2 v1.1.3
 )
 
@@ -22,6 +22,6 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
-	golang.org/x/crypto v0.0.0-20220518034528-6f7dac969898 // indirect
+	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d // indirect
 	golang.org/x/text v0.3.7 // indirect
 )
