@@ -6,9 +6,7 @@ import json
 
 from confluent_kafka import Consumer
 from rich import pretty
-from rich.color import Color
 from rich.console import Console
-from rich.style import Style
 
 if __name__ == "__main__":
     console = Console(color_system="truecolor")
