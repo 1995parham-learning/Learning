@@ -67,7 +67,8 @@ mod tests {
         }
     }
 
-    is_anagram_test!(with_paraham, "parham", "arpmha", true);
+    is_anagram_test!(with_parham_1, "parham", "parham", true);
+    is_anagram_test!(with_parham_2, "parham", "arpmha", true);
     is_anagram_test!(with_numbers_3, "321", "123", true);
     is_anagram_test!(with_numbers_4, "321", "1234", false);
     is_anagram_test!(with_elahe, "elahe", "elahes", false);
