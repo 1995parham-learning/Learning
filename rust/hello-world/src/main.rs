@@ -1,12 +1,12 @@
 use std::fmt;
 
 #[derive(Debug)]
-struct Person<'a> {
-    name: &'a str,
+struct Person<T: AsRef<str>> {
+    name: T,
     age: u8,
 }
 
-impl<'a> fmt::Display for Person<'a> {
+impl<T: AsRef<str> + std::fmt::Display> fmt::Display for Person<T> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         return write!(
             f,
@@ -19,10 +19,14 @@ impl<'a> fmt::Display for Person<'a> {
 fn main() {
     println!("Hello, world!");
 
+    let _h: &str = "Hello";
+
+    // create a person using an &str
     let mut p = Person {
         name: "Parham Alvani",
         age: 25,
     };
+
     println!("{}", p);
 
     {
@@ -33,9 +37,18 @@ fn main() {
     }
 
     // uncomment the following line to get a nice compile error
-    // because it moves into inner context and name doesn't live
+    // because it __moves__ into inner context and name doesn't live
     // enough
     // println!("{}", p);
+
+    let mut p = Person {
+        name: String::from("Raha Dastan"),
+        age: 23,
+    };
+
+    p.name.push('!');
+
+    println!("{}", p);
 
     // learn about clourses
     let p = Person {
