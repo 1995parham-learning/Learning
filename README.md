@@ -1,3 +1,5 @@
+# Moved to [1995parham's Learning Organization](https://github.com/1995parham-learning)
+
 # Learn from birth to death
 
 [![license](https://img.shields.io/github/license/1995parham/Learning.svg?style=flat-square&logo=gnu)]()
