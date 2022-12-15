@@ -1,8 +1,0 @@
-(define odd (lambda (x)
-	      ( cond ((= x 0) #f)
-		     ((= x 1) #t)
-		     ((> x 0) (odd (- x 2)))
-		     (#t (odd (+ x 2)))
-	       )
-	      )
-  )
