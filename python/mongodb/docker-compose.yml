@@ -1,7 +1,0 @@
----
-version: "3"
-services:
-  database:
-    image: mongo
-    ports:
-      - 27017:27017
