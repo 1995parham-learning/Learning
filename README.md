@@ -5,7 +5,10 @@
 ## Introduction
 
 I used this repository for learning and testing new technologies and languages.
-There are many libraries and projects out there that need a try so I give them shot here.
+There are many libraries and projects out there that need a try, so I give them shot here.
 
 After many years that I had used this repository, I decided to create an organization
 and then put these materials into different repository, then I created [1995parham-learning](https://github.com/1995parham-learning/).
+
+Also, you can use this repository history to find out about the examples that were here and,
+I'm not working on them anymore
