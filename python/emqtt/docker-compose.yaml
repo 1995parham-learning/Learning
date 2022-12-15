@@ -1,8 +1,0 @@
----
-services:
-  emq:
-    image: emqx/emqx
-    environment:
-      ALLOW_ANONYMOUS: true
-    ports:
-      - 1883:1883
