@@ -1,5 +1,0 @@
-Hello ${name}
-Happy new year.
-
-Parham
-${date()}
